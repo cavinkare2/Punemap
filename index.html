@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -9,7 +8,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
 >
 
 <meta
@@ -27,7 +26,6 @@ FMCG Location Network
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
 
-
 <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
@@ -36,7 +34,7 @@ FMCG Location Network
 <style>
 
 /* ==========================================================
-   RESET
+   GLOBAL
    ========================================================== */
 
 * {
@@ -53,14 +51,14 @@ body {
     margin: 0;
     padding: 0;
 
+    overflow: hidden;
+
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    overflow: hidden;
-
-    background: #fff;
+    background: #ffffff;
 
     color: #111827;
 }
@@ -74,16 +72,22 @@ input {
 }
 
 
+button {
+
+    touch-action: manipulation;
+}
+
+
 /* ==========================================================
    APP
    ========================================================== */
 
 #app {
 
+    position: relative;
+
     width: 100%;
     height: 100%;
-
-    position: relative;
 
     display: flex;
 }
@@ -97,10 +101,12 @@ input {
 
     flex: 1;
 
+    min-width: 0;
+
     width: 100%;
     height: 100%;
 
-    min-width: 0;
+    background: #e9edf2;
 }
 
 
@@ -110,74 +116,105 @@ input {
 
 #sidebar {
 
-    width: 340px;
-    min-width: 340px;
+    order: -1;
+
+    width: 350px;
+    min-width: 350px;
 
     height: 100%;
 
     overflow-y: auto;
 
-    background: white;
+    background: #ffffff;
 
     border-right:
         1px solid #d0d5dd;
 
-    padding: 16px;
+    padding:
+        16px 16px 24px;
 
-    z-index: 1000;
-
-    order: -1;
+    z-index: 1500;
 }
 
 
 .header-title {
 
-    font-size: 20px;
+    font-size: 21px;
+
+    line-height: 1.2;
 
     font-weight: 800;
 
-    margin-bottom: 4px;
+    color: #101828;
 }
 
 
 .header-subtitle {
 
+    margin-top: 5px;
+
     font-size: 12px;
 
-    line-height: 1.5;
+    line-height: 1.45;
 
     color: #667085;
 }
 
 
 /* ==========================================================
-   SECTION
+   AUTO LOCATION BANNER
    ========================================================== */
 
-.section {
-
-    border-top:
-        1px solid #e4e7ec;
-
-    padding-top: 14px;
+.auto-location-banner {
 
     margin-top: 14px;
+
+    padding: 11px 12px;
+
+    border-radius: 9px;
+
+    background: #f2f4f7;
+
+    border:
+        1px solid #e4e7ec;
+
+    font-size: 13px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    color: #344054;
 }
 
 
-.section-title {
+.auto-location-banner.success {
 
-    font-size: 11px;
+    background: #ecfdf3;
 
-    font-weight: 800;
+    border-color: #abefc6;
 
-    color: #475467;
+    color: #067647;
+}
 
-    text-transform: uppercase;
 
-    letter-spacing: .06em;
+.auto-location-banner.warning {
 
-    margin-bottom: 10px;
+    background: #fffaeb;
+
+    border-color: #fedf89;
+
+    color: #b54708;
+}
+
+
+.auto-location-banner.error {
+
+    background: #fef3f2;
+
+    border-color: #fecdca;
+
+    color: #b42318;
 }
 
 
@@ -190,29 +227,36 @@ input {
     display: grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(2, minmax(0, 1fr));
 
     gap: 8px;
 
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 
 .kpi {
 
-    background: #f5f6f8;
+    min-width: 0;
+
+    padding: 9px 10px;
 
     border-radius: 8px;
 
-    padding: 9px;
+    background: #f8f9fb;
+
+    border:
+        1px solid #eaecf0;
 }
 
 
 .kpi-number {
 
-    font-size: 18px;
+    font-size: 19px;
 
     font-weight: 800;
+
+    color: #101828;
 }
 
 
@@ -222,36 +266,88 @@ input {
 
     font-size: 10px;
 
+    line-height: 1.25;
+
     color: #667085;
 }
 
 
 /* ==========================================================
-   CONTROLS
+   SECTIONS
+   ========================================================== */
+
+.section {
+
+    margin-top: 15px;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid #eaecf0;
+}
+
+
+.section-title {
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    color: #475467;
+
+    text-transform: uppercase;
+
+    letter-spacing: .05em;
+}
+
+
+/* ==========================================================
+   SELECT
    ========================================================== */
 
 select {
 
     width: 100%;
 
-    min-height: 44px;
+    min-height: 46px;
 
-    padding: 0 10px;
+    padding:
+        0 12px;
 
     border:
         1px solid #d0d5dd;
 
-    border-radius: 8px;
+    border-radius: 9px;
 
-    background: white;
+    outline: none;
+
+    background: #ffffff;
+
+    color: #101828;
 
     font-size: 16px;
 }
 
 
-.checkbox-row {
+select:focus {
 
-    min-height: 42px;
+    border-color: #667085;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(102,112,133,.12);
+}
+
+
+/* ==========================================================
+   CHECKBOXES
+   ========================================================== */
+
+.checkbox-row {
 
     display: flex;
 
@@ -259,7 +355,11 @@ select {
 
     gap: 10px;
 
+    min-height: 42px;
+
     font-size: 14px;
+
+    color: #344054;
 }
 
 
@@ -268,9 +368,23 @@ select {
     width: 20px;
     height: 20px;
 
+    margin: 0;
+
     flex-shrink: 0;
 }
 
+
+.checkbox-row label {
+
+    flex: 1;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
 
 button {
 
@@ -278,11 +392,12 @@ button {
 
     min-height: 46px;
 
+    padding:
+        9px 13px;
+
     border: 0;
 
     border-radius: 9px;
-
-    padding: 10px 12px;
 
     cursor: pointer;
 
@@ -294,142 +409,93 @@ button {
 
 .primary-button {
 
-    background: #111827;
+    background: #101828;
 
-    color: white;
+    color: #ffffff;
 }
 
 
 .secondary-button {
 
-    background: #eef1f5;
-
-    color: #1f2937;
-
     margin-top: 8px;
-}
-
-
-/* ==========================================================
-   MOBILE PANEL BUTTON
-   ========================================================== */
-
-#mobileControlsButton {
-
-    display: none;
-
-    position: absolute;
-
-    z-index: 2000;
-
-    left: 12px;
-
-    top: 12px;
-
-    width: auto;
-
-    min-height: 44px;
-
-    padding: 0 15px;
-
-    background: white;
-
-    color: #111827;
-
-    border:
-        1px solid #d0d5dd;
-
-    border-radius: 22px;
-
-    box-shadow:
-        0 2px 8px
-        rgba(0,0,0,.18);
-}
-
-
-/* ==========================================================
-   MOBILE PANEL HEADER
-   ========================================================== */
-
-#mobilePanelHeader {
-
-    display: none;
-
-    align-items: center;
-
-    justify-content:
-        space-between;
-
-    margin-bottom: 12px;
-}
-
-
-#closePanel {
-
-    width: 44px;
-
-    min-height: 44px;
 
     background: #f2f4f7;
 
-    font-size: 20px;
+    color: #344054;
 
-    padding: 0;
+    border:
+        1px solid #e4e7ec;
+}
+
+
+button:active {
+
+    transform:
+        translateY(1px);
 }
 
 
 /* ==========================================================
-   RESULT
+   CURRENT LOCATION STATUS
    ========================================================== */
 
 #locationStatus {
+
+    margin-top: 9px;
 
     font-size: 12px;
 
     line-height: 1.45;
 
     color: #667085;
-
-    margin-top: 10px;
 }
 
 
 #locationResults {
 
-    margin-top: 8px;
+    margin-top: 9px;
 }
 
+
+/* ==========================================================
+   NEAREST 5 CARD
+   ========================================================== */
 
 .nearest-card {
 
     display: grid;
 
     grid-template-columns:
-        34px 1fr auto;
+        36px minmax(0,1fr) auto;
 
     gap: 9px;
 
     align-items: center;
 
-    padding: 10px 8px;
+    width: 100%;
 
     margin-bottom: 7px;
+
+    padding: 9px;
 
     border:
         1px solid #e4e7ec;
 
-    background: #f9fafb;
+    border-radius: 10px;
 
-    border-radius: 9px;
+    background: #f9fafb;
 
     cursor: pointer;
 }
 
 
-.nearest-rank {
+.nearest-card:hover {
 
-    width: 30px;
-    height: 30px;
+    background: #f2f4f7;
+}
+
+
+.nearest-rank {
 
     display: flex;
 
@@ -437,35 +503,44 @@ button {
 
     justify-content: center;
 
-    background: #111827;
-
-    color: white;
+    width: 32px;
+    height: 32px;
 
     border-radius: 50%;
 
+    background: #101828;
+
+    color: white;
+
     font-size: 12px;
 
-    font-weight: 800;
+    font-weight: 900;
 }
 
 
 .nearest-name {
 
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+
     font-size: 13px;
+
+    line-height: 1.25;
 
     font-weight: 800;
 
-    line-height: 1.3;
+    color: #101828;
 }
 
 
 .nearest-meta {
 
-    margin-top: 2px;
+    margin-top: 3px;
 
     font-size: 11px;
 
-    line-height: 1.35;
+    line-height: 1.3;
 
     color: #667085;
 }
@@ -475,233 +550,16 @@ button {
 
     font-size: 13px;
 
-    font-weight: 800;
-
-    white-space: nowrap;
-}
-
-
-/* ==========================================================
-   POINT MARKER
-   ========================================================== */
-
-.location-marker {
-
-    background: transparent !important;
-
-    border: none !important;
-}
-
-
-.location-badge {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 28px;
-    height: 28px;
-
-    border-radius: 50%;
-
-    color: white;
-
-    border:
-        2px solid white;
-
-    box-shadow:
-        0 1px 5px
-        rgba(0,0,0,.45);
-
-    font-size: 9px;
-
     font-weight: 900;
-}
-
-
-/* ==========================================================
-   DISTANCE
-   ========================================================== */
-
-.distance-marker {
-
-    background: transparent !important;
-
-    border: 0 !important;
-}
-
-
-.distance-label {
 
     white-space: nowrap;
 
-    transform:
-        translate(-50%,-50%);
-
-    padding:
-        3px 6px;
-
-    border-radius: 5px;
-
-    background:
-        rgba(255,255,255,.96);
-
-    border:
-        1px solid
-        rgba(17,24,39,.20);
-
-    color: #111827;
-
-    font-size: 10px;
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    box-shadow:
-        0 1px 3px
-        rgba(0,0,0,.14);
+    color: #101828;
 }
 
 
 /* ==========================================================
-   CURRENT LOCATION
-   ========================================================== */
-
-.user-location-marker {
-
-    background: transparent !important;
-
-    border: 0 !important;
-}
-
-
-.user-location-dot {
-
-    width: 20px;
-    height: 20px;
-
-    border-radius: 50%;
-
-    background: #2563eb;
-
-    border:
-        4px solid white;
-
-    box-shadow:
-        0 0 0 4px
-        rgba(37,99,235,.25),
-        0 2px 8px
-        rgba(0,0,0,.30);
-}
-
-
-.nearest-highlight {
-
-    width: 34px;
-    height: 34px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: #111827;
-
-    border:
-        3px solid white;
-
-    color: white;
-
-    box-shadow:
-        0 2px 7px
-        rgba(0,0,0,.35);
-
-    font-size: 11px;
-
-    font-weight: 900;
-}
-
-
-/* ==========================================================
-   POPUP
-   ========================================================== */
-
-.popup-title {
-
-    font-size: 16px;
-
-    font-weight: 800;
-}
-
-
-.popup-subtitle {
-
-    margin-top: 2px;
-
-    margin-bottom: 10px;
-
-    color: #667085;
-
-    font-size: 11px;
-}
-
-
-.popup-table {
-
-    width: 100%;
-
-    border-collapse:
-        collapse;
-
-    font-size: 11px;
-}
-
-
-.popup-table td {
-
-    padding: 5px;
-
-    vertical-align: top;
-
-    border-bottom:
-        1px solid #eeeeee;
-}
-
-
-.popup-table td:first-child {
-
-    width: 44%;
-
-    font-weight: 700;
-
-    color: #667085;
-}
-
-
-.popup-nearest {
-
-    margin-top: 10px;
-
-    padding: 8px;
-
-    background: #f4f6f8;
-
-    border-radius: 6px;
-
-    line-height: 1.6;
-
-    font-size: 11px;
-}
-
-
-/* ==========================================================
-   LEGEND
+   TEHSIL LEGEND
    ========================================================== */
 
 #legend {
@@ -718,9 +576,9 @@ button {
 
     align-items: center;
 
-    gap: 7px;
+    gap: 8px;
 
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 
     font-size: 11px;
 
@@ -730,13 +588,345 @@ button {
 
 .legend-line {
 
-    width: 20px;
-
+    width: 22px;
     height: 5px;
 
-    border-radius: 2px;
+    border-radius: 3px;
 
     flex-shrink: 0;
+}
+
+
+/* ==========================================================
+   NORMAL LOCATION MARKERS
+   ========================================================== */
+
+.location-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.location-badge {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid #ffffff;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 1px 6px
+        rgba(0,0,0,.42);
+
+    font-size: 9px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   DISTANCE LABELS
+   ========================================================== */
+
+.distance-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.distance-label {
+
+    display: inline-block;
+
+    transform:
+        translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    padding:
+        3px 6px;
+
+    border-radius: 5px;
+
+    background:
+        rgba(255,255,255,.96);
+
+    border:
+        1px solid
+        rgba(17,24,39,.20);
+
+    color: #111111;
+
+    box-shadow:
+        0 1px 3px
+        rgba(0,0,0,.14);
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   USER LOCATION
+   ========================================================== */
+
+.user-location-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.user-location-dot {
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    border:
+        4px solid #ffffff;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(37,99,235,.22),
+        0 2px 8px
+        rgba(0,0,0,.35);
+}
+
+
+/* ==========================================================
+   CURRENT NEAREST RANK MARKER
+   ========================================================== */
+
+.nearest-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #101828;
+
+    border:
+        3px solid #ffffff;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.35);
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+
+/* ==========================================================
+   POPUPS
+   ========================================================== */
+
+.popup-title {
+
+    font-size: 17px;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    color: #101828;
+}
+
+
+.popup-subtitle {
+
+    margin-top: 3px;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+
+    line-height: 1.35;
+
+    color: #667085;
+}
+
+
+.popup-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 11px;
+}
+
+
+.popup-table td {
+
+    padding:
+        5px 4px;
+
+    vertical-align: top;
+
+    border-bottom:
+        1px solid #f0f0f0;
+
+    overflow-wrap: anywhere;
+}
+
+
+.popup-table td:first-child {
+
+    width: 43%;
+
+    color: #667085;
+
+    font-weight: 700;
+}
+
+
+.popup-nearest {
+
+    margin-top: 9px;
+
+    padding: 9px;
+
+    border-radius: 7px;
+
+    background: #f2f4f7;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    color: #344054;
+}
+
+
+/* ==========================================================
+   MOBILE FILTER BUTTON
+   ========================================================== */
+
+#mobileControlsButton {
+
+    display: none;
+
+    position: absolute;
+
+    top:
+        max(12px, env(safe-area-inset-top));
+
+    left:
+        max(12px, env(safe-area-inset-left));
+
+    z-index: 2500;
+
+    width: auto;
+
+    min-width: 104px;
+
+    min-height: 46px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid #d0d5dd;
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    box-shadow:
+        0 2px 9px
+        rgba(0,0,0,.18);
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+/* ==========================================================
+   MOBILE HEADER
+   ========================================================== */
+
+#mobilePanelHeader {
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 9px;
+}
+
+
+.mobile-panel-title {
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+#closePanel {
+
+    width: 44px;
+    min-width: 44px;
+
+    height: 44px;
+    min-height: 44px;
+
+    padding: 0;
+
+    background: #f2f4f7;
+
+    color: #344054;
+
+    font-size: 22px;
+
+    line-height: 1;
 }
 
 
@@ -744,8 +934,7 @@ button {
    PHONE
    ========================================================== */
 
-@media
-(max-width: 768px) {
+@media (max-width: 768px) {
 
 
     #app {
@@ -775,18 +964,23 @@ button {
 
         position: absolute;
 
-        z-index: 3000;
-
         left: 0;
         right: 0;
         bottom: 0;
+
+        z-index: 3000;
 
         width: 100%;
         min-width: 0;
 
         height: auto;
 
-        max-height: 82%;
+        max-height: 85%;
+
+        padding:
+            12px
+            14px
+            max(20px, env(safe-area-inset-bottom));
 
         border-right: 0;
 
@@ -797,19 +991,16 @@ button {
             18px 18px 0 0;
 
         box-shadow:
-            0 -5px 24px
+            0 -6px 24px
             rgba(0,0,0,.18);
 
-        padding:
-            14px 16px 24px;
+        overflow-y: auto;
 
         transform:
             translateY(105%);
 
         transition:
-            transform .25s ease;
-
-        overflow-y: auto;
+            transform .24s ease;
     }
 
 
@@ -838,6 +1029,12 @@ button {
     }
 
 
+    .auto-location-banner {
+
+        margin-top: 10px;
+    }
+
+
     .section {
 
         margin-top: 12px;
@@ -848,24 +1045,34 @@ button {
 
     .leaflet-control-zoom {
 
-        margin-top: 66px !important;
+        margin-top: 72px !important;
     }
 
 
-    .leaflet-popup-content {
+    .leaflet-control-attribution {
 
-        margin:
-            10px 12px;
-
-        max-height: 55vh;
-
-        overflow-y: auto;
+        font-size: 9px;
     }
 
 
     .leaflet-popup-content-wrapper {
 
-        border-radius: 10px;
+        border-radius: 11px;
+    }
+
+
+    .leaflet-popup-content {
+
+        min-width: 245px;
+
+        max-width: 78vw;
+
+        max-height: 55vh;
+
+        margin:
+            10px 12px;
+
+        overflow-y: auto;
     }
 
 }
@@ -875,25 +1082,27 @@ button {
    SMALL PHONE
    ========================================================== */
 
-@media
-(max-width: 420px) {
+@media (max-width: 430px) {
 
 
     #sidebar {
 
-        max-height: 86%;
+        max-height: 88%;
+    }
 
-        padding-left: 12px;
-        padding-right: 12px;
+
+    .kpi-number {
+
+        font-size: 17px;
     }
 
 
     .nearest-card {
 
         grid-template-columns:
-            32px 1fr;
+            34px minmax(0,1fr);
 
-        gap: 7px;
+        gap: 8px;
     }
 
 
@@ -903,7 +1112,14 @@ button {
 
         justify-self: start;
 
-        margin-top: -4px;
+        margin-top: -3px;
+    }
+
+
+    .location-badge {
+
+        width: 28px;
+        height: 28px;
     }
 
 }
@@ -919,7 +1135,9 @@ button {
 <div id="app">
 
 
-    <!-- MOBILE CONTROLS -->
+    <!-- =====================================================
+         MOBILE FILTER BUTTON
+         ===================================================== -->
 
     <button
         id="mobileControlsButton"
@@ -929,20 +1147,23 @@ button {
     </button>
 
 
-    <!-- SIDEBAR -->
+    <!-- =====================================================
+         SIDEBAR / MOBILE BOTTOM SHEET
+         ===================================================== -->
 
     <aside id="sidebar">
 
 
         <div id="mobilePanelHeader">
 
-            <strong>
+            <div class="mobile-panel-title">
                 Map Controls
-            </strong>
+            </div>
 
             <button
                 id="closePanel"
                 type="button"
+                aria-label="Close controls"
             >
                 ×
             </button>
@@ -957,14 +1178,28 @@ button {
 
         <div class="header-subtitle">
 
-            2 nearest points per location ·
+            2 nearest links per mapped point ·
             maximum 50 km ·
-            current location finds nearest 5
+            nearest 5 automatically shown from your location.
 
         </div>
 
 
-        <!-- KPI -->
+        <!-- =================================================
+             AUTO LOCATION STATUS
+             ================================================= -->
+
+        <div
+            id="autoLocationMessage"
+            class="auto-location-banner"
+        >
+            ◎ Getting your location and nearest 5...
+        </div>
+
+
+        <!-- =================================================
+             KPI
+             ================================================= -->
 
         <div class="kpi-grid">
 
@@ -972,7 +1207,8 @@ button {
 
                 <div
                     class="kpi-number"
-                    id="visibleLocations">
+                    id="visibleLocations"
+                >
                     -
                 </div>
 
@@ -987,12 +1223,13 @@ button {
 
                 <div
                     class="kpi-number"
-                    id="visibleLines">
+                    id="visibleLines"
+                >
                     -
                 </div>
 
                 <div class="kpi-label">
-                    Visible links
+                    Visible network links
                 </div>
 
             </div>
@@ -1000,12 +1237,47 @@ button {
         </div>
 
 
-        <!-- FILTERS -->
+        <!-- =================================================
+             NEAREST 5
+             ================================================= -->
 
         <div class="section">
 
             <div class="section-title">
-                Filters
+                Nearest 5 From My Location
+            </div>
+
+
+            <div id="locationStatus">
+
+                Waiting for location permission...
+
+            </div>
+
+
+            <div id="locationResults">
+            </div>
+
+
+            <button
+                id="refreshLocation"
+                type="button"
+                class="secondary-button"
+            >
+                ↻ Refresh My Location
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Map Filters
             </div>
 
 
@@ -1024,13 +1296,13 @@ button {
             <div class="checkbox-row">
 
                 <input
-                    type="checkbox"
                     id="showP1"
+                    type="checkbox"
                     checked
                 >
 
                 <label for="showP1">
-                    P1
+                    Show P1
                 </label>
 
             </div>
@@ -1039,13 +1311,13 @@ button {
             <div class="checkbox-row">
 
                 <input
-                    type="checkbox"
                     id="showP2"
+                    type="checkbox"
                     checked
                 >
 
                 <label for="showP2">
-                    P2
+                    Show P2
                 </label>
 
             </div>
@@ -1054,13 +1326,13 @@ button {
             <div class="checkbox-row">
 
                 <input
-                    type="checkbox"
                     id="showOther"
+                    type="checkbox"
                     checked
                 >
 
                 <label for="showOther">
-                    Other / DHQ
+                    Show Other / DHQ
                 </label>
 
             </div>
@@ -1069,13 +1341,28 @@ button {
             <div class="checkbox-row">
 
                 <input
+                    id="showNetwork"
                     type="checkbox"
+                    checked
+                >
+
+                <label for="showNetwork">
+                    Show nearest network
+                </label>
+
+            </div>
+
+
+            <div class="checkbox-row">
+
+                <input
                     id="showDistances"
+                    type="checkbox"
                     checked
                 >
 
                 <label for="showDistances">
-                    Distance labels
+                    Show distance labels
                 </label>
 
             </div>
@@ -1092,53 +1379,14 @@ button {
         </div>
 
 
-        <!-- LOCATION -->
+        <!-- =================================================
+             LEGEND
+             ================================================= -->
 
         <div class="section">
 
             <div class="section-title">
-                Nearest from current location
-            </div>
-
-
-            <button
-                id="locationButton"
-                type="button"
-                class="primary-button"
-            >
-                ◎ Find Nearest 5
-            </button>
-
-
-            <button
-                id="clearLocation"
-                type="button"
-                class="secondary-button"
-            >
-                Clear Location
-            </button>
-
-
-            <div id="locationStatus">
-
-                Finds the nearest 5 mapped points
-                within 50 km of your current location.
-
-            </div>
-
-
-            <div id="locationResults">
-            </div>
-
-        </div>
-
-
-        <!-- LEGEND -->
-
-        <div class="section">
-
-            <div class="section-title">
-                Tehsil colours
+                Tehsil Colours
             </div>
 
             <div id="legend">
@@ -1150,6 +1398,10 @@ button {
     </aside>
 
 
+    <!-- =====================================================
+         MAP
+         ===================================================== -->
+
     <main id="map">
     </main>
 
@@ -1159,29 +1411,28 @@ button {
 
 <script>
 
-
 // ============================================================
-// DATA
+// EMBEDDED DATA
 // ============================================================
 
 const DATA =
-[{"Tehsil": "Pune City", "Town/Village": "Pune", "Population": 3124458, "Village Type": "DHQ", "Approx FMCG Outlet": null, "Latitude": 18.515768056, "Longitude": 73.856362222, "Dependent Population": 6457775.0, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 0, "_Nearest_1": "Manjari Kh.& Manjari Bk.", "_Nearest_1_KM": 13.68, "_Nearest_2": "Pimpri Chinchwad", "_Nearest_2_KM": 15.22, "id": 0, "town": "Pune", "tehsil": "Pune City", "villageType": "DHQ", "lat": 18.515768056, "lon": 73.856362222, "nearest1": "Manjari Kh.& Manjari Bk.", "nearest1km": 13.68, "nearest2": "Pimpri Chinchwad", "nearest2km": 15.22}, {"Tehsil": "Khed", "Town/Village": "Alandi", "Population": 28645, "Village Type": "P1", "Approx FMCG Outlet": 65.0, "Latitude": 18.678291111, "Longitude": 73.896365833, "Dependent Population": null, "Party_1": "Arihant Sai Sales", "Party_2": "Bhavi Pharma", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 1, "_Nearest_1": "Chakan & Medankarwadi", "_Nearest_1_KM": 10.14, "_Nearest_2": "Pimpri Chinchwad", "_Nearest_2_KM": 11.59, "id": 1, "town": "Alandi", "tehsil": "Khed", "villageType": "P1", "lat": 18.678291111, "lon": 73.896365833, "nearest1": "Chakan & Medankarwadi", "nearest1km": 10.14, "nearest2": "Pimpri Chinchwad", "nearest2km": 11.59}, {"Tehsil": "Junnar", "Town/Village": "Alefata & Ale", "Population": 3248, "Village Type": "P1", "Approx FMCG Outlet": 32.0, "Latitude": 19.182934444, "Longitude": 74.095945833, "Dependent Population": 174194.0, "Party_1": "Bhalgat Agencies", "Party_2": "Gajanan Agency", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 2, "_Nearest_1": "Belhe", "_Nearest_1_KM": 11.19, "_Nearest_2": "Narayangaon", "_Nearest_2_KM": 14.7, "id": 2, "town": "Alefata & Ale", "tehsil": "Junnar", "villageType": "P1", "lat": 19.182934444, "lon": 74.095945833, "nearest1": "Belhe", "nearest1km": 11.19, "nearest2": "Narayangaon", "nearest2km": 14.7}, {"Tehsil": "Baramati", "Town/Village": "Baramati", "Population": 54415, "Village Type": "P1", "Approx FMCG Outlet": 138.0, "Latitude": 18.148661111, "Longitude": 74.571955278, "Dependent Population": 352395.0, "Party_1": "Chandan Medico", "Party_2": "Shreenath Agencies", "Party_3": "Mahalaxmi Agency", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 3, "_Nearest_1": "Malegaon Bk", "_Nearest_1_KM": 6.74, "_Nearest_2": "Lasurne", "_Nearest_2_KM": 21.3, "id": 3, "town": "Baramati", "tehsil": "Baramati", "villageType": "P1", "lat": 18.148661111, "lon": 74.571955278, "nearest1": "Malegaon Bk", "nearest1km": 6.74, "nearest2": "Lasurne", "nearest2km": 21.3}, {"Tehsil": "Indapur", "Town/Village": "Bhigvan", "Population": 7673, "Village Type": "P1", "Approx FMCG Outlet": 30.0, "Latitude": 18.292261389, "Longitude": 74.754771389, "Dependent Population": 136310.0, "Party_1": "Devesh Marketing", "Party_2": "Tirthankar Agencies", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 4, "_Nearest_1": "Lasurne", "_Nearest_1_KM": 22.69, "_Nearest_2": "Baramati", "_Nearest_2_KM": 25.06, "id": 4, "town": "Bhigvan", "tehsil": "Indapur", "villageType": "P1", "lat": 18.292261389, "lon": 74.754771389, "nearest1": "Lasurne", "nearest1km": 22.69, "nearest2": "Baramati", "nearest2km": 25.06}, {"Tehsil": "Bhor", "Town/Village": "Bhor", "Population": 18453, "Village Type": "P1", "Approx FMCG Outlet": 38.0, "Latitude": 18.149266389, "Longitude": 73.842454444, "Dependent Population": 91966.0, "Party_1": "Rudra Distributors", "Party_2": "Shri Krushna Enterprises", "Party_3": "Subhash Enterprises", "Party_4": "Jagdish Gujjar", "Party_5": "No Party Provided", "_ID": 5, "_Nearest_1": "Nasrapur", "_Nearest_1_KM": 12.03, "_Nearest_2": "Sasvad", "_Nearest_2_KM": 29.52, "id": 5, "town": "Bhor", "tehsil": "Bhor", "villageType": "P1", "lat": 18.149266389, "lon": 73.842454444, "nearest1": "Nasrapur", "nearest1km": 12.03, "nearest2": "Sasvad", "nearest2km": 29.52}, {"Tehsil": "Khed", "Town/Village": "Chakan & Medankarwadi", "Population": 41113, "Village Type": "P1", "Approx FMCG Outlet": 70.0, "Latitude": 18.763185, "Longitude": 73.861233056, "Dependent Population": 186956.0, "Party_1": " Jogeshwari Enterprises", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 6, "_Nearest_1": "Mahalunge", "_Nearest_1_KM": 5.64, "_Nearest_2": "Alandi", "_Nearest_2_KM": 10.14, "id": 6, "town": "Chakan & Medankarwadi", "tehsil": "Khed", "villageType": "P1", "lat": 18.763185, "lon": 73.861233056, "nearest1": "Mahalunge", "nearest1km": 5.64, "nearest2": "Alandi", "nearest2km": 10.14}, {"Tehsil": "Daund", "Town/Village": "Daund", "Population": 49450, "Village Type": "P1", "Approx FMCG Outlet": 95.0, "Latitude": 18.465560833, "Longitude": 74.585389167, "Dependent Population": 197089.0, "Party_1": "Ahmed Distributor", "Party_2": "Arihant Distributor", "Party_3": "Om Sai Pharma", "Party_4": "New Durga Agency", "Party_5": "No Party Provided", "_ID": 7, "_Nearest_1": "Kurkumbh", "_Nearest_1_KM": 9.24, "_Nearest_2": "Patas", "_Nearest_2_KM": 13.33, "id": 7, "town": "Daund", "tehsil": "Daund", "villageType": "P1", "lat": 18.465560833, "lon": 74.585389167, "nearest1": "Kurkumbh", "nearest1km": 9.24, "nearest2": "Patas", "nearest2km": 13.33}, {"Tehsil": "Haveli", "Town/Village": "Dehu", "Population": 6133, "Village Type": "P1", "Approx FMCG Outlet": 35.0, "Latitude": 18.7166525, "Longitude": 73.767979167, "Dependent Population": null, "Party_1": "Morya Pharma", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 8, "_Nearest_1": "Dehu Road (CB)", "_Nearest_1_KM": 5.55, "_Nearest_2": "Induri", "_Nearest_2_KM": 5.81, "id": 8, "town": "Dehu", "tehsil": "Haveli", "villageType": "P1", "lat": 18.7166525, "lon": 73.767979167, "nearest1": "Dehu Road (CB)", "nearest1km": 5.55, "nearest2": "Induri", "nearest2km": 5.81}, {"Tehsil": "Haveli", "Town/Village": "Dehu Road (CB)", "Population": 48961, "Village Type": "P1", "Approx FMCG Outlet": 85.0, "Latitude": 18.681408889, "Longitude": 73.730716389, "Dependent Population": null, "Party_1": "Vishal Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 9, "_Nearest_1": "Somatane", "_Nearest_1_KM": 5.17, "_Nearest_2": "Dehu", "_Nearest_2_KM": 5.55, "id": 9, "town": "Dehu Road (CB)", "tehsil": "Haveli", "villageType": "P1", "lat": 18.681408889, "lon": 73.730716389, "nearest1": "Somatane", "nearest1km": 5.17, "nearest2": "Dehu", "nearest2km": 5.55}, {"Tehsil": "Ambegaon", "Town/Village": "Ghodegaon", "Population": 8591, "Village Type": "P1", "Approx FMCG Outlet": 20.0, "Latitude": 19.0437975, "Longitude": 73.838506667, "Dependent Population": 78117.0, "Party_1": "Neelam Agency", "Party_2": "Sachin Enterprises", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 10, "_Nearest_1": "Manchar", "_Nearest_1_KM": 12.13, "_Nearest_2": "Narayangaon", "_Nearest_2_KM": 16.46, "id": 10, "town": "Ghodegaon", "tehsil": "Ambegaon", "villageType": "P1", "lat": 19.0437975, "lon": 73.838506667, "nearest1": "Manchar", "nearest1km": 12.13, "nearest2": "Narayangaon", "nearest2km": 16.46}, {"Tehsil": "Indapur", "Town/Village": "Indapur", "Population": 25515, "Village Type": "P1", "Approx FMCG Outlet": 60.0, "Latitude": 18.114071667, "Longitude": 75.027162222, "Dependent Population": 168817.0, "Party_1": "L.D.Saha", "Party_2": "Shiv Ganesh Agency", "Party_3": "Sajan Trading", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 11, "_Nearest_1": "Nimgaon Ketki", "_Nearest_1_KM": 12.35, "_Nearest_2": "Lasurne", "_Nearest_2_KM": 28.04, "id": 11, "town": "Indapur", "tehsil": "Indapur", "villageType": "P1", "lat": 18.114071667, "lon": 75.027162222, "nearest1": "Nimgaon Ketki", "nearest1km": 12.35, "nearest2": "Lasurne", "nearest2km": 28.04}, {"Tehsil": "Purandhar", "Town/Village": "Jejuri", "Population": 14515, "Village Type": "P1", "Approx FMCG Outlet": 30.0, "Latitude": 18.278088333, "Longitude": 74.161148611, "Dependent Population": 100824.0, "Party_1": "Khode Distributor", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 12, "_Nearest_1": "Sasvad", "_Nearest_1_KM": 15.79, "_Nearest_2": "Morgaon", "_Nearest_2_KM": 16.8, "id": 12, "town": "Jejuri", "tehsil": "Purandhar", "villageType": "P1", "lat": 18.278088333, "lon": 74.161148611, "nearest1": "Sasvad", "nearest1km": 15.79, "nearest2": "Morgaon", "nearest2km": 16.8}, {"Tehsil": "Junnar", "Town/Village": "Junnar", "Population": 25315, "Village Type": "P1", "Approx FMCG Outlet": 75.0, "Latitude": 19.206805, "Longitude": 73.877366667, "Dependent Population": null, "Party_1": "Rujal Distributor", "Party_2": "Mahalaxmi Agency", "Party_3": "Asif Agency", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 13, "_Nearest_1": "Otur", "_Nearest_1_KM": 12.61, "_Nearest_2": "Narayangaon", "_Nearest_2_KM": 14.19, "id": 13, "town": "Junnar", "tehsil": "Junnar", "villageType": "P1", "lat": 19.206805, "lon": 73.877366667, "nearest1": "Otur", "nearest1km": 12.61, "nearest2": "Narayangaon", "nearest2km": 14.19}, {"Tehsil": "Daund", "Town/Village": "Kedgaon Station & Chaufulla Fata & Boripardhi", "Population": 19769, "Village Type": "P1", "Approx FMCG Outlet": 32.0, "Latitude": 18.480890833, "Longitude": 74.3698975, "Dependent Population": 244029.0, "Party_1": "Sanjiveni Ayurveda", "Party_2": "Paras Pharma", "Party_3": "Vikas Popatlal", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 14, "_Nearest_1": "Sadalgaon", "_Nearest_1_KM": 10.47, "_Nearest_2": "Yawat", "_Nearest_2_KM": 10.58, "id": 14, "town": "Kedgaon Station & Chaufulla Fata & Boripardhi", "tehsil": "Daund", "villageType": "P1", "lat": 18.480890833, "lon": 74.3698975, "nearest1": "Sadalgaon", "nearest1km": 10.47, "nearest2": "Yawat", "nearest2km": 10.58}, {"Tehsil": "Mawal", "Town/Village": "Khadkale/Kamshet", "Population": 13435, "Village Type": "P1", "Approx FMCG Outlet": 20.0, "Latitude": 18.762723056, "Longitude": 73.556577778, "Dependent Population": 110666.0, "Party_1": "Rajeshwari Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 15, "_Nearest_1": "Takave Bk.", "_Nearest_1_KM": 7.25, "_Nearest_2": "Wadagaon", "_Nearest_2_KM": 9.16, "id": 15, "town": "Khadkale/Kamshet", "tehsil": "Mawal", "villageType": "P1", "lat": 18.762723056, "lon": 73.556577778, "nearest1": "Takave Bk.", "nearest1km": 7.25, "nearest2": "Wadagaon", "nearest2km": 9.16}, {"Tehsil": "Shirur", "Town/Village": "Koregaon Bhima & Perane", "Population": 13116, "Village Type": "P1", "Approx FMCG Outlet": 28.0, "Latitude": 18.645765, "Longitude": 74.060906667, "Dependent Population": null, "Party_1": "New Bhargavi Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 16, "_Nearest_1": "Sanaswadi", "_Nearest_1_KM": 5.14, "_Nearest_2": "Kesnand", "_Nearest_2_KM": 9.08, "id": 16, "town": "Koregaon Bhima & Perane", "tehsil": "Shirur", "villageType": "P1", "lat": 18.645765, "lon": 74.060906667, "nearest1": "Sanaswadi", "nearest1km": 5.14, "nearest2": "Kesnand", "nearest2km": 9.08}, {"Tehsil": "Mawal", "Town/Village": "Lonavala & Khandala", "Population": 57698, "Village Type": "P1", "Approx FMCG Outlet": 125.0, "Latitude": 18.753966111, "Longitude": 73.404228611, "Dependent Population": 172873.0, "Party_1": "S.A. Mehta", "Party_2": " Firnaz Distributors", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 17, "_Nearest_1": "Kale/Pawana Nagar", "_Nearest_1_KM": 13.41, "_Nearest_2": "Khadkale/Kamshet", "_Nearest_2_KM": 16.07, "id": 17, "town": "Lonavala & Khandala", "tehsil": "Mawal", "villageType": "P1", "lat": 18.753966111, "lon": 73.404228611, "nearest1": "Kale/Pawana Nagar", "nearest1km": 13.41, "nearest2": "Khadkale/Kamshet", "nearest2km": 16.07}, {"Tehsil": "Haveli", "Town/Village": "Loni-kalbhor & Kadamwak Wasti", "Population": 22518, "Village Type": "P1", "Approx FMCG Outlet": 38.0, "Latitude": 18.488597778, "Longitude": 74.023247222, "Dependent Population": 93557.0, "Party_1": "Shailesh Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 18, "_Nearest_1": "Theur", "_Nearest_1_KM": 4.51, "_Nearest_2": "Kunjirwadi", "_Nearest_2_KM": 4.85, "id": 18, "town": "Loni-kalbhor & Kadamwak Wasti", "tehsil": "Haveli", "villageType": "P1", "lat": 18.488597778, "lon": 74.023247222, "nearest1": "Theur", "nearest1km": 4.51, "nearest2": "Kunjirwadi", "nearest2km": 4.85}, {"Tehsil": "Ambegaon", "Town/Village": "Manchar", "Population": 18876, "Village Type": "P1", "Approx FMCG Outlet": 28.0, "Latitude": 19.001871389, "Longitude": 73.944984722, "Dependent Population": 201526.0, "Party_1": "Balaji Distributor", "Party_2": "Prashant Agencies", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 19, "_Nearest_1": "Jadhavwadi (Ranjani)", "_Nearest_1_KM": 10.65, "_Nearest_2": "Ghodegaon", "_Nearest_2_KM": 12.13, "id": 19, "town": "Manchar", "tehsil": "Ambegaon", "villageType": "P1", "lat": 19.001871389, "lon": 73.944984722, "nearest1": "Jadhavwadi (Ranjani)", "nearest1km": 10.65, "nearest2": "Ghodegaon", "nearest2km": 12.13}, {"Tehsil": "Junnar", "Town/Village": "Narayangaon", "Population": 20456, "Village Type": "P1", "Approx FMCG Outlet": 35.0, "Latitude": 19.117751111, "Longitude": 73.974186944, "Dependent Population": 121885.0, "Party_1": "Mohit Agency", "Party_2": "Shree Gajanan Agency", "Party_3": "Shri Vighnahar Distributor", "Party_4": "Bhagyashree Distributors", "Party_5": "Vedant Distributor", "_ID": 20, "_Nearest_1": "Jadhavwadi (Ranjani)", "_Nearest_1_KM": 8.91, "_Nearest_2": "Manchar", "_Nearest_2_KM": 13.25, "id": 20, "town": "Narayangaon", "tehsil": "Junnar", "villageType": "P1", "lat": 19.117751111, "lon": 73.974186944, "nearest1": "Jadhavwadi (Ranjani)", "nearest1km": 8.91, "nearest2": "Manchar", "nearest2km": 13.25}, {"Tehsil": "Junnar", "Town/Village": "Otur", "Population": 20308, "Village Type": "P1", "Approx FMCG Outlet": 25.0, "Latitude": 19.262687778, "Longitude": 73.981886667, "Dependent Population": 104464.0, "Party_1": "Atharv Enterprises", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 21, "_Nearest_1": "Junnar", "_Nearest_1_KM": 12.61, "_Nearest_2": "Alefata & Ale", "_Nearest_2_KM": 14.9, "id": 21, "town": "Otur", "tehsil": "Junnar", "villageType": "P1", "lat": 19.262687778, "lon": 73.981886667, "nearest1": "Junnar", "nearest1km": 12.61, "nearest2": "Alefata & Ale", "nearest2km": 14.9}, {"Tehsil": "Haveli", "Town/Village": "Pimpri Chinchwad", "Population": 1727692, "Village Type": "P1", "Approx FMCG Outlet": null, "Latitude": 18.639326389, "Longitude": 73.794278611, "Dependent Population": 3531420.0, "Party_1": "Solanki Distributors", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 22, "_Nearest_1": "Dehu Road (CB)", "_Nearest_1_KM": 8.17, "_Nearest_2": "Dehu", "_Nearest_2_KM": 9.03, "id": 22, "town": "Pimpri Chinchwad", "tehsil": "Haveli", "villageType": "P1", "lat": 18.639326389, "lon": 73.794278611, "nearest1": "Dehu Road (CB)", "nearest1km": 8.17, "nearest2": "Dehu", "nearest2km": 9.03}, {"Tehsil": "Khed", "Town/Village": "Rajgurunagar (Khed)", "Population": 25146, "Village Type": "P1", "Approx FMCG Outlet": 42.0, "Latitude": 18.854937222, "Longitude": 73.887453611, "Dependent Population": 191702.0, "Party_1": "Siddhivinayak Agency", "Party_2": "Mohit Agency", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 23, "_Nearest_1": "Chakan & Medankarwadi", "_Nearest_1_KM": 10.57, "_Nearest_2": "Mahalunge", "_Nearest_2_KM": 13.89, "id": 23, "town": "Rajgurunagar (Khed)", "tehsil": "Khed", "villageType": "P1", "lat": 18.854937222, "lon": 73.887453611, "nearest1": "Chakan & Medankarwadi", "nearest1km": 10.57, "nearest2": "Mahalunge", "nearest2km": 13.89}, {"Tehsil": "Purandhar", "Town/Village": "Sasvad", "Population": 31821, "Village Type": "P1", "Approx FMCG Outlet": 60.0, "Latitude": 18.346168333, "Longitude": 74.029930278, "Dependent Population": 110459.0, "Party_1": "Shivshambho Distributors", "Party_2": "Durga Enterprises", "Party_3": "Bharat Medical Stoers", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 24, "_Nearest_1": "Jejuri", "_Nearest_1_KM": 15.79, "_Nearest_2": "Loni-kalbhor & Kadamwak Wasti", "_Nearest_2_KM": 15.85, "id": 24, "town": "Sasvad", "tehsil": "Purandhar", "villageType": "P1", "lat": 18.346168333, "lon": 74.029930278, "nearest1": "Jejuri", "nearest1km": 15.79, "nearest2": "Loni-kalbhor & Kadamwak Wasti", "nearest2km": 15.85}, {"Tehsil": "Shirur", "Town/Village": "Shikrapur", "Population": 19374, "Village Type": "P1", "Approx FMCG Outlet": 38.0, "Latitude": 18.69597, "Longitude": 74.139182778, "Dependent Population": 84954.0, "Party_1": "Callisto Food Industries Private Limited", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 25, "_Nearest_1": "Talegaon Dhamdhere", "_Nearest_1_KM": 3.28, "_Nearest_2": "Sanaswadi", "_Nearest_2_KM": 4.82, "id": 25, "town": "Shikrapur", "tehsil": "Shirur", "villageType": "P1", "lat": 18.69597, "lon": 74.139182778, "nearest1": "Talegaon Dhamdhere", "nearest1km": 3.28, "nearest2": "Sanaswadi", "nearest2km": 4.82}, {"Tehsil": "Shirur", "Town/Village": "Shirur", "Population": 37111, "Village Type": "P1", "Approx FMCG Outlet": 70.0, "Latitude": 18.825010278, "Longitude": 74.377508056, "Dependent Population": 219415.0, "Party_1": "Sai Suman Enterprises", "Party_2": "Vaibhav Agencies", "Party_3": "Galande Medicals", "Party_4": "Shrungar Shoppee", "Party_5": "Anand Distributor", "_ID": 26, "_Nearest_1": "Karegaon", "_Nearest_1_KM": 9.69, "_Nearest_2": "Ranjangaon Ganpati", "_Nearest_2_KM": 15.98, "id": 26, "town": "Shirur", "tehsil": "Shirur", "villageType": "P1", "lat": 18.825010278, "lon": 74.377508056, "nearest1": "Karegaon", "nearest1km": 9.69, "nearest2": "Ranjangaon Ganpati", "nearest2km": 15.98}, {"Tehsil": "Purandhar", "Town/Village": "Shivatkar (Nira)", "Population": 11228, "Village Type": "P1", "Approx FMCG Outlet": 30.0, "Latitude": 18.101798333, "Longitude": 74.211314167, "Dependent Population": 141836.0, "Party_1": "Shankar Super Market", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 27, "_Nearest_1": "Vadgaon Nimbalkar", "_Nearest_1_KM": 16.37, "_Nearest_2": "Jejuri", "_Nearest_2_KM": 20.31, "id": 27, "town": "Shivatkar (Nira)", "tehsil": "Purandhar", "villageType": "P1", "lat": 18.101798333, "lon": 74.211314167, "nearest1": "Vadgaon Nimbalkar", "nearest1km": 16.37, "nearest2": "Jejuri", "nearest2km": 20.31}, {"Tehsil": "Mawal", "Town/Village": "Talegaon Dabhade", "Population": 56435, "Village Type": "P1", "Approx FMCG Outlet": 120.0, "Latitude": 18.733454722, "Longitude": 73.677898889, "Dependent Population": 217005.0, "Party_1": "Mansi Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 28, "_Nearest_1": "Somatane", "_Nearest_1_KM": 3.53, "_Nearest_2": "Wadagaon", "_Nearest_2_KM": 4.05, "id": 28, "town": "Talegaon Dabhade", "tehsil": "Mawal", "villageType": "P1", "lat": 18.733454722, "lon": 73.677898889, "nearest1": "Somatane", "nearest1km": 3.53, "nearest2": "Wadagaon", "nearest2km": 4.05}, {"Tehsil": "Haveli", "Town/Village": "Uruli Kanchan", "Population": 30305, "Village Type": "P1", "Approx FMCG Outlet": 34.0, "Latitude": 18.487407222, "Longitude": 74.133344722, "Dependent Population": 110904.0, "Party_1": "Sundarlal Enterprises", "Party_2": "Mahavir Agency", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 29, "_Nearest_1": "Kunjirwadi", "_Nearest_1_KM": 6.76, "_Nearest_2": "Theur", "_Nearest_2_KM": 10.01, "id": 29, "town": "Uruli Kanchan", "tehsil": "Haveli", "villageType": "P1", "lat": 18.487407222, "lon": 74.133344722, "nearest1": "Kunjirwadi", "nearest1km": 6.76, "nearest2": "Theur", "nearest2km": 10.01}, {"Tehsil": "Haveli", "Town/Village": "Wagholi", "Population": 33479, "Village Type": "P1", "Approx FMCG Outlet": 65.0, "Latitude": 18.580876389, "Longitude": 73.984596111, "Dependent Population": 171050.0, "Party_1": "Kundan Chouhan", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 30, "_Nearest_1": "Kesnand", "_Nearest_1_KM": 4.05, "_Nearest_2": "Manjari Kh.& Manjari Bk.", "_Nearest_2_KM": 6.25, "id": 30, "town": "Wagholi", "tehsil": "Haveli", "villageType": "P1", "lat": 18.580876389, "lon": 73.984596111, "nearest1": "Kesnand", "nearest1km": 4.05, "nearest2": "Manjari Kh.& Manjari Bk.", "nearest2km": 6.25}, {"Tehsil": "Junnar", "Town/Village": "Belhe", "Population": 8005, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 19.117599167, "Longitude": 74.176966389, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 31, "_Nearest_1": "Alefata & Ale", "_Nearest_1_KM": 11.19, "_Nearest_2": "Jambut", "_Nearest_2_KM": 12.97, "id": 31, "town": "Belhe", "tehsil": "Junnar", "villageType": "P2", "lat": 19.117599167, "lon": 74.176966389, "nearest1": "Alefata & Ale", "nearest1km": 11.19, "nearest2": "Jambut", "nearest2km": 12.97}, {"Tehsil": "Mawal", "Town/Village": "Induri", "Population": 10448, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.736798889, "Longitude": 73.717023333, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 32, "_Nearest_1": "Talegaon Dabhade", "_Nearest_1_KM": 4.14, "_Nearest_2": "Somatane", "_Nearest_2_KM": 4.91, "id": 32, "town": "Induri", "tehsil": "Mawal", "villageType": "P2", "lat": 18.736798889, "lon": 73.717023333, "nearest1": "Talegaon Dabhade", "nearest1km": 4.14, "nearest2": "Somatane", "nearest2km": 4.91}, {"Tehsil": "Shirur", "Town/Village": "Jambut", "Population": 3448, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 19.002883056, "Longitude": 74.199102778, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 33, "_Nearest_1": "Belhe", "_Nearest_1_KM": 12.97, "_Nearest_2": "Jadhavwadi (Ranjani)", "_Nearest_2_KM": 18.89, "id": 33, "town": "Jambut", "tehsil": "Shirur", "villageType": "P2", "lat": 19.002883056, "lon": 74.199102778, "nearest1": "Belhe", "nearest1km": 12.97, "nearest2": "Jadhavwadi (Ranjani)", "nearest2km": 18.89}, {"Tehsil": "Mawal", "Town/Village": "Kale/Pawana Nagar", "Population": 2653, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.6855175, "Longitude": 73.509015556, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 34, "_Nearest_1": "Khadkale/Kamshet", "_Nearest_1_KM": 9.94, "_Nearest_2": "Lonavala & Khandala", "_Nearest_2_KM": 13.41, "id": 34, "town": "Kale/Pawana Nagar", "tehsil": "Mawal", "villageType": "P2", "lat": 18.6855175, "lon": 73.509015556, "nearest1": "Khadkale/Kamshet", "nearest1km": 9.94, "nearest2": "Lonavala & Khandala", "nearest2km": 13.41}, {"Tehsil": "Shirur", "Town/Village": "Pabal", "Population": 3857, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.829751667, "Longitude": 74.050818333, "Dependent Population": 68740.0, "Party_1": "No Party Provided", "Party_2": " ", "Party_3": " ", "Party_4": " ", "Party_5": " ", "_ID": 35, "_Nearest_1": "Rajgurunagar (Khed)", "_Nearest_1_KM": 17.42, "_Nearest_2": "Shikrapur", "_Nearest_2_KM": 17.55, "id": 35, "town": "Pabal", "tehsil": "Shirur", "villageType": "P2", "lat": 18.829751667, "lon": 74.050818333, "nearest1": "Rajgurunagar (Khed)", "nearest1km": 17.42, "nearest2": "Shikrapur", "nearest2km": 17.55}, {"Tehsil": "Shirur", "Town/Village": "Karegaon", "Population": 5257, "Village Type": "P2", "Approx FMCG Outlet": 17.0, "Latitude": 18.783347222, "Longitude": 74.29667, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 36, "_Nearest_1": "Ranjangaon Ganpati", "_Nearest_1_KM": 6.29, "_Nearest_2": "Shirur", "_Nearest_2_KM": 9.69, "id": 36, "town": "Karegaon", "tehsil": "Shirur", "villageType": "P2", "lat": 18.783347222, "lon": 74.29667, "nearest1": "Ranjangaon Ganpati", "nearest1km": 6.29, "nearest2": "Shirur", "nearest2km": 9.69}, {"Tehsil": "Haveli", "Town/Village": "Kesnand", "Population": 4718, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.572848889, "Longitude": 74.0220275, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 37, "_Nearest_1": "Wagholi", "_Nearest_1_KM": 4.05, "_Nearest_2": "Theur", "_Nearest_2_KM": 6.11, "id": 37, "town": "Kesnand", "tehsil": "Haveli", "villageType": "P2", "lat": 18.572848889, "lon": 74.0220275, "nearest1": "Wagholi", "nearest1km": 4.05, "nearest2": "Theur", "nearest2km": 6.11}, {"Tehsil": "Haveli", "Town/Village": "Kunjirwadi", "Population": 8421, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.488410833, "Longitude": 74.069216944, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 38, "_Nearest_1": "Theur", "_Nearest_1_KM": 4.54, "_Nearest_2": "Loni-kalbhor & Kadamwak Wasti", "_Nearest_2_KM": 4.85, "id": 38, "town": "Kunjirwadi", "tehsil": "Haveli", "villageType": "P2", "lat": 18.488410833, "lon": 74.069216944, "nearest1": "Theur", "nearest1km": 4.54, "nearest2": "Loni-kalbhor & Kadamwak Wasti", "nearest2km": 4.85}, {"Tehsil": "Daund", "Town/Village": "Kurkumbh", "Population": 5322, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.394838333, "Longitude": 74.5393775, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 39, "_Nearest_1": "Patas", "_Nearest_1_KM": 9.09, "_Nearest_2": "Daund", "_Nearest_2_KM": 9.24, "id": 39, "town": "Kurkumbh", "tehsil": "Daund", "villageType": "P2", "lat": 18.394838333, "lon": 74.5393775, "nearest1": "Patas", "nearest1km": 9.09, "nearest2": "Daund", "nearest2km": 9.24}, {"Tehsil": "Indapur", "Town/Village": "Lasurne", "Population": 8803, "Village Type": "P2", "Approx FMCG Outlet": 17.0, "Latitude": 18.088330556, "Longitude": 74.763227778, "Dependent Population": 180044.0, "Party_1": "Ramesh Hiralal Gandhi", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 40, "_Nearest_1": "Nimgaon Ketki", "_Nearest_1_KM": 15.96, "_Nearest_2": "Baramati", "_Nearest_2_KM": 21.3, "id": 40, "town": "Lasurne", "tehsil": "Indapur", "villageType": "P2", "lat": 18.088330556, "lon": 74.763227778, "nearest1": "Nimgaon Ketki", "nearest1km": 15.96, "nearest2": "Baramati", "nearest2km": 21.3}, {"Tehsil": "Khed", "Town/Village": "Mahalunge", "Population": 9687, "Village Type": "P2", "Approx FMCG Outlet": 16.0, "Latitude": 18.754939722, "Longitude": 73.808382778, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 41, "_Nearest_1": "Chakan & Medankarwadi", "_Nearest_1_KM": 5.64, "_Nearest_2": "Dehu", "_Nearest_2_KM": 6.02, "id": 41, "town": "Mahalunge", "tehsil": "Khed", "villageType": "P2", "lat": 18.754939722, "lon": 73.808382778, "nearest1": "Chakan & Medankarwadi", "nearest1km": 5.64, "nearest2": "Dehu", "nearest2km": 6.02}, {"Tehsil": "Baramati", "Town/Village": "Malegaon Bk", "Population": 18470, "Village Type": "P2", "Approx FMCG Outlet": 18.0, "Latitude": 18.131980278, "Longitude": 74.510653056, "Dependent Population": 97134.0, "Party_1": "Animesh Agencies", "Party_2": "Sanjivan Medical And General Stores", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 42, "_Nearest_1": "Baramati", "_Nearest_1_KM": 6.74, "_Nearest_2": "Vadgaon Nimbalkar", "_Nearest_2_KM": 15.53, "id": 42, "town": "Malegaon Bk", "tehsil": "Baramati", "villageType": "P2", "lat": 18.131980278, "lon": 74.510653056, "nearest1": "Baramati", "nearest1km": 6.74, "nearest2": "Vadgaon Nimbalkar", "nearest2km": 15.53}, {"Tehsil": "Mulshi", "Town/Village": "Man", "Population": 7527, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.5749875, "Longitude": 73.709217222, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 43, "_Nearest_1": "Pirangut", "_Nearest_1_KM": 7.51, "_Nearest_2": "Paud", "_Nearest_2_KM": 11.12, "id": 43, "town": "Man", "tehsil": "Mulshi", "villageType": "P2", "lat": 18.5749875, "lon": 73.709217222, "nearest1": "Pirangut", "nearest1km": 7.51, "nearest2": "Paud", "nearest2km": 11.12}, {"Tehsil": "Haveli", "Town/Village": "Manjari Kh.& Manjari Bk.", "Population": 4559, "Village Type": "P2", "Approx FMCG Outlet": 20.0, "Latitude": 18.524661389, "Longitude": 73.985783611, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 44, "_Nearest_1": "Loni-kalbhor & Kadamwak Wasti", "_Nearest_1_KM": 5.63, "_Nearest_2": "Wagholi", "_Nearest_2_KM": 6.25, "id": 44, "town": "Manjari Kh.& Manjari Bk.", "tehsil": "Haveli", "villageType": "P2", "lat": 18.524661389, "lon": 73.985783611, "nearest1": "Loni-kalbhor & Kadamwak Wasti", "nearest1km": 5.63, "nearest2": "Wagholi", "nearest2km": 6.25}, {"Tehsil": "Baramati", "Town/Village": "Morgaon", "Population": 5321, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.276719722, "Longitude": 74.320298889, "Dependent Population": 42708.0, "Party_1": "Rupesh Medico & General Stores", "Party_2": "Rupesh Medico & General Stores", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 45, "_Nearest_1": "Supe", "_Nearest_1_KM": 9.16, "_Nearest_2": "Jejuri", "_Nearest_2_KM": 16.8, "id": 45, "town": "Morgaon", "tehsil": "Baramati", "villageType": "P2", "lat": 18.276719722, "lon": 74.320298889, "nearest1": "Supe", "nearest1km": 9.16, "nearest2": "Jejuri", "nearest2km": 16.8}, {"Tehsil": "Bhor", "Town/Village": "Nasrapur", "Population": 3812, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.25115, "Longitude": 73.880802778, "Dependent Population": 136907.0, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 46, "_Nearest_1": "Bhor", "_Nearest_1_KM": 12.03, "_Nearest_2": "Sasvad", "_Nearest_2_KM": 18.96, "id": 46, "town": "Nasrapur", "tehsil": "Bhor", "villageType": "P2", "lat": 18.25115, "lon": 73.880802778, "nearest1": "Bhor", "nearest1km": 12.03, "nearest2": "Sasvad", "nearest2km": 18.96}, {"Tehsil": "Indapur", "Town/Village": "Nimgaon Ketki", "Population": 12397, "Village Type": "P2", "Approx FMCG Outlet": 16.0, "Latitude": 18.085817778, "Longitude": 74.9141575, "Dependent Population": 66735.0, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 47, "_Nearest_1": "Indapur", "_Nearest_1_KM": 12.35, "_Nearest_2": "Lasurne", "_Nearest_2_KM": 15.96, "id": 47, "town": "Nimgaon Ketki", "tehsil": "Indapur", "villageType": "P2", "lat": 18.085817778, "lon": 74.9141575, "nearest1": "Indapur", "nearest1km": 12.35, "nearest2": "Lasurne", "nearest2km": 15.96}, {"Tehsil": "Daund", "Town/Village": "Patas", "Population": 17495, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.433721667, "Longitude": 74.463595278, "Dependent Population": 97886.0, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 48, "_Nearest_1": "Kurkumbh", "_Nearest_1_KM": 9.09, "_Nearest_2": "Kedgaon Station & Chaufulla Fata & Boripardhi", "_Nearest_2_KM": 11.19, "id": 48, "town": "Patas", "tehsil": "Daund", "villageType": "P2", "lat": 18.433721667, "lon": 74.463595278, "nearest1": "Kurkumbh", "nearest1km": 9.09, "nearest2": "Kedgaon Station & Chaufulla Fata & Boripardhi", "nearest2km": 11.19}, {"Tehsil": "Mulshi", "Town/Village": "Paud", "Population": 3730, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.523908611, "Longitude": 73.618513333, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 49, "_Nearest_1": "Pirangut", "_Nearest_1_KM": 7.63, "_Nearest_2": "Man", "_Nearest_2_KM": 11.12, "id": 49, "town": "Paud", "tehsil": "Mulshi", "villageType": "P2", "lat": 18.523908611, "lon": 73.618513333, "nearest1": "Pirangut", "nearest1km": 7.63, "nearest2": "Man", "nearest2km": 11.12}, {"Tehsil": "Mulshi", "Town/Village": "Pirangut", "Population": 14174, "Village Type": "P2", "Approx FMCG Outlet": 18.0, "Latitude": 18.510140833, "Longitude": 73.689360278, "Dependent Population": 104752.0, "Party_1": "Shreyaa Agencies", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 50, "_Nearest_1": "Man", "_Nearest_1_KM": 7.51, "_Nearest_2": "Paud", "_Nearest_2_KM": 7.63, "id": 50, "town": "Pirangut", "tehsil": "Mulshi", "villageType": "P2", "lat": 18.510140833, "lon": 73.689360278, "nearest1": "Man", "nearest1km": 7.51, "nearest2": "Paud", "nearest2km": 7.63}, {"Tehsil": "Daund", "Town/Village": "Rahu", "Population": 10220, "Village Type": "P2", "Approx FMCG Outlet": 14.0, "Latitude": 18.572732222, "Longitude": 74.269152778, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 51, "_Nearest_1": "Yawat", "_Nearest_1_KM": 10.72, "_Nearest_2": "Kedgaon Station & Chaufulla Fata & Boripardhi", "_Nearest_2_KM": 14.73, "id": 51, "town": "Rahu", "tehsil": "Daund", "villageType": "P2", "lat": 18.572732222, "lon": 74.269152778, "nearest1": "Yawat", "nearest1km": 10.72, "nearest2": "Kedgaon Station & Chaufulla Fata & Boripardhi", "nearest2km": 14.73}, {"Tehsil": "Shirur", "Town/Village": "Ranjangaon Ganpati", "Population": 13427, "Village Type": "P2", "Approx FMCG Outlet": 18.0, "Latitude": 18.755057778, "Longitude": 74.244926111, "Dependent Population": null, "Party_1": "Shindiya Enterprises", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 52, "_Nearest_1": "Karegaon", "_Nearest_1_KM": 6.29, "_Nearest_2": "Shikrapur", "_Nearest_2_KM": 12.93, "id": 52, "town": "Ranjangaon Ganpati", "tehsil": "Shirur", "villageType": "P2", "lat": 18.755057778, "lon": 74.244926111, "nearest1": "Karegaon", "nearest1km": 6.29, "nearest2": "Shikrapur", "nearest2km": 12.93}, {"Tehsil": "Shirur", "Town/Village": "Sanaswadi", "Population": 13543, "Village Type": "P2", "Approx FMCG Outlet": 16.0, "Latitude": 18.671294167, "Longitude": 74.101563611, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 53, "_Nearest_1": "Shikrapur", "_Nearest_1_KM": 4.82, "_Nearest_2": "Talegaon Dhamdhere", "_Nearest_2_KM": 5.02, "id": 53, "town": "Sanaswadi", "tehsil": "Shirur", "villageType": "P2", "lat": 18.671294167, "lon": 74.101563611, "nearest1": "Shikrapur", "nearest1km": 4.82, "nearest2": "Talegaon Dhamdhere", "nearest2km": 5.02}, {"Tehsil": "Mawal", "Town/Village": "Somatane", "Population": 5300, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.7029275, "Longitude": 73.687181111, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 54, "_Nearest_1": "Talegaon Dabhade", "_Nearest_1_KM": 3.53, "_Nearest_2": "Induri", "_Nearest_2_KM": 4.91, "id": 54, "town": "Somatane", "tehsil": "Mawal", "villageType": "P2", "lat": 18.7029275, "lon": 73.687181111, "nearest1": "Talegaon Dabhade", "nearest1km": 3.53, "nearest2": "Induri", "nearest2km": 4.91}, {"Tehsil": "Baramati", "Town/Village": "Supe", "Population": 5008, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.336434444, "Longitude": 74.380118889, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 55, "_Nearest_1": "Morgaon", "_Nearest_1_KM": 9.16, "_Nearest_2": "Patas", "_Nearest_2_KM": 13.95, "id": 55, "town": "Supe", "tehsil": "Baramati", "villageType": "P2", "lat": 18.336434444, "lon": 74.380118889, "nearest1": "Morgaon", "nearest1km": 9.16, "nearest2": "Patas", "nearest2km": 13.95}, {"Tehsil": "Mawal", "Town/Village": "Takave Bk.", "Population": 4143, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.80497, "Longitude": 73.609028889, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 56, "_Nearest_1": "Khadkale/Kamshet", "_Nearest_1_KM": 7.25, "_Nearest_2": "Wadagaon", "_Nearest_2_KM": 7.99, "id": 56, "town": "Takave Bk.", "tehsil": "Mawal", "villageType": "P2", "lat": 18.80497, "lon": 73.609028889, "nearest1": "Khadkale/Kamshet", "nearest1km": 7.25, "nearest2": "Wadagaon", "nearest2km": 7.99}, {"Tehsil": "Shirur", "Town/Village": "Talegaon Dhamdhere", "Population": 15393, "Village Type": "P2", "Approx FMCG Outlet": 16.0, "Latitude": 18.667976667, "Longitude": 74.149058333, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 57, "_Nearest_1": "Shikrapur", "_Nearest_1_KM": 3.28, "_Nearest_2": "Sanaswadi", "_Nearest_2_KM": 5.02, "id": 57, "town": "Talegaon Dhamdhere", "tehsil": "Shirur", "villageType": "P2", "lat": 18.667976667, "lon": 74.149058333, "nearest1": "Shikrapur", "nearest1km": 3.28, "nearest2": "Sanaswadi", "nearest2km": 5.02}, {"Tehsil": "Haveli", "Town/Village": "Theur", "Population": 9674, "Village Type": "P2", "Approx FMCG Outlet": 12.0, "Latitude": 18.522888611, "Longitude": 74.046090278, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 58, "_Nearest_1": "Loni-kalbhor & Kadamwak Wasti", "_Nearest_1_KM": 4.51, "_Nearest_2": "Kunjirwadi", "_Nearest_2_KM": 4.54, "id": 58, "town": "Theur", "tehsil": "Haveli", "villageType": "P2", "lat": 18.522888611, "lon": 74.046090278, "nearest1": "Loni-kalbhor & Kadamwak Wasti", "nearest1km": 4.51, "nearest2": "Kunjirwadi", "nearest2km": 4.54}, {"Tehsil": "Baramati", "Town/Village": "Vadgaon Nimbalkar", "Population": 7646, "Village Type": "P2", "Approx FMCG Outlet": 15.0, "Latitude": 18.12809, "Longitude": 74.363742778, "Dependent Population": 60473.0, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 59, "_Nearest_1": "Malegaon Bk", "_Nearest_1_KM": 15.53, "_Nearest_2": "Shivatkar (Nira)", "_Nearest_2_KM": 16.37, "id": 59, "town": "Vadgaon Nimbalkar", "tehsil": "Baramati", "villageType": "P2", "lat": 18.12809, "lon": 74.363742778, "nearest1": "Malegaon Bk", "nearest1km": 15.53, "nearest2": "Shivatkar (Nira)", "nearest2km": 16.37}, {"Tehsil": "Mawal", "Town/Village": "Wadagaon", "Population": 14595, "Village Type": "P2", "Approx FMCG Outlet": 16.0, "Latitude": 18.739315833, "Longitude": 73.639942222, "Dependent Population": null, "Party_1": "No Party Provided", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 60, "_Nearest_1": "Talegaon Dabhade", "_Nearest_1_KM": 4.05, "_Nearest_2": "Somatane", "_Nearest_2_KM": 6.41, "id": 60, "town": "Wadagaon", "tehsil": "Mawal", "villageType": "P2", "lat": 18.739315833, "lon": 73.639942222, "nearest1": "Talegaon Dabhade", "nearest1km": 4.05, "nearest2": "Somatane", "nearest2km": 6.41}, {"Tehsil": "Daund", "Town/Village": "Yawat", "Population": 13983, "Village Type": "P2", "Approx FMCG Outlet": 18.0, "Latitude": 18.476292222, "Longitude": 74.269685278, "Dependent Population": 75425.0, "Party_1": "Shri Samarth Medical", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 61, "_Nearest_1": "Kedgaon Station & Chaufulla Fata & Boripardhi", "_Nearest_1_KM": 10.58, "_Nearest_2": "Rahu", "_Nearest_2_KM": 10.72, "id": 61, "town": "Yawat", "tehsil": "Daund", "villageType": "P2", "lat": 18.476292222, "lon": 74.269685278, "nearest1": "Kedgaon Station & Chaufulla Fata & Boripardhi", "nearest1km": 10.58, "nearest2": "Rahu", "nearest2km": 10.72}, {"Tehsil": "Mulshi", "Town/Village": "Jadhavwadi (Ranjani)", "Population": 1057, "Village Type": "P5", "Approx FMCG Outlet": 3.0, "Latitude": 19.056139, "Longitude": 74.028418, "Dependent Population": null, "Party_1": "Dhanshree Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 62, "_Nearest_1": "Narayangaon", "_Nearest_1_KM": 8.91, "_Nearest_2": "Manchar", "_Nearest_2_KM": 10.65, "id": 62, "town": "Jadhavwadi (Ranjani)", "tehsil": "Mulshi", "villageType": "P5", "lat": 19.056139, "lon": 74.028418, "nearest1": "Narayangaon", "nearest1km": 8.91, "nearest2": "Manchar", "nearest2km": 10.65}, {"Tehsil": "Mulshi", "Town/Village": "Sadalgaon", "Population": 2635, "Village Type": "P4", "Approx FMCG Outlet": 7.0, "Latitude": 18.534893, "Longitude": 74.451248, "Dependent Population": null, "Party_1": "Pawan Agency", "Party_2": "No Party Provided", "Party_3": "No Party Provided", "Party_4": "No Party Provided", "Party_5": "No Party Provided", "_ID": 63, "_Nearest_1": "Kedgaon Station & Chaufulla Fata & Boripardhi", "_Nearest_1_KM": 10.47, "_Nearest_2": "Patas", "_Nearest_2_KM": 11.32, "id": 63, "town": "Sadalgaon", "tehsil": "Mulshi", "villageType": "P4", "lat": 18.534893, "lon": 74.451248, "nearest1": "Kedgaon Station & Chaufulla Fata & Boripardhi", "nearest1km": 10.47, "nearest2": "Patas", "nearest2km": 11.32}];
+[{"Tehsil":"Pune City","Town/Village":"Pune","Population":3124458,"Village Type":"DHQ","Approx FMCG Outlet":null,"Latitude":18.515768056,"Longitude":73.856362222,"Dependent Population":6457775.0,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":0,"_Nearest_1":"Manjari Kh.& Manjari Bk.","_Nearest_1_KM":13.68,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Pimpri Chinchwad","_Nearest_2_KM":15.22,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":0,"town":"Pune","tehsil":"Pune City","villageType":"DHQ","lat":18.515768056,"lon":73.856362222,"nearest1":"Manjari Kh.& Manjari Bk.","nearest1km":13.68,"nearest1Type":"P2","nearest1Tehsil":"Haveli","nearest2":"Pimpri Chinchwad","nearest2km":15.22,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Khed","Town/Village":"Alandi","Population":28645,"Village Type":"P1","Approx FMCG Outlet":65.0,"Latitude":18.678291111,"Longitude":73.896365833,"Dependent Population":null,"Party_1":"Arihant Sai Sales","Party_2":"Bhavi Pharma","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":1,"_Nearest_1":"Chakan & Medankarwadi","_Nearest_1_KM":10.14,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Khed","_Nearest_2":"Pimpri Chinchwad","_Nearest_2_KM":11.59,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":1,"town":"Alandi","tehsil":"Khed","villageType":"P1","lat":18.678291111,"lon":73.896365833,"nearest1":"Chakan & Medankarwadi","nearest1km":10.14,"nearest1Type":"P1","nearest1Tehsil":"Khed","nearest2":"Pimpri Chinchwad","nearest2km":11.59,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Junnar","Town/Village":"Alefata & Ale","Population":3248,"Village Type":"P1","Approx FMCG Outlet":32.0,"Latitude":19.182934444,"Longitude":74.095945833,"Dependent Population":174194.0,"Party_1":"Bhalgat Agencies","Party_2":"Gajanan Agency","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":2,"_Nearest_1":"Belhe","_Nearest_1_KM":11.19,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Junnar","_Nearest_2":"Narayangaon","_Nearest_2_KM":14.7,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Junnar","id":2,"town":"Alefata & Ale","tehsil":"Junnar","villageType":"P1","lat":19.182934444,"lon":74.095945833,"nearest1":"Belhe","nearest1km":11.19,"nearest1Type":"P2","nearest1Tehsil":"Junnar","nearest2":"Narayangaon","nearest2km":14.7,"nearest2Type":"P1","nearest2Tehsil":"Junnar"},{"Tehsil":"Baramati","Town/Village":"Baramati","Population":54415,"Village Type":"P1","Approx FMCG Outlet":138.0,"Latitude":18.148661111,"Longitude":74.571955278,"Dependent Population":352395.0,"Party_1":"Chandan Medico","Party_2":"Shreenath Agencies","Party_3":"Mahalaxmi Agency","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":3,"_Nearest_1":"Malegaon Bk","_Nearest_1_KM":6.74,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Baramati","_Nearest_2":"Lasurne","_Nearest_2_KM":21.3,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Indapur","id":3,"town":"Baramati","tehsil":"Baramati","villageType":"P1","lat":18.148661111,"lon":74.571955278,"nearest1":"Malegaon Bk","nearest1km":6.74,"nearest1Type":"P2","nearest1Tehsil":"Baramati","nearest2":"Lasurne","nearest2km":21.3,"nearest2Type":"P2","nearest2Tehsil":"Indapur"},{"Tehsil":"Indapur","Town/Village":"Bhigvan","Population":7673,"Village Type":"P1","Approx FMCG Outlet":30.0,"Latitude":18.292261389,"Longitude":74.754771389,"Dependent Population":136310.0,"Party_1":"Devesh Marketing","Party_2":"Tirthankar Agencies","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":4,"_Nearest_1":"Lasurne","_Nearest_1_KM":22.69,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Indapur","_Nearest_2":"Baramati","_Nearest_2_KM":25.06,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Baramati","id":4,"town":"Bhigvan","tehsil":"Indapur","villageType":"P1","lat":18.292261389,"lon":74.754771389,"nearest1":"Lasurne","nearest1km":22.69,"nearest1Type":"P2","nearest1Tehsil":"Indapur","nearest2":"Baramati","nearest2km":25.06,"nearest2Type":"P1","nearest2Tehsil":"Baramati"},{"Tehsil":"Bhor","Town/Village":"Bhor","Population":18453,"Village Type":"P1","Approx FMCG Outlet":38.0,"Latitude":18.149266389,"Longitude":73.842454444,"Dependent Population":91966.0,"Party_1":"Rudra Distributors","Party_2":"Shri Krushna Enterprises","Party_3":"Subhash Enterprises","Party_4":"Jagdish Gujjar","Party_5":"No Party Provided","_ID":5,"_Nearest_1":"Nasrapur","_Nearest_1_KM":12.03,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Bhor","_Nearest_2":"Sasvad","_Nearest_2_KM":29.52,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Purandhar","id":5,"town":"Bhor","tehsil":"Bhor","villageType":"P1","lat":18.149266389,"lon":73.842454444,"nearest1":"Nasrapur","nearest1km":12.03,"nearest1Type":"P2","nearest1Tehsil":"Bhor","nearest2":"Sasvad","nearest2km":29.52,"nearest2Type":"P1","nearest2Tehsil":"Purandhar"},{"Tehsil":"Khed","Town/Village":"Chakan & Medankarwadi","Population":41113,"Village Type":"P1","Approx FMCG Outlet":70.0,"Latitude":18.763185,"Longitude":73.861233056,"Dependent Population":186956.0,"Party_1":" Jogeshwari Enterprises","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":6,"_Nearest_1":"Mahalunge","_Nearest_1_KM":5.64,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Khed","_Nearest_2":"Alandi","_Nearest_2_KM":10.14,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Khed","id":6,"town":"Chakan & Medankarwadi","tehsil":"Khed","villageType":"P1","lat":18.763185,"lon":73.861233056,"nearest1":"Mahalunge","nearest1km":5.64,"nearest1Type":"P2","nearest1Tehsil":"Khed","nearest2":"Alandi","nearest2km":10.14,"nearest2Type":"P1","nearest2Tehsil":"Khed"},{"Tehsil":"Daund","Town/Village":"Daund","Population":49450,"Village Type":"P1","Approx FMCG Outlet":95.0,"Latitude":18.465560833,"Longitude":74.585389167,"Dependent Population":197089.0,"Party_1":"Ahmed Distributor","Party_2":"Arihant Distributor","Party_3":"Om Sai Pharma","Party_4":"New Durga Agency","Party_5":"No Party Provided","_ID":7,"_Nearest_1":"Kurkumbh","_Nearest_1_KM":9.24,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Daund","_Nearest_2":"Patas","_Nearest_2_KM":13.33,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Daund","id":7,"town":"Daund","tehsil":"Daund","villageType":"P1","lat":18.465560833,"lon":74.585389167,"nearest1":"Kurkumbh","nearest1km":9.24,"nearest1Type":"P2","nearest1Tehsil":"Daund","nearest2":"Patas","nearest2km":13.33,"nearest2Type":"P2","nearest2Tehsil":"Daund"},{"Tehsil":"Haveli","Town/Village":"Dehu","Population":6133,"Village Type":"P1","Approx FMCG Outlet":35.0,"Latitude":18.7166525,"Longitude":73.767979167,"Dependent Population":null,"Party_1":"Morya Pharma","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":8,"_Nearest_1":"Dehu Road (CB)","_Nearest_1_KM":5.55,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Induri","_Nearest_2_KM":5.81,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":8,"town":"Dehu","tehsil":"Haveli","villageType":"P1","lat":18.7166525,"lon":73.767979167,"nearest1":"Dehu Road (CB)","nearest1km":5.55,"nearest1Type":"P1","nearest1Tehsil":"Haveli","nearest2":"Induri","nearest2km":5.81,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Haveli","Town/Village":"Dehu Road (CB)","Population":48961,"Village Type":"P1","Approx FMCG Outlet":85.0,"Latitude":18.681408889,"Longitude":73.730716389,"Dependent Population":null,"Party_1":"Vishal Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":9,"_Nearest_1":"Somatane","_Nearest_1_KM":5.17,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Dehu","_Nearest_2_KM":5.55,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":9,"town":"Dehu Road (CB)","tehsil":"Haveli","villageType":"P1","lat":18.681408889,"lon":73.730716389,"nearest1":"Somatane","nearest1km":5.17,"nearest1Type":"P2","nearest1Tehsil":"Mawal","nearest2":"Dehu","nearest2km":5.55,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Ambegaon","Town/Village":"Ghodegaon","Population":8591,"Village Type":"P1","Approx FMCG Outlet":20.0,"Latitude":19.0437975,"Longitude":73.838506667,"Dependent Population":78117.0,"Party_1":"Neelam Agency","Party_2":"Sachin Enterprises","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":10,"_Nearest_1":"Manchar","_Nearest_1_KM":12.13,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Ambegaon","_Nearest_2":"Narayangaon","_Nearest_2_KM":16.46,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Junnar","id":10,"town":"Ghodegaon","tehsil":"Ambegaon","villageType":"P1","lat":19.0437975,"lon":73.838506667,"nearest1":"Manchar","nearest1km":12.13,"nearest1Type":"P1","nearest1Tehsil":"Ambegaon","nearest2":"Narayangaon","nearest2km":16.46,"nearest2Type":"P1","nearest2Tehsil":"Junnar"},{"Tehsil":"Indapur","Town/Village":"Indapur","Population":25515,"Village Type":"P1","Approx FMCG Outlet":60.0,"Latitude":18.114071667,"Longitude":75.027162222,"Dependent Population":168817.0,"Party_1":"L.D.Saha","Party_2":"Shiv Ganesh Agency","Party_3":"Sajan Trading","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":11,"_Nearest_1":"Nimgaon Ketki","_Nearest_1_KM":12.35,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Indapur","_Nearest_2":"Lasurne","_Nearest_2_KM":28.04,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Indapur","id":11,"town":"Indapur","tehsil":"Indapur","villageType":"P1","lat":18.114071667,"lon":75.027162222,"nearest1":"Nimgaon Ketki","nearest1km":12.35,"nearest1Type":"P2","nearest1Tehsil":"Indapur","nearest2":"Lasurne","nearest2km":28.04,"nearest2Type":"P2","nearest2Tehsil":"Indapur"},{"Tehsil":"Purandhar","Town/Village":"Jejuri","Population":14515,"Village Type":"P1","Approx FMCG Outlet":30.0,"Latitude":18.278088333,"Longitude":74.161148611,"Dependent Population":100824.0,"Party_1":"Khode Distributor","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":12,"_Nearest_1":"Sasvad","_Nearest_1_KM":15.79,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Purandhar","_Nearest_2":"Morgaon","_Nearest_2_KM":16.8,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Baramati","id":12,"town":"Jejuri","tehsil":"Purandhar","villageType":"P1","lat":18.278088333,"lon":74.161148611,"nearest1":"Sasvad","nearest1km":15.79,"nearest1Type":"P1","nearest1Tehsil":"Purandhar","nearest2":"Morgaon","nearest2km":16.8,"nearest2Type":"P2","nearest2Tehsil":"Baramati"},{"Tehsil":"Junnar","Town/Village":"Junnar","Population":25315,"Village Type":"P1","Approx FMCG Outlet":75.0,"Latitude":19.206805,"Longitude":73.877366667,"Dependent Population":null,"Party_1":"Rujal Distributor","Party_2":"Mahalaxmi Agency","Party_3":"Asif Agency","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":13,"_Nearest_1":"Otur","_Nearest_1_KM":12.61,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Junnar","_Nearest_2":"Narayangaon","_Nearest_2_KM":14.19,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Junnar","id":13,"town":"Junnar","tehsil":"Junnar","villageType":"P1","lat":19.206805,"lon":73.877366667,"nearest1":"Otur","nearest1km":12.61,"nearest1Type":"P1","nearest1Tehsil":"Junnar","nearest2":"Narayangaon","nearest2km":14.19,"nearest2Type":"P1","nearest2Tehsil":"Junnar"},{"Tehsil":"Daund","Town/Village":"Kedgaon Station & Chaufulla Fata & Boripardhi","Population":19769,"Village Type":"P1","Approx FMCG Outlet":32.0,"Latitude":18.480890833,"Longitude":74.3698975,"Dependent Population":244029.0,"Party_1":"Sanjiveni Ayurveda","Party_2":"Paras Pharma","Party_3":"Vikas Popatlal","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":14,"_Nearest_1":"Sadalgaon","_Nearest_1_KM":10.47,"_Nearest_1_Type":"P4","_Nearest_1_Tehsil":"Mulshi","_Nearest_2":"Yawat","_Nearest_2_KM":10.58,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Daund","id":14,"town":"Kedgaon Station & Chaufulla Fata & Boripardhi","tehsil":"Daund","villageType":"P1","lat":18.480890833,"lon":74.3698975,"nearest1":"Sadalgaon","nearest1km":10.47,"nearest1Type":"P4","nearest1Tehsil":"Mulshi","nearest2":"Yawat","nearest2km":10.58,"nearest2Type":"P2","nearest2Tehsil":"Daund"},{"Tehsil":"Mawal","Town/Village":"Khadkale/Kamshet","Population":13435,"Village Type":"P1","Approx FMCG Outlet":20.0,"Latitude":18.762723056,"Longitude":73.556577778,"Dependent Population":110666.0,"Party_1":"Rajeshwari Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":15,"_Nearest_1":"Takave Bk.","_Nearest_1_KM":7.25,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Wadagaon","_Nearest_2_KM":9.16,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":15,"town":"Khadkale/Kamshet","tehsil":"Mawal","villageType":"P1","lat":18.762723056,"lon":73.556577778,"nearest1":"Takave Bk.","nearest1km":7.25,"nearest1Type":"P2","nearest1Tehsil":"Mawal","nearest2":"Wadagaon","nearest2km":9.16,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Shirur","Town/Village":"Koregaon Bhima & Perane","Population":13116,"Village Type":"P1","Approx FMCG Outlet":28.0,"Latitude":18.645765,"Longitude":74.060906667,"Dependent Population":null,"Party_1":"New Bhargavi Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":16,"_Nearest_1":"Sanaswadi","_Nearest_1_KM":5.14,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Kesnand","_Nearest_2_KM":9.08,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Haveli","id":16,"town":"Koregaon Bhima & Perane","tehsil":"Shirur","villageType":"P1","lat":18.645765,"lon":74.060906667,"nearest1":"Sanaswadi","nearest1km":5.14,"nearest1Type":"P2","nearest1Tehsil":"Shirur","nearest2":"Kesnand","nearest2km":9.08,"nearest2Type":"P2","nearest2Tehsil":"Haveli"},{"Tehsil":"Mawal","Town/Village":"Lonavala & Khandala","Population":57698,"Village Type":"P1","Approx FMCG Outlet":125.0,"Latitude":18.753966111,"Longitude":73.404228611,"Dependent Population":172873.0,"Party_1":"S.A. Mehta","Party_2":" Firnaz Distributors","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":17,"_Nearest_1":"Kale/Pawana Nagar","_Nearest_1_KM":13.41,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Khadkale/Kamshet","_Nearest_2_KM":16.07,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Mawal","id":17,"town":"Lonavala & Khandala","tehsil":"Mawal","villageType":"P1","lat":18.753966111,"lon":73.404228611,"nearest1":"Kale/Pawana Nagar","nearest1km":13.41,"nearest1Type":"P2","nearest1Tehsil":"Mawal","nearest2":"Khadkale/Kamshet","nearest2km":16.07,"nearest2Type":"P1","nearest2Tehsil":"Mawal"},{"Tehsil":"Haveli","Town/Village":"Loni-kalbhor & Kadamwak Wasti","Population":22518,"Village Type":"P1","Approx FMCG Outlet":38.0,"Latitude":18.488597778,"Longitude":74.023247222,"Dependent Population":93557.0,"Party_1":"Shailesh Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":18,"_Nearest_1":"Theur","_Nearest_1_KM":4.51,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Kunjirwadi","_Nearest_2_KM":4.85,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Haveli","id":18,"town":"Loni-kalbhor & Kadamwak Wasti","tehsil":"Haveli","villageType":"P1","lat":18.488597778,"lon":74.023247222,"nearest1":"Theur","nearest1km":4.51,"nearest1Type":"P2","nearest1Tehsil":"Haveli","nearest2":"Kunjirwadi","nearest2km":4.85,"nearest2Type":"P2","nearest2Tehsil":"Haveli"},{"Tehsil":"Ambegaon","Town/Village":"Manchar","Population":18876,"Village Type":"P1","Approx FMCG Outlet":28.0,"Latitude":19.001871389,"Longitude":73.944984722,"Dependent Population":201526.0,"Party_1":"Balaji Distributor","Party_2":"Prashant Agencies","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":19,"_Nearest_1":"Jadhavwadi (Ranjani)","_Nearest_1_KM":10.65,"_Nearest_1_Type":"P5","_Nearest_1_Tehsil":"Mulshi","_Nearest_2":"Ghodegaon","_Nearest_2_KM":12.13,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Ambegaon","id":19,"town":"Manchar","tehsil":"Ambegaon","villageType":"P1","lat":19.001871389,"lon":73.944984722,"nearest1":"Jadhavwadi (Ranjani)","nearest1km":10.65,"nearest1Type":"P5","nearest1Tehsil":"Mulshi","nearest2":"Ghodegaon","nearest2km":12.13,"nearest2Type":"P1","nearest2Tehsil":"Ambegaon"},{"Tehsil":"Junnar","Town/Village":"Narayangaon","Population":20456,"Village Type":"P1","Approx FMCG Outlet":35.0,"Latitude":19.117751111,"Longitude":73.974186944,"Dependent Population":121885.0,"Party_1":"Mohit Agency","Party_2":"Shree Gajanan Agency","Party_3":"Shri Vighnahar Distributor","Party_4":"Bhagyashree Distributors","Party_5":"Vedant Distributor","_ID":20,"_Nearest_1":"Jadhavwadi (Ranjani)","_Nearest_1_KM":8.91,"_Nearest_1_Type":"P5","_Nearest_1_Tehsil":"Mulshi","_Nearest_2":"Manchar","_Nearest_2_KM":13.25,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Ambegaon","id":20,"town":"Narayangaon","tehsil":"Junnar","villageType":"P1","lat":19.117751111,"lon":73.974186944,"nearest1":"Jadhavwadi (Ranjani)","nearest1km":8.91,"nearest1Type":"P5","nearest1Tehsil":"Mulshi","nearest2":"Manchar","nearest2km":13.25,"nearest2Type":"P1","nearest2Tehsil":"Ambegaon"},{"Tehsil":"Junnar","Town/Village":"Otur","Population":20308,"Village Type":"P1","Approx FMCG Outlet":25.0,"Latitude":19.262687778,"Longitude":73.981886667,"Dependent Population":104464.0,"Party_1":"Atharv Enterprises","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":21,"_Nearest_1":"Junnar","_Nearest_1_KM":12.61,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Junnar","_Nearest_2":"Alefata & Ale","_Nearest_2_KM":14.9,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Junnar","id":21,"town":"Otur","tehsil":"Junnar","villageType":"P1","lat":19.262687778,"lon":73.981886667,"nearest1":"Junnar","nearest1km":12.61,"nearest1Type":"P1","nearest1Tehsil":"Junnar","nearest2":"Alefata & Ale","nearest2km":14.9,"nearest2Type":"P1","nearest2Tehsil":"Junnar"},{"Tehsil":"Haveli","Town/Village":"Pimpri Chinchwad","Population":1727692,"Village Type":"P1","Approx FMCG Outlet":null,"Latitude":18.639326389,"Longitude":73.794278611,"Dependent Population":3531420.0,"Party_1":"Solanki Distributors","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":22,"_Nearest_1":"Dehu Road (CB)","_Nearest_1_KM":8.17,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Dehu","_Nearest_2_KM":9.03,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":22,"town":"Pimpri Chinchwad","tehsil":"Haveli","villageType":"P1","lat":18.639326389,"lon":73.794278611,"nearest1":"Dehu Road (CB)","nearest1km":8.17,"nearest1Type":"P1","nearest1Tehsil":"Haveli","nearest2":"Dehu","nearest2km":9.03,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Khed","Town/Village":"Rajgurunagar (Khed)","Population":25146,"Village Type":"P1","Approx FMCG Outlet":42.0,"Latitude":18.854937222,"Longitude":73.887453611,"Dependent Population":191702.0,"Party_1":"Siddhivinayak Agency","Party_2":"Mohit Agency","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":23,"_Nearest_1":"Chakan & Medankarwadi","_Nearest_1_KM":10.57,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Khed","_Nearest_2":"Mahalunge","_Nearest_2_KM":13.89,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Khed","id":23,"town":"Rajgurunagar (Khed)","tehsil":"Khed","villageType":"P1","lat":18.854937222,"lon":73.887453611,"nearest1":"Chakan & Medankarwadi","nearest1km":10.57,"nearest1Type":"P1","nearest1Tehsil":"Khed","nearest2":"Mahalunge","nearest2km":13.89,"nearest2Type":"P2","nearest2Tehsil":"Khed"},{"Tehsil":"Purandhar","Town/Village":"Sasvad","Population":31821,"Village Type":"P1","Approx FMCG Outlet":60.0,"Latitude":18.346168333,"Longitude":74.029930278,"Dependent Population":110459.0,"Party_1":"Shivshambho Distributors","Party_2":"Durga Enterprises","Party_3":"Bharat Medical Stoers","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":24,"_Nearest_1":"Jejuri","_Nearest_1_KM":15.79,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Purandhar","_Nearest_2":"Loni-kalbhor & Kadamwak Wasti","_Nearest_2_KM":15.85,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":24,"town":"Sasvad","tehsil":"Purandhar","villageType":"P1","lat":18.346168333,"lon":74.029930278,"nearest1":"Jejuri","nearest1km":15.79,"nearest1Type":"P1","nearest1Tehsil":"Purandhar","nearest2":"Loni-kalbhor & Kadamwak Wasti","nearest2km":15.85,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Shirur","Town/Village":"Shikrapur","Population":19374,"Village Type":"P1","Approx FMCG Outlet":38.0,"Latitude":18.69597,"Longitude":74.139182778,"Dependent Population":84954.0,"Party_1":"Callisto Food Industries Private Limited","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":25,"_Nearest_1":"Talegaon Dhamdhere","_Nearest_1_KM":3.28,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Sanaswadi","_Nearest_2_KM":4.82,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Shirur","id":25,"town":"Shikrapur","tehsil":"Shirur","villageType":"P1","lat":18.69597,"lon":74.139182778,"nearest1":"Talegaon Dhamdhere","nearest1km":3.28,"nearest1Type":"P2","nearest1Tehsil":"Shirur","nearest2":"Sanaswadi","nearest2km":4.82,"nearest2Type":"P2","nearest2Tehsil":"Shirur"},{"Tehsil":"Shirur","Town/Village":"Shirur","Population":37111,"Village Type":"P1","Approx FMCG Outlet":70.0,"Latitude":18.825010278,"Longitude":74.377508056,"Dependent Population":219415.0,"Party_1":"Sai Suman Enterprises","Party_2":"Vaibhav Agencies","Party_3":"Galande Medicals","Party_4":"Shrungar Shoppee","Party_5":"Anand Distributor","_ID":26,"_Nearest_1":"Karegaon","_Nearest_1_KM":9.69,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Ranjangaon Ganpati","_Nearest_2_KM":15.98,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Shirur","id":26,"town":"Shirur","tehsil":"Shirur","villageType":"P1","lat":18.825010278,"lon":74.377508056,"nearest1":"Karegaon","nearest1km":9.69,"nearest1Type":"P2","nearest1Tehsil":"Shirur","nearest2":"Ranjangaon Ganpati","nearest2km":15.98,"nearest2Type":"P2","nearest2Tehsil":"Shirur"},{"Tehsil":"Purandhar","Town/Village":"Shivatkar (Nira)","Population":11228,"Village Type":"P1","Approx FMCG Outlet":30.0,"Latitude":18.101798333,"Longitude":74.211314167,"Dependent Population":141836.0,"Party_1":"Shankar Super Market","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":27,"_Nearest_1":"Vadgaon Nimbalkar","_Nearest_1_KM":16.37,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Baramati","_Nearest_2":"Jejuri","_Nearest_2_KM":20.31,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Purandhar","id":27,"town":"Shivatkar (Nira)","tehsil":"Purandhar","villageType":"P1","lat":18.101798333,"lon":74.211314167,"nearest1":"Vadgaon Nimbalkar","nearest1km":16.37,"nearest1Type":"P2","nearest1Tehsil":"Baramati","nearest2":"Jejuri","nearest2km":20.31,"nearest2Type":"P1","nearest2Tehsil":"Purandhar"},{"Tehsil":"Mawal","Town/Village":"Talegaon Dabhade","Population":56435,"Village Type":"P1","Approx FMCG Outlet":120.0,"Latitude":18.733454722,"Longitude":73.677898889,"Dependent Population":217005.0,"Party_1":"Mansi Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":28,"_Nearest_1":"Somatane","_Nearest_1_KM":3.53,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Wadagaon","_Nearest_2_KM":4.05,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":28,"town":"Talegaon Dabhade","tehsil":"Mawal","villageType":"P1","lat":18.733454722,"lon":73.677898889,"nearest1":"Somatane","nearest1km":3.53,"nearest1Type":"P2","nearest1Tehsil":"Mawal","nearest2":"Wadagaon","nearest2km":4.05,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Haveli","Town/Village":"Uruli Kanchan","Population":30305,"Village Type":"P1","Approx FMCG Outlet":34.0,"Latitude":18.487407222,"Longitude":74.133344722,"Dependent Population":110904.0,"Party_1":"Sundarlal Enterprises","Party_2":"Mahavir Agency","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":29,"_Nearest_1":"Kunjirwadi","_Nearest_1_KM":6.76,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Theur","_Nearest_2_KM":10.01,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Haveli","id":29,"town":"Uruli Kanchan","tehsil":"Haveli","villageType":"P1","lat":18.487407222,"lon":74.133344722,"nearest1":"Kunjirwadi","nearest1km":6.76,"nearest1Type":"P2","nearest1Tehsil":"Haveli","nearest2":"Theur","nearest2km":10.01,"nearest2Type":"P2","nearest2Tehsil":"Haveli"},{"Tehsil":"Haveli","Town/Village":"Wagholi","Population":33479,"Village Type":"P1","Approx FMCG Outlet":65.0,"Latitude":18.580876389,"Longitude":73.984596111,"Dependent Population":171050.0,"Party_1":"Kundan Chouhan","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":30,"_Nearest_1":"Kesnand","_Nearest_1_KM":4.05,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Manjari Kh.& Manjari Bk.","_Nearest_2_KM":6.25,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Haveli","id":30,"town":"Wagholi","tehsil":"Haveli","villageType":"P1","lat":18.580876389,"lon":73.984596111,"nearest1":"Kesnand","nearest1km":4.05,"nearest1Type":"P2","nearest1Tehsil":"Haveli","nearest2":"Manjari Kh.& Manjari Bk.","nearest2km":6.25,"nearest2Type":"P2","nearest2Tehsil":"Haveli"},{"Tehsil":"Junnar","Town/Village":"Belhe","Population":8005,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":19.117599167,"Longitude":74.176966389,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":31,"_Nearest_1":"Alefata & Ale","_Nearest_1_KM":11.19,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Junnar","_Nearest_2":"Jambut","_Nearest_2_KM":12.97,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Shirur","id":31,"town":"Belhe","tehsil":"Junnar","villageType":"P2","lat":19.117599167,"lon":74.176966389,"nearest1":"Alefata & Ale","nearest1km":11.19,"nearest1Type":"P1","nearest1Tehsil":"Junnar","nearest2":"Jambut","nearest2km":12.97,"nearest2Type":"P2","nearest2Tehsil":"Shirur"},{"Tehsil":"Mawal","Town/Village":"Induri","Population":10448,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.736798889,"Longitude":73.717023333,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":32,"_Nearest_1":"Talegaon Dabhade","_Nearest_1_KM":4.14,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Somatane","_Nearest_2_KM":4.91,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":32,"town":"Induri","tehsil":"Mawal","villageType":"P2","lat":18.736798889,"lon":73.717023333,"nearest1":"Talegaon Dabhade","nearest1km":4.14,"nearest1Type":"P1","nearest1Tehsil":"Mawal","nearest2":"Somatane","nearest2km":4.91,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Shirur","Town/Village":"Jambut","Population":3448,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":19.002883056,"Longitude":74.199102778,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":33,"_Nearest_1":"Belhe","_Nearest_1_KM":12.97,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Junnar","_Nearest_2":"Jadhavwadi (Ranjani)","_Nearest_2_KM":18.89,"_Nearest_2_Type":"P5","_Nearest_2_Tehsil":"Mulshi","id":33,"town":"Jambut","tehsil":"Shirur","villageType":"P2","lat":19.002883056,"lon":74.199102778,"nearest1":"Belhe","nearest1km":12.97,"nearest1Type":"P2","nearest1Tehsil":"Junnar","nearest2":"Jadhavwadi (Ranjani)","nearest2km":18.89,"nearest2Type":"P5","nearest2Tehsil":"Mulshi"},{"Tehsil":"Mawal","Town/Village":"Kale/Pawana Nagar","Population":2653,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.6855175,"Longitude":73.509015556,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":34,"_Nearest_1":"Khadkale/Kamshet","_Nearest_1_KM":9.94,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Lonavala & Khandala","_Nearest_2_KM":13.41,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Mawal","id":34,"town":"Kale/Pawana Nagar","tehsil":"Mawal","villageType":"P2","lat":18.6855175,"lon":73.509015556,"nearest1":"Khadkale/Kamshet","nearest1km":9.94,"nearest1Type":"P1","nearest1Tehsil":"Mawal","nearest2":"Lonavala & Khandala","nearest2km":13.41,"nearest2Type":"P1","nearest2Tehsil":"Mawal"},{"Tehsil":"Shirur","Town/Village":"Pabal","Population":3857,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.829751667,"Longitude":74.050818333,"Dependent Population":68740.0,"Party_1":"No Party Provided","Party_2":" ","Party_3":" ","Party_4":" ","Party_5":" ","_ID":35,"_Nearest_1":"Rajgurunagar (Khed)","_Nearest_1_KM":17.42,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Khed","_Nearest_2":"Shikrapur","_Nearest_2_KM":17.55,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Shirur","id":35,"town":"Pabal","tehsil":"Shirur","villageType":"P2","lat":18.829751667,"lon":74.050818333,"nearest1":"Rajgurunagar (Khed)","nearest1km":17.42,"nearest1Type":"P1","nearest1Tehsil":"Khed","nearest2":"Shikrapur","nearest2km":17.55,"nearest2Type":"P1","nearest2Tehsil":"Shirur"},{"Tehsil":"Shirur","Town/Village":"Karegaon","Population":5257,"Village Type":"P2","Approx FMCG Outlet":17.0,"Latitude":18.783347222,"Longitude":74.29667,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":36,"_Nearest_1":"Ranjangaon Ganpati","_Nearest_1_KM":6.29,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Shirur","_Nearest_2_KM":9.69,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Shirur","id":36,"town":"Karegaon","tehsil":"Shirur","villageType":"P2","lat":18.783347222,"lon":74.29667,"nearest1":"Ranjangaon Ganpati","nearest1km":6.29,"nearest1Type":"P2","nearest1Tehsil":"Shirur","nearest2":"Shirur","nearest2km":9.69,"nearest2Type":"P1","nearest2Tehsil":"Shirur"},{"Tehsil":"Haveli","Town/Village":"Kesnand","Population":4718,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.572848889,"Longitude":74.0220275,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":37,"_Nearest_1":"Wagholi","_Nearest_1_KM":4.05,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Theur","_Nearest_2_KM":6.11,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Haveli","id":37,"town":"Kesnand","tehsil":"Haveli","villageType":"P2","lat":18.572848889,"lon":74.0220275,"nearest1":"Wagholi","nearest1km":4.05,"nearest1Type":"P1","nearest1Tehsil":"Haveli","nearest2":"Theur","nearest2km":6.11,"nearest2Type":"P2","nearest2Tehsil":"Haveli"},{"Tehsil":"Haveli","Town/Village":"Kunjirwadi","Population":8421,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.488410833,"Longitude":74.069216944,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":38,"_Nearest_1":"Theur","_Nearest_1_KM":4.54,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Loni-kalbhor & Kadamwak Wasti","_Nearest_2_KM":4.85,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":38,"town":"Kunjirwadi","tehsil":"Haveli","villageType":"P2","lat":18.488410833,"lon":74.069216944,"nearest1":"Theur","nearest1km":4.54,"nearest1Type":"P2","nearest1Tehsil":"Haveli","nearest2":"Loni-kalbhor & Kadamwak Wasti","nearest2km":4.85,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Daund","Town/Village":"Kurkumbh","Population":5322,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.394838333,"Longitude":74.5393775,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":39,"_Nearest_1":"Patas","_Nearest_1_KM":9.09,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Daund","_Nearest_2":"Daund","_Nearest_2_KM":9.24,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Daund","id":39,"town":"Kurkumbh","tehsil":"Daund","villageType":"P2","lat":18.394838333,"lon":74.5393775,"nearest1":"Patas","nearest1km":9.09,"nearest1Type":"P2","nearest1Tehsil":"Daund","nearest2":"Daund","nearest2km":9.24,"nearest2Type":"P1","nearest2Tehsil":"Daund"},{"Tehsil":"Indapur","Town/Village":"Lasurne","Population":8803,"Village Type":"P2","Approx FMCG Outlet":17.0,"Latitude":18.088330556,"Longitude":74.763227778,"Dependent Population":180044.0,"Party_1":"Ramesh Hiralal Gandhi","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":40,"_Nearest_1":"Nimgaon Ketki","_Nearest_1_KM":15.96,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Indapur","_Nearest_2":"Baramati","_Nearest_2_KM":21.3,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Baramati","id":40,"town":"Lasurne","tehsil":"Indapur","villageType":"P2","lat":18.088330556,"lon":74.763227778,"nearest1":"Nimgaon Ketki","nearest1km":15.96,"nearest1Type":"P2","nearest1Tehsil":"Indapur","nearest2":"Baramati","nearest2km":21.3,"nearest2Type":"P1","nearest2Tehsil":"Baramati"},{"Tehsil":"Khed","Town/Village":"Mahalunge","Population":9687,"Village Type":"P2","Approx FMCG Outlet":16.0,"Latitude":18.754939722,"Longitude":73.808382778,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":41,"_Nearest_1":"Chakan & Medankarwadi","_Nearest_1_KM":5.64,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Khed","_Nearest_2":"Dehu","_Nearest_2_KM":6.02,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":41,"town":"Mahalunge","tehsil":"Khed","villageType":"P2","lat":18.754939722,"lon":73.808382778,"nearest1":"Chakan & Medankarwadi","nearest1km":5.64,"nearest1Type":"P1","nearest1Tehsil":"Khed","nearest2":"Dehu","nearest2km":6.02,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Baramati","Town/Village":"Malegaon Bk","Population":18470,"Village Type":"P2","Approx FMCG Outlet":18.0,"Latitude":18.131980278,"Longitude":74.510653056,"Dependent Population":97134.0,"Party_1":"Animesh Agencies","Party_2":"Sanjivan Medical And General Stores","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":42,"_Nearest_1":"Baramati","_Nearest_1_KM":6.74,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Baramati","_Nearest_2":"Vadgaon Nimbalkar","_Nearest_2_KM":15.53,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Baramati","id":42,"town":"Malegaon Bk","tehsil":"Baramati","villageType":"P2","lat":18.131980278,"lon":74.510653056,"nearest1":"Baramati","nearest1km":6.74,"nearest1Type":"P1","nearest1Tehsil":"Baramati","nearest2":"Vadgaon Nimbalkar","nearest2km":15.53,"nearest2Type":"P2","nearest2Tehsil":"Baramati"},{"Tehsil":"Mulshi","Town/Village":"Man","Population":7527,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.5749875,"Longitude":73.709217222,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":43,"_Nearest_1":"Pirangut","_Nearest_1_KM":7.51,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mulshi","_Nearest_2":"Paud","_Nearest_2_KM":11.12,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mulshi","id":43,"town":"Man","tehsil":"Mulshi","villageType":"P2","lat":18.5749875,"lon":73.709217222,"nearest1":"Pirangut","nearest1km":7.51,"nearest1Type":"P2","nearest1Tehsil":"Mulshi","nearest2":"Paud","nearest2km":11.12,"nearest2Type":"P2","nearest2Tehsil":"Mulshi"},{"Tehsil":"Haveli","Town/Village":"Manjari Kh.& Manjari Bk.","Population":4559,"Village Type":"P2","Approx FMCG Outlet":20.0,"Latitude":18.524661389,"Longitude":73.985783611,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":44,"_Nearest_1":"Loni-kalbhor & Kadamwak Wasti","_Nearest_1_KM":5.63,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Wagholi","_Nearest_2_KM":6.25,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Haveli","id":44,"town":"Manjari Kh.& Manjari Bk.","tehsil":"Haveli","villageType":"P2","lat":18.524661389,"lon":73.985783611,"nearest1":"Loni-kalbhor & Kadamwak Wasti","nearest1km":5.63,"nearest1Type":"P1","nearest1Tehsil":"Haveli","nearest2":"Wagholi","nearest2km":6.25,"nearest2Type":"P1","nearest2Tehsil":"Haveli"},{"Tehsil":"Baramati","Town/Village":"Morgaon","Population":5321,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.276719722,"Longitude":74.320298889,"Dependent Population":42708.0,"Party_1":"Rupesh Medico & General Stores","Party_2":"Rupesh Medico & General Stores","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":45,"_Nearest_1":"Supe","_Nearest_1_KM":9.16,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Baramati","_Nearest_2":"Jejuri","_Nearest_2_KM":16.8,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Purandhar","id":45,"town":"Morgaon","tehsil":"Baramati","villageType":"P2","lat":18.276719722,"lon":74.320298889,"nearest1":"Supe","nearest1km":9.16,"nearest1Type":"P2","nearest1Tehsil":"Baramati","nearest2":"Jejuri","nearest2km":16.8,"nearest2Type":"P1","nearest2Tehsil":"Purandhar"},{"Tehsil":"Bhor","Town/Village":"Nasrapur","Population":3812,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.25115,"Longitude":73.880802778,"Dependent Population":136907.0,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":46,"_Nearest_1":"Bhor","_Nearest_1_KM":12.03,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Bhor","_Nearest_2":"Sasvad","_Nearest_2_KM":18.96,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Purandhar","id":46,"town":"Nasrapur","tehsil":"Bhor","villageType":"P2","lat":18.25115,"lon":73.880802778,"nearest1":"Bhor","nearest1km":12.03,"nearest1Type":"P1","nearest1Tehsil":"Bhor","nearest2":"Sasvad","nearest2km":18.96,"nearest2Type":"P1","nearest2Tehsil":"Purandhar"},{"Tehsil":"Indapur","Town/Village":"Nimgaon Ketki","Population":12397,"Village Type":"P2","Approx FMCG Outlet":16.0,"Latitude":18.085817778,"Longitude":74.9141575,"Dependent Population":66735.0,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":47,"_Nearest_1":"Indapur","_Nearest_1_KM":12.35,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Indapur","_Nearest_2":"Lasurne","_Nearest_2_KM":15.96,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Indapur","id":47,"town":"Nimgaon Ketki","tehsil":"Indapur","villageType":"P2","lat":18.085817778,"lon":74.9141575,"nearest1":"Indapur","nearest1km":12.35,"nearest1Type":"P1","nearest1Tehsil":"Indapur","nearest2":"Lasurne","nearest2km":15.96,"nearest2Type":"P2","nearest2Tehsil":"Indapur"},{"Tehsil":"Daund","Town/Village":"Patas","Population":17495,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.433721667,"Longitude":74.463595278,"Dependent Population":97886.0,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":48,"_Nearest_1":"Kurkumbh","_Nearest_1_KM":9.09,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Daund","_Nearest_2":"Kedgaon Station & Chaufulla Fata & Boripardhi","_Nearest_2_KM":11.19,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Daund","id":48,"town":"Patas","tehsil":"Daund","villageType":"P2","lat":18.433721667,"lon":74.463595278,"nearest1":"Kurkumbh","nearest1km":9.09,"nearest1Type":"P2","nearest1Tehsil":"Daund","nearest2":"Kedgaon Station & Chaufulla Fata & Boripardhi","nearest2km":11.19,"nearest2Type":"P1","nearest2Tehsil":"Daund"},{"Tehsil":"Mulshi","Town/Village":"Paud","Population":3730,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.523908611,"Longitude":73.618513333,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":49,"_Nearest_1":"Pirangut","_Nearest_1_KM":7.63,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mulshi","_Nearest_2":"Man","_Nearest_2_KM":11.12,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mulshi","id":49,"town":"Paud","tehsil":"Mulshi","villageType":"P2","lat":18.523908611,"lon":73.618513333,"nearest1":"Pirangut","nearest1km":7.63,"nearest1Type":"P2","nearest1Tehsil":"Mulshi","nearest2":"Man","nearest2km":11.12,"nearest2Type":"P2","nearest2Tehsil":"Mulshi"},{"Tehsil":"Mulshi","Town/Village":"Pirangut","Population":14174,"Village Type":"P2","Approx FMCG Outlet":18.0,"Latitude":18.510140833,"Longitude":73.689360278,"Dependent Population":104752.0,"Party_1":"Shreyaa Agencies","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":50,"_Nearest_1":"Man","_Nearest_1_KM":7.51,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Mulshi","_Nearest_2":"Paud","_Nearest_2_KM":7.63,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mulshi","id":50,"town":"Pirangut","tehsil":"Mulshi","villageType":"P2","lat":18.510140833,"lon":73.689360278,"nearest1":"Man","nearest1km":7.51,"nearest1Type":"P2","nearest1Tehsil":"Mulshi","nearest2":"Paud","nearest2km":7.63,"nearest2Type":"P2","nearest2Tehsil":"Mulshi"},{"Tehsil":"Daund","Town/Village":"Rahu","Population":10220,"Village Type":"P2","Approx FMCG Outlet":14.0,"Latitude":18.572732222,"Longitude":74.269152778,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":51,"_Nearest_1":"Yawat","_Nearest_1_KM":10.72,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Daund","_Nearest_2":"Kedgaon Station & Chaufulla Fata & Boripardhi","_Nearest_2_KM":14.73,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Daund","id":51,"town":"Rahu","tehsil":"Daund","villageType":"P2","lat":18.572732222,"lon":74.269152778,"nearest1":"Yawat","nearest1km":10.72,"nearest1Type":"P2","nearest1Tehsil":"Daund","nearest2":"Kedgaon Station & Chaufulla Fata & Boripardhi","nearest2km":14.73,"nearest2Type":"P1","nearest2Tehsil":"Daund"},{"Tehsil":"Shirur","Town/Village":"Ranjangaon Ganpati","Population":13427,"Village Type":"P2","Approx FMCG Outlet":18.0,"Latitude":18.755057778,"Longitude":74.244926111,"Dependent Population":null,"Party_1":"Shindiya Enterprises","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":52,"_Nearest_1":"Karegaon","_Nearest_1_KM":6.29,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Shikrapur","_Nearest_2_KM":12.93,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Shirur","id":52,"town":"Ranjangaon Ganpati","tehsil":"Shirur","villageType":"P2","lat":18.755057778,"lon":74.244926111,"nearest1":"Karegaon","nearest1km":6.29,"nearest1Type":"P2","nearest1Tehsil":"Shirur","nearest2":"Shikrapur","nearest2km":12.93,"nearest2Type":"P1","nearest2Tehsil":"Shirur"},{"Tehsil":"Shirur","Town/Village":"Sanaswadi","Population":13543,"Village Type":"P2","Approx FMCG Outlet":16.0,"Latitude":18.671294167,"Longitude":74.101563611,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":53,"_Nearest_1":"Shikrapur","_Nearest_1_KM":4.82,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Talegaon Dhamdhere","_Nearest_2_KM":5.02,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Shirur","id":53,"town":"Sanaswadi","tehsil":"Shirur","villageType":"P2","lat":18.671294167,"lon":74.101563611,"nearest1":"Shikrapur","nearest1km":4.82,"nearest1Type":"P1","nearest1Tehsil":"Shirur","nearest2":"Talegaon Dhamdhere","nearest2km":5.02,"nearest2Type":"P2","nearest2Tehsil":"Shirur"},{"Tehsil":"Mawal","Town/Village":"Somatane","Population":5300,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.7029275,"Longitude":73.687181111,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":54,"_Nearest_1":"Talegaon Dabhade","_Nearest_1_KM":3.53,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Induri","_Nearest_2_KM":4.91,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":54,"town":"Somatane","tehsil":"Mawal","villageType":"P2","lat":18.7029275,"lon":73.687181111,"nearest1":"Talegaon Dabhade","nearest1km":3.53,"nearest1Type":"P1","nearest1Tehsil":"Mawal","nearest2":"Induri","nearest2km":4.91,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Baramati","Town/Village":"Supe","Population":5008,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.336434444,"Longitude":74.380118889,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":55,"_Nearest_1":"Morgaon","_Nearest_1_KM":9.16,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Baramati","_Nearest_2":"Patas","_Nearest_2_KM":13.95,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Daund","id":55,"town":"Supe","tehsil":"Baramati","villageType":"P2","lat":18.336434444,"lon":74.380118889,"nearest1":"Morgaon","nearest1km":9.16,"nearest1Type":"P2","nearest1Tehsil":"Baramati","nearest2":"Patas","nearest2km":13.95,"nearest2Type":"P2","nearest2Tehsil":"Daund"},{"Tehsil":"Mawal","Town/Village":"Takave Bk.","Population":4143,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.80497,"Longitude":73.609028889,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":56,"_Nearest_1":"Khadkale/Kamshet","_Nearest_1_KM":7.25,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Wadagaon","_Nearest_2_KM":7.99,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":56,"town":"Takave Bk.","tehsil":"Mawal","villageType":"P2","lat":18.80497,"lon":73.609028889,"nearest1":"Khadkale/Kamshet","nearest1km":7.25,"nearest1Type":"P1","nearest1Tehsil":"Mawal","nearest2":"Wadagaon","nearest2km":7.99,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Shirur","Town/Village":"Talegaon Dhamdhere","Population":15393,"Village Type":"P2","Approx FMCG Outlet":16.0,"Latitude":18.667976667,"Longitude":74.149058333,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":57,"_Nearest_1":"Shikrapur","_Nearest_1_KM":3.28,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Shirur","_Nearest_2":"Sanaswadi","_Nearest_2_KM":5.02,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Shirur","id":57,"town":"Talegaon Dhamdhere","tehsil":"Shirur","villageType":"P2","lat":18.667976667,"lon":74.149058333,"nearest1":"Shikrapur","nearest1km":3.28,"nearest1Type":"P1","nearest1Tehsil":"Shirur","nearest2":"Sanaswadi","nearest2km":5.02,"nearest2Type":"P2","nearest2Tehsil":"Shirur"},{"Tehsil":"Haveli","Town/Village":"Theur","Population":9674,"Village Type":"P2","Approx FMCG Outlet":12.0,"Latitude":18.522888611,"Longitude":74.046090278,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":58,"_Nearest_1":"Loni-kalbhor & Kadamwak Wasti","_Nearest_1_KM":4.51,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Haveli","_Nearest_2":"Kunjirwadi","_Nearest_2_KM":4.54,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Haveli","id":58,"town":"Theur","tehsil":"Haveli","villageType":"P2","lat":18.522888611,"lon":74.046090278,"nearest1":"Loni-kalbhor & Kadamwak Wasti","nearest1km":4.51,"nearest1Type":"P1","nearest1Tehsil":"Haveli","nearest2":"Kunjirwadi","nearest2km":4.54,"nearest2Type":"P2","nearest2Tehsil":"Haveli"},{"Tehsil":"Baramati","Town/Village":"Vadgaon Nimbalkar","Population":7646,"Village Type":"P2","Approx FMCG Outlet":15.0,"Latitude":18.12809,"Longitude":74.363742778,"Dependent Population":60473.0,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":59,"_Nearest_1":"Malegaon Bk","_Nearest_1_KM":15.53,"_Nearest_1_Type":"P2","_Nearest_1_Tehsil":"Baramati","_Nearest_2":"Shivatkar (Nira)","_Nearest_2_KM":16.37,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Purandhar","id":59,"town":"Vadgaon Nimbalkar","tehsil":"Baramati","villageType":"P2","lat":18.12809,"lon":74.363742778,"nearest1":"Malegaon Bk","nearest1km":15.53,"nearest1Type":"P2","nearest1Tehsil":"Baramati","nearest2":"Shivatkar (Nira)","nearest2km":16.37,"nearest2Type":"P1","nearest2Tehsil":"Purandhar"},{"Tehsil":"Mawal","Town/Village":"Wadagaon","Population":14595,"Village Type":"P2","Approx FMCG Outlet":16.0,"Latitude":18.739315833,"Longitude":73.639942222,"Dependent Population":null,"Party_1":"No Party Provided","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":60,"_Nearest_1":"Talegaon Dabhade","_Nearest_1_KM":4.05,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Mawal","_Nearest_2":"Somatane","_Nearest_2_KM":6.41,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Mawal","id":60,"town":"Wadagaon","tehsil":"Mawal","villageType":"P2","lat":18.739315833,"lon":73.639942222,"nearest1":"Talegaon Dabhade","nearest1km":4.05,"nearest1Type":"P1","nearest1Tehsil":"Mawal","nearest2":"Somatane","nearest2km":6.41,"nearest2Type":"P2","nearest2Tehsil":"Mawal"},{"Tehsil":"Daund","Town/Village":"Yawat","Population":13983,"Village Type":"P2","Approx FMCG Outlet":18.0,"Latitude":18.476292222,"Longitude":74.269685278,"Dependent Population":75425.0,"Party_1":"Shri Samarth Medical","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":61,"_Nearest_1":"Kedgaon Station & Chaufulla Fata & Boripardhi","_Nearest_1_KM":10.58,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Daund","_Nearest_2":"Rahu","_Nearest_2_KM":10.72,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Daund","id":61,"town":"Yawat","tehsil":"Daund","villageType":"P2","lat":18.476292222,"lon":74.269685278,"nearest1":"Kedgaon Station & Chaufulla Fata & Boripardhi","nearest1km":10.58,"nearest1Type":"P1","nearest1Tehsil":"Daund","nearest2":"Rahu","nearest2km":10.72,"nearest2Type":"P2","nearest2Tehsil":"Daund"},{"Tehsil":"Mulshi","Town/Village":"Jadhavwadi (Ranjani)","Population":1057,"Village Type":"P5","Approx FMCG Outlet":3.0,"Latitude":19.056139,"Longitude":74.028418,"Dependent Population":null,"Party_1":"Dhanshree Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":62,"_Nearest_1":"Narayangaon","_Nearest_1_KM":8.91,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Junnar","_Nearest_2":"Manchar","_Nearest_2_KM":10.65,"_Nearest_2_Type":"P1","_Nearest_2_Tehsil":"Ambegaon","id":62,"town":"Jadhavwadi (Ranjani)","tehsil":"Mulshi","villageType":"P5","lat":19.056139,"lon":74.028418,"nearest1":"Narayangaon","nearest1km":8.91,"nearest1Type":"P1","nearest1Tehsil":"Junnar","nearest2":"Manchar","nearest2km":10.65,"nearest2Type":"P1","nearest2Tehsil":"Ambegaon"},{"Tehsil":"Mulshi","Town/Village":"Sadalgaon","Population":2635,"Village Type":"P4","Approx FMCG Outlet":7.0,"Latitude":18.534893,"Longitude":74.451248,"Dependent Population":null,"Party_1":"Pawan Agency","Party_2":"No Party Provided","Party_3":"No Party Provided","Party_4":"No Party Provided","Party_5":"No Party Provided","_ID":63,"_Nearest_1":"Kedgaon Station & Chaufulla Fata & Boripardhi","_Nearest_1_KM":10.47,"_Nearest_1_Type":"P1","_Nearest_1_Tehsil":"Daund","_Nearest_2":"Patas","_Nearest_2_KM":11.32,"_Nearest_2_Type":"P2","_Nearest_2_Tehsil":"Daund","id":63,"town":"Sadalgaon","tehsil":"Mulshi","villageType":"P4","lat":18.534893,"lon":74.451248,"nearest1":"Kedgaon Station & Chaufulla Fata & Boripardhi","nearest1km":10.47,"nearest1Type":"P1","nearest1Tehsil":"Daund","nearest2":"Patas","nearest2km":11.32,"nearest2Type":"P2","nearest2Tehsil":"Daund"}];
 
 
 const CONNECTIONS =
-[{"source": 0, "target": 44, "distance": 13.681519374299535}, {"source": 0, "target": 22, "distance": 15.217818550598155}, {"source": 1, "target": 6, "distance": 10.138975952296866}, {"source": 1, "target": 22, "distance": 11.594885979915114}, {"source": 2, "target": 31, "distance": 11.1896783744963}, {"source": 2, "target": 20, "distance": 14.700757907410763}, {"source": 3, "target": 42, "distance": 6.7380284411829985}, {"source": 3, "target": 40, "distance": 21.298071555942407}, {"source": 4, "target": 40, "distance": 22.693694436423783}, {"source": 3, "target": 4, "distance": 25.055996607522804}, {"source": 5, "target": 46, "distance": 12.031389996287556}, {"source": 5, "target": 24, "distance": 29.51834886937963}, {"source": 6, "target": 41, "distance": 5.639541865824124}, {"source": 7, "target": 39, "distance": 9.241336823087984}, {"source": 7, "target": 48, "distance": 13.32571078615075}, {"source": 8, "target": 9, "distance": 5.546296237425391}, {"source": 8, "target": 32, "distance": 5.814914780725525}, {"source": 9, "target": 54, "distance": 5.1723085189333835}, {"source": 10, "target": 19, "distance": 12.125296417709478}, {"source": 10, "target": 20, "distance": 16.45949890446326}, {"source": 11, "target": 47, "distance": 12.350060257400592}, {"source": 11, "target": 40, "distance": 28.0422031161045}, {"source": 12, "target": 24, "distance": 15.78554724726565}, {"source": 12, "target": 45, "distance": 16.804603024451605}, {"source": 13, "target": 21, "distance": 12.610562814688219}, {"source": 13, "target": 20, "distance": 14.194147724164932}, {"source": 14, "target": 63, "distance": 10.470823996411116}, {"source": 14, "target": 61, "distance": 10.580954316438197}, {"source": 15, "target": 56, "distance": 7.24961076625642}, {"source": 15, "target": 60, "distance": 9.155477808493428}, {"source": 16, "target": 53, "distance": 5.138531986417953}, {"source": 16, "target": 37, "distance": 9.084317191560142}, {"source": 17, "target": 34, "distance": 13.405589778582524}, {"source": 15, "target": 17, "distance": 16.070182510240926}, {"source": 18, "target": 58, "distance": 4.5100516385256135}, {"source": 18, "target": 38, "distance": 4.847827643221904}, {"source": 19, "target": 62, "distance": 10.645773850260872}, {"source": 20, "target": 62, "distance": 8.911281775443719}, {"source": 19, "target": 20, "distance": 13.245729330566606}, {"source": 2, "target": 21, "distance": 14.901736636292656}, {"source": 9, "target": 22, "distance": 8.169236974579267}, {"source": 8, "target": 22, "distance": 9.033566405174744}, {"source": 6, "target": 23, "distance": 10.569102004800088}, {"source": 23, "target": 41, "distance": 13.889170361674987}, {"source": 18, "target": 24, "distance": 15.853139914479351}, {"source": 25, "target": 57, "distance": 3.281944758338383}, {"source": 25, "target": 53, "distance": 4.8198565389949035}, {"source": 26, "target": 36, "distance": 9.688428262917537}, {"source": 26, "target": 52, "distance": 15.977933168637456}, {"source": 27, "target": 59, "distance": 16.37234283622746}, {"source": 12, "target": 27, "distance": 20.306275642949743}, {"source": 28, "target": 54, "distance": 3.532431129998243}, {"source": 28, "target": 60, "distance": 4.049716150911365}, {"source": 29, "target": 38, "distance": 6.763603243902365}, {"source": 29, "target": 58, "distance": 10.010847349792071}, {"source": 30, "target": 37, "distance": 4.045040534589456}, {"source": 30, "target": 44, "distance": 6.252084784574971}, {"source": 31, "target": 33, "distance": 12.966294513757065}, {"source": 28, "target": 32, "distance": 4.136678279422655}, {"source": 32, "target": 54, "distance": 4.905327446532974}, {"source": 33, "target": 62, "distance": 18.894091720535112}, {"source": 15, "target": 34, "distance": 9.939216677337498}, {"source": 23, "target": 35, "distance": 17.418490541240484}, {"source": 25, "target": 35, "distance": 17.545569233250635}, {"source": 36, "target": 52, "distance": 6.290669534291525}, {"source": 37, "target": 58, "distance": 6.1070889173161}, {"source": 38, "target": 58, "distance": 4.543620559973206}, {"source": 39, "target": 48, "distance": 9.089343506530108}, {"source": 40, "target": 47, "distance": 15.955787778967418}, {"source": 8, "target": 41, "distance": 6.018868593685766}, {"source": 42, "target": 59, "distance": 15.530702526990428}, {"source": 43, "target": 50, "distance": 7.508355150201523}, {"source": 43, "target": 49, "distance": 11.121529968345458}, {"source": 18, "target": 44, "distance": 5.629040065726121}, {"source": 45, "target": 55, "distance": 9.163468354755267}, {"source": 24, "target": 46, "distance": 18.96038362530878}, {"source": 14, "target": 48, "distance": 11.188357670638851}, {"source": 49, "target": 50, "distance": 7.625250750018594}, {"source": 51, "target": 61, "distance": 10.723800505884043}, {"source": 14, "target": 51, "distance": 14.734754779269913}, {"source": 25, "target": 52, "distance": 12.929553524943548}, {"source": 53, "target": 57, "distance": 5.016864646127635}, {"source": 48, "target": 55, "distance": 13.950402596746754}, {"source": 56, "target": 60, "distance": 7.993015641352018}, {"source": 54, "target": 60, "distance": 6.41253480036182}, {"source": 48, "target": 63, "distance": 11.324862419535046}];
+[{"source":0,"target":44,"distance":13.681519374299535},{"source":0,"target":22,"distance":15.217818550598155},{"source":1,"target":6,"distance":10.138975952296866},{"source":1,"target":22,"distance":11.594885979915114},{"source":2,"target":31,"distance":11.1896783744963},{"source":2,"target":20,"distance":14.700757907410763},{"source":3,"target":42,"distance":6.7380284411829985},{"source":3,"target":40,"distance":21.298071555942407},{"source":4,"target":40,"distance":22.693694436423783},{"source":3,"target":4,"distance":25.055996607522804},{"source":5,"target":46,"distance":12.031389996287556},{"source":5,"target":24,"distance":29.51834886937963},{"source":6,"target":41,"distance":5.639541865824124},{"source":7,"target":39,"distance":9.241336823087984},{"source":7,"target":48,"distance":13.32571078615075},{"source":8,"target":9,"distance":5.546296237425391},{"source":8,"target":32,"distance":5.814914780725525},{"source":9,"target":54,"distance":5.1723085189333835},{"source":10,"target":19,"distance":12.125296417709478},{"source":10,"target":20,"distance":16.45949890446326},{"source":11,"target":47,"distance":12.350060257400592},{"source":11,"target":40,"distance":28.0422031161045},{"source":12,"target":24,"distance":15.78554724726565},{"source":12,"target":45,"distance":16.804603024451605},{"source":13,"target":21,"distance":12.610562814688219},{"source":13,"target":20,"distance":14.194147724164932},{"source":14,"target":63,"distance":10.470823996411116},{"source":14,"target":61,"distance":10.580954316438197},{"source":15,"target":56,"distance":7.24961076625642},{"source":15,"target":60,"distance":9.155477808493428},{"source":16,"target":53,"distance":5.138531986417953},{"source":16,"target":37,"distance":9.084317191560142},{"source":17,"target":34,"distance":13.405589778582524},{"source":15,"target":17,"distance":16.070182510240926},{"source":18,"target":58,"distance":4.5100516385256135},{"source":18,"target":38,"distance":4.847827643221904},{"source":19,"target":62,"distance":10.645773850260872},{"source":20,"target":62,"distance":8.911281775443719},{"source":19,"target":20,"distance":13.245729330566606},{"source":2,"target":21,"distance":14.901736636292656},{"source":9,"target":22,"distance":8.169236974579267},{"source":8,"target":22,"distance":9.033566405174744},{"source":6,"target":23,"distance":10.569102004800088},{"source":23,"target":41,"distance":13.889170361674987},{"source":18,"target":24,"distance":15.853139914479351},{"source":25,"target":57,"distance":3.281944758338383},{"source":25,"target":53,"distance":4.8198565389949035},{"source":26,"target":36,"distance":9.688428262917537},{"source":26,"target":52,"distance":15.977933168637456},{"source":27,"target":59,"distance":16.37234283622746},{"source":12,"target":27,"distance":20.306275642949743},{"source":28,"target":54,"distance":3.532431129998243},{"source":28,"target":60,"distance":4.049716150911365},{"source":29,"target":38,"distance":6.763603243902365},{"source":29,"target":58,"distance":10.010847349792071},{"source":30,"target":37,"distance":4.045040534589456},{"source":30,"target":44,"distance":6.252084784574971},{"source":31,"target":33,"distance":12.966294513757065},{"source":28,"target":32,"distance":4.136678279422655},{"source":32,"target":54,"distance":4.905327446532974},{"source":33,"target":62,"distance":18.894091720535112},{"source":15,"target":34,"distance":9.939216677337498},{"source":23,"target":35,"distance":17.418490541240484},{"source":25,"target":35,"distance":17.545569233250635},{"source":36,"target":52,"distance":6.290669534291525},{"source":37,"target":58,"distance":6.1070889173161},{"source":38,"target":58,"distance":4.543620559973206},{"source":39,"target":48,"distance":9.089343506530108},{"source":40,"target":47,"distance":15.955787778967418},{"source":8,"target":41,"distance":6.018868593685766},{"source":42,"target":59,"distance":15.530702526990428},{"source":43,"target":50,"distance":7.508355150201523},{"source":43,"target":49,"distance":11.121529968345458},{"source":18,"target":44,"distance":5.629040065726121},{"source":45,"target":55,"distance":9.163468354755267},{"source":24,"target":46,"distance":18.96038362530878},{"source":14,"target":48,"distance":11.188357670638851},{"source":49,"target":50,"distance":7.625250750018594},{"source":51,"target":61,"distance":10.723800505884043},{"source":14,"target":51,"distance":14.734754779269913},{"source":25,"target":52,"distance":12.929553524943548},{"source":53,"target":57,"distance":5.016864646127635},{"source":48,"target":55,"distance":13.950402596746754},{"source":56,"target":60,"distance":7.993015641352018},{"source":54,"target":60,"distance":6.41253480036182},{"source":48,"target":63,"distance":11.324862419535046}];
 
 
 const TEHSIL_COLORS =
-{"Ambegaon": "#3e3dcc", "Baramati": "#65cc3d", "Bhor": "#cc3d8f", "Daund": "#3db9cc", "Haveli": "#ccb53d", "Indapur": "#8b3dcc", "Junnar": "#3dcc61", "Khed": "#cc3d42", "Mawal": "#3d6bcc", "Mulshi": "#95cc3d", "Pune City": "#cc3dbf", "Purandhar": "#3dccaf", "Shirur": "#cc853d"};
+{"Ambegaon":"#4148cc","Baramati":"#70cc41","Bhor":"#cc4199","Daund":"#41c1cc","Haveli":"#ccad41","Indapur":"#8541cc","Junnar":"#41cc5c","Khed":"#cc414e","Mawal":"#4176cc","Mulshi":"#9fcc41","Pune City":"#cc41c7","Purandhar":"#41cca7","Shirur":"#cc7f41"};
 
 
 const DISPLAY_FIELDS =
-["Tehsil", "Town/Village", "Population", "Village Type", "Approx FMCG Outlet", "Latitude", "Longitude", "Dependent Population", "Party_1", "Party_2", "Party_3", "Party_4", "Party_5"];
+["Tehsil","Town/Village","Population","Village Type","Approx FMCG Outlet","Latitude","Longitude","Dependent Population","Party_1","Party_2","Party_3","Party_4","Party_5"];
 
 
 const TEHSILS =
-["Ambegaon", "Baramati", "Bhor", "Daund", "Haveli", "Indapur", "Junnar", "Khed", "Mawal", "Mulshi", "Pune City", "Purandhar", "Shirur"];
+["Ambegaon","Baramati","Bhor","Daund","Haveli","Indapur","Junnar","Khed","Mawal","Mulshi","Pune City","Purandhar","Shirur"];
 
 
 const CURRENT_LOCATION_MAX_KM =
@@ -1202,9 +1453,19 @@ const sidebar =
     );
 
 
-document.getElementById(
-    "mobileControlsButton"
-).addEventListener(
+const mobileControlsButton =
+    document.getElementById(
+        "mobileControlsButton"
+    );
+
+
+const closePanel =
+    document.getElementById(
+        "closePanel"
+    );
+
+
+mobileControlsButton.addEventListener(
     "click",
     () => {
 
@@ -1215,9 +1476,7 @@ document.getElementById(
 );
 
 
-document.getElementById(
-    "closePanel"
-).addEventListener(
+closePanel.addEventListener(
     "click",
     () => {
 
@@ -1229,7 +1488,7 @@ document.getElementById(
 
 
 // ============================================================
-// ESCAPE
+// ESCAPE HTML
 // ============================================================
 
 function escapeHtml(value) {
@@ -1274,14 +1533,13 @@ function escapeHtml(value) {
 
 
 // ============================================================
-// FORMAT
+// FORMAT VALUE
 // ============================================================
 
 function formatValue(
     field,
     value
 ) {
-
 
     if (
         value === null
@@ -1295,7 +1553,7 @@ function formatValue(
     }
 
 
-    const lower =
+    const fieldLower =
         String(field)
         .toLowerCase();
 
@@ -1306,15 +1564,16 @@ function formatValue(
         field === "Longitude"
     ) {
 
-        const n =
+        const num =
             Number(value);
 
 
-        return Number.isFinite(n)
-            ?
-            n.toFixed(6)
-            :
-            escapeHtml(value);
+        if (
+            Number.isFinite(num)
+        ) {
+
+            return num.toFixed(6);
+        }
     }
 
 
@@ -1322,11 +1581,11 @@ function formatValue(
         typeof value === "number"
         &&
         (
-            lower.includes(
+            fieldLower.includes(
                 "population"
             )
             ||
-            lower.includes(
+            fieldLower.includes(
                 "outlet"
             )
         )
@@ -1338,9 +1597,7 @@ function formatValue(
     }
 
 
-    return escapeHtml(
-        value
-    );
+    return escapeHtml(value);
 }
 
 
@@ -1355,39 +1612,42 @@ function haversineKm(
     lon2
 ) {
 
-
     const R =
         6371.0088;
 
 
-    const rad =
-        x =>
-        x * Math.PI / 180;
+    const toRadians =
+        value =>
+            value
+            *
+            Math.PI
+            /
+            180;
 
 
     const p1 =
-        rad(lat1);
+        toRadians(lat1);
 
 
     const p2 =
-        rad(lat2);
+        toRadians(lat2);
 
 
-    const dp =
-        rad(
+    const dLat =
+        toRadians(
             lat2 - lat1
         );
 
 
-    const dl =
-        rad(
+    const dLon =
+        toRadians(
             lon2 - lon1
         );
 
 
     const a =
         Math.sin(
-            dp / 2
+            dLat / 2
         ) ** 2
 
         +
@@ -1397,7 +1657,7 @@ function haversineKm(
         Math.cos(p2)
         *
         Math.sin(
-            dl / 2
+            dLon / 2
         ) ** 2;
 
 
@@ -1422,7 +1682,8 @@ const map =
     L.map(
         "map",
         {
-            zoomControl: true
+            zoomControl: true,
+            preferCanvas: true
         }
     );
 
@@ -1433,7 +1694,8 @@ L.tileLayer(
 
     {
 
-        maxZoom: 19,
+        maxZoom:
+            19,
 
         attribution:
             "&copy; OpenStreetMap contributors"
@@ -1446,21 +1708,37 @@ L.tileLayer(
 
 
 // ============================================================
-// FIT MAP
+// INITIAL MAP BOUNDS
 // ============================================================
 
-if (
-    DATA.length > 0
-) {
+function fitAllLocations() {
+
+    if (
+        DATA.length === 0
+    ) {
+
+        map.setView(
+            [
+                19.0,
+                75.0
+            ],
+            6
+        );
+
+        return;
+    }
 
 
     const bounds =
         L.latLngBounds(
 
             DATA.map(
-                p => [
-                    p.lat,
-                    p.lon
+                point => [
+
+                    point.lat,
+
+                    point.lon
+
                 ]
             )
 
@@ -1477,12 +1755,14 @@ if (
                 ]
         }
     );
-
 }
 
 
+fitAllLocations();
+
+
 // ============================================================
-// FILTER SELECT
+// TEHSIL FILTER OPTIONS
 // ============================================================
 
 const tehsilFilter =
@@ -1541,35 +1821,35 @@ TEHSILS.forEach(
             "legend-row";
 
 
-        const colour =
+        const line =
             document.createElement(
                 "span"
             );
 
 
-        colour.className =
+        line.className =
             "legend-line";
 
 
-        colour.style.background =
+        line.style.background =
             TEHSIL_COLORS[
                 tehsil
             ];
 
 
-        const text =
+        const label =
             document.createElement(
                 "span"
             );
 
 
-        text.textContent =
+        label.textContent =
             tehsil;
 
 
         row.append(
-            colour,
-            text
+            line,
+            label
         );
 
 
@@ -1582,11 +1862,10 @@ TEHSILS.forEach(
 
 
 // ============================================================
-// POPUP
+// BUILD POPUP
 // ============================================================
 
-function buildPopup(p) {
-
+function buildPopup(point) {
 
     let rows = "";
 
@@ -1597,21 +1876,24 @@ function buildPopup(p) {
 
             rows +=
                 "<tr>"
+
                 +
                 "<td>"
                 +
                 escapeHtml(field)
                 +
                 "</td>"
+
                 +
                 "<td>"
                 +
                 formatValue(
                     field,
-                    p[field]
+                    point[field]
                 )
                 +
                 "</td>"
+
                 +
                 "</tr>";
 
@@ -1619,22 +1901,39 @@ function buildPopup(p) {
     );
 
 
-    let nearest =
+    let nearestHtml =
         "<div class='popup-nearest'>";
 
 
     if (
-        p.nearest1
+        point.nearest1
     ) {
 
-
-        nearest +=
+        nearestHtml +=
 
             "<strong>Nearest 1:</strong> "
 
             +
             escapeHtml(
-                p.nearest1
+                point.nearest1
+            )
+
+            +
+            " · "
+
+            +
+            escapeHtml(
+                point.nearest1Type
+                ||
+                "Other"
+            )
+
+            +
+            " · "
+
+            +
+            escapeHtml(
+                point.nearest1Tehsil
             )
 
             +
@@ -1642,7 +1941,7 @@ function buildPopup(p) {
 
             +
             Number(
-                p.nearest1km
+                point.nearest1km
             ).toFixed(1)
 
             +
@@ -1651,17 +1950,34 @@ function buildPopup(p) {
 
 
     if (
-        p.nearest2
+        point.nearest2
     ) {
 
-
-        nearest +=
+        nearestHtml +=
 
             "<strong>Nearest 2:</strong> "
 
             +
             escapeHtml(
-                p.nearest2
+                point.nearest2
+            )
+
+            +
+            " · "
+
+            +
+            escapeHtml(
+                point.nearest2Type
+                ||
+                "Other"
+            )
+
+            +
+            " · "
+
+            +
+            escapeHtml(
+                point.nearest2Tehsil
             )
 
             +
@@ -1669,7 +1985,7 @@ function buildPopup(p) {
 
             +
             Number(
-                p.nearest2km
+                point.nearest2km
             ).toFixed(1)
 
             +
@@ -1678,17 +1994,17 @@ function buildPopup(p) {
 
 
     if (
-        !p.nearest1
+        !point.nearest1
         &&
-        !p.nearest2
+        !point.nearest2
     ) {
 
-        nearest +=
-            "No location within 50 km.";
+        nearestHtml +=
+            "No mapped point within 50 km.";
     }
 
 
-    nearest +=
+    nearestHtml +=
         "</div>";
 
 
@@ -1701,7 +2017,7 @@ function buildPopup(p) {
         "<div class='popup-title'>"
         +
         escapeHtml(
-            p.town
+            point.town
         )
         +
         "</div>"
@@ -1711,13 +2027,13 @@ function buildPopup(p) {
         "<div class='popup-subtitle'>"
         +
         escapeHtml(
-            p.tehsil
+            point.tehsil
         )
         +
         " · "
         +
         escapeHtml(
-            p.villageType
+            point.villageType
             ||
             "Other"
         )
@@ -1734,7 +2050,7 @@ function buildPopup(p) {
 
         +
 
-        nearest
+        nearestHtml
 
         +
 
@@ -1748,21 +2064,22 @@ function buildPopup(p) {
 // POINT ICON
 // ============================================================
 
-function pointIcon(p) {
-
+function pointIcon(point) {
 
     const colour =
         TEHSIL_COLORS[
-            p.tehsil
+            point.tehsil
         ]
         ||
         "#475467";
 
 
     let label =
-        p.villageType
-        ||
-        "•";
+        String(
+            point.villageType
+            ||
+            "•"
+        );
 
 
     if (
@@ -1770,7 +2087,7 @@ function pointIcon(p) {
     ) {
 
         label =
-            label.slice(
+            label.substring(
                 0,
                 4
             );
@@ -1790,22 +2107,20 @@ function pointIcon(p) {
             +
             ";'>"
             +
-            escapeHtml(
-                label
-            )
+            escapeHtml(label)
             +
             "</div>",
 
         iconSize:
             [
-                28,
-                28
+                30,
+                30
             ],
 
         iconAnchor:
             [
-                14,
-                14
+                15,
+                15
             ]
 
     });
@@ -1816,10 +2131,7 @@ function pointIcon(p) {
 // DISTANCE ICON
 // ============================================================
 
-function distanceIcon(
-    distance
-) {
-
+function distanceIcon(distance) {
 
     return L.divIcon({
 
@@ -1834,7 +2146,9 @@ function distanceIcon(
                 distance
             ).toFixed(1)
             +
-            " km</div>",
+            " km"
+            +
+            "</div>",
 
         iconSize:
             [
@@ -1853,45 +2167,66 @@ function distanceIcon(
 
 
 // ============================================================
-// POINTS
+// CREATE NORMAL LOCATION MARKERS
 // ============================================================
 
-const pointLayers = [];
+const pointLayers =
+    [];
+
+
+const pointLayerById =
+    new Map();
 
 
 DATA.forEach(
-    p => {
+    point => {
 
 
         const marker =
             L.marker(
 
                 [
-                    p.lat,
-                    p.lon
+                    point.lat,
+                    point.lon
                 ],
 
                 {
                     icon:
                         pointIcon(
-                            p
-                        )
+                            point
+                        ),
+
+                    title:
+                        point.town,
+
+                    keyboard:
+                        true
                 }
 
             );
 
 
         marker.bindTooltip(
-            p.town,
+            point.town,
+
             {
                 direction:
-                    "top"
+                    "top",
+
+                offset:
+                    [
+                        0,
+                        -12
+                    ]
             }
         );
 
 
         marker.bindPopup(
-            buildPopup(p),
+            buildPopup(
+                point
+            ),
+
             {
                 maxWidth:
                     420
@@ -1904,11 +2239,25 @@ DATA.forEach(
         );
 
 
+        const layerObject = {
+
+            data:
+                point,
+
+            marker:
+                marker
+
+        };
+
+
         pointLayers.push(
-            {
-                data: p,
-                marker: marker
-            }
+            layerObject
+        );
+
+
+        pointLayerById.set(
+            point.id,
+            layerObject
         );
 
     }
@@ -1916,7 +2265,7 @@ DATA.forEach(
 
 
 // ============================================================
-// NETWORK
+// CREATE PERMANENT NEAREST NETWORK
 // ============================================================
 
 const connectionLayers =
@@ -1924,18 +2273,18 @@ const connectionLayers =
 
 
 CONNECTIONS.forEach(
-    con => {
+    connection => {
 
 
         const source =
             DATA[
-                con.source
+                connection.source
             ];
 
 
         const target =
             DATA[
-                con.target
+                connection.target
             ];
 
 
@@ -1986,28 +2335,37 @@ CONNECTIONS.forEach(
             [];
 
 
-        const tooltip =
+        const tooltipText =
+
             source.town
+
             +
             " ↔ "
+
             +
             target.town
+
             +
             " | "
+
             +
-            con.distance.toFixed(1)
+            Number(
+                connection.distance
+            ).toFixed(1)
+
             +
             " km";
 
 
+        // ====================================================
         // SAME TEHSIL
+        // ====================================================
 
         if (
             source.tehsil
             ===
             target.tehsil
         ) {
-
 
             const line =
                 L.polyline(
@@ -2035,7 +2393,7 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            .78
+                            0.76
 
                     }
 
@@ -2043,7 +2401,7 @@ CONNECTIONS.forEach(
 
 
             line.bindTooltip(
-                tooltip
+                tooltipText
             );
 
 
@@ -2059,12 +2417,13 @@ CONNECTIONS.forEach(
         }
 
 
+        // ====================================================
         // CROSS TEHSIL
+        // ====================================================
 
         else {
 
-
-            const first =
+            const firstHalf =
                 L.polyline(
 
                     [
@@ -2087,14 +2446,14 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            .78
+                            0.76
 
                     }
 
                 );
 
 
-            const second =
+            const secondHalf =
                 L.polyline(
 
                     [
@@ -2117,60 +2476,69 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            .78
+                            0.76
 
                     }
 
                 );
 
 
-            first.bindTooltip(
-                tooltip
+            firstHalf.bindTooltip(
+                tooltipText
             );
 
 
-            second.bindTooltip(
-                tooltip
+            secondHalf.bindTooltip(
+                tooltipText
             );
 
 
-            first.addTo(
+            firstHalf.addTo(
                 map
             );
 
 
-            second.addTo(
+            secondHalf.addTo(
                 map
             );
 
 
             segments.push(
-                first,
-                second
+                firstHalf,
+                secondHalf
             );
 
         }
 
 
-        const label =
+        // ====================================================
+        // DISTANCE
+        // ====================================================
+
+        const distanceMarker =
             L.marker(
 
                 midpoint,
 
                 {
+
                     icon:
                         distanceIcon(
-                            con.distance
+                            connection.distance
                         ),
 
                     interactive:
+                        false,
+
+                    keyboard:
                         false
+
                 }
 
             );
 
 
-        label.addTo(
+        distanceMarker.addTo(
             map
         );
 
@@ -2178,16 +2546,16 @@ CONNECTIONS.forEach(
         connectionLayers.push({
 
             source:
-                con.source,
+                connection.source,
 
             target:
-                con.target,
+                connection.target,
 
             segments:
                 segments,
 
             label:
-                label
+                distanceMarker
 
         });
 
@@ -2196,7 +2564,7 @@ CONNECTIONS.forEach(
 
 
 // ============================================================
-// FILTERS
+// FILTER CONTROLS
 // ============================================================
 
 const showP1 =
@@ -2217,18 +2585,27 @@ const showOther =
     );
 
 
+const showNetwork =
+    document.getElementById(
+        "showNetwork"
+    );
+
+
 const showDistances =
     document.getElementById(
         "showDistances"
     );
 
 
-function typeAllowed(p) {
+// ============================================================
+// TYPE FILTER
+// ============================================================
 
+function typeAllowed(point) {
 
     const type =
         String(
-            p.villageType
+            point.villageType
             ||
             ""
         ).toUpperCase();
@@ -2260,32 +2637,35 @@ function typeAllowed(p) {
 
 function applyFilters() {
 
-
-    const selected =
+    const selectedTehsil =
         tehsilFilter.value;
 
 
-    const contextIds =
+    const contextPointIds =
         new Set();
 
 
-    let visibleLines =
+    let visibleLineCount =
         0;
 
 
+    // ========================================================
+    // NETWORK CONNECTIONS
+    // ========================================================
+
     connectionLayers.forEach(
-        c => {
+        connection => {
 
 
             const source =
                 DATA[
-                    c.source
+                    connection.source
                 ];
 
 
             const target =
                 DATA[
-                    c.target
+                    connection.target
                 ];
 
 
@@ -2300,33 +2680,52 @@ function applyFilters() {
 
 
             const tehsilOK =
-                selected === "ALL"
+
+                selectedTehsil
+                ===
+                "ALL"
+
                 ||
-                source.tehsil === selected
+
+                source.tehsil
+                ===
+                selectedTehsil
+
                 ||
-                target.tehsil === selected;
+
+                target.tehsil
+                ===
+                selectedTehsil;
 
 
-            const show =
-                typeOK
+            const shouldShow =
+
+                showNetwork.checked
+
                 &&
+
+                typeOK
+
+                &&
+
                 tehsilOK;
 
 
-            c.segments.forEach(
-                line => {
+            connection.segments.forEach(
+                segment => {
 
 
-                    if (show) {
-
+                    if (
+                        shouldShow
+                    ) {
 
                         if (
                             !map.hasLayer(
-                                line
+                                segment
                             )
                         ) {
 
-                            line.addTo(
+                            segment.addTo(
                                 map
                             );
                         }
@@ -2335,15 +2734,14 @@ function applyFilters() {
 
                     else {
 
-
                         if (
                             map.hasLayer(
-                                line
+                                segment
                             )
                         ) {
 
                             map.removeLayer(
-                                line
+                                segment
                             );
                         }
 
@@ -2353,20 +2751,23 @@ function applyFilters() {
             );
 
 
-            if (
-                show
+            const showLabel =
+                shouldShow
                 &&
-                showDistances.checked
-            ) {
+                showDistances.checked;
 
+
+            if (
+                showLabel
+            ) {
 
                 if (
                     !map.hasLayer(
-                        c.label
+                        connection.label
                     )
                 ) {
 
-                    c.label.addTo(
+                    connection.label.addTo(
                         map
                     );
                 }
@@ -2375,30 +2776,33 @@ function applyFilters() {
 
             else {
 
-
                 if (
                     map.hasLayer(
-                        c.label
+                        connection.label
                     )
                 ) {
 
                     map.removeLayer(
-                        c.label
+                        connection.label
                     );
                 }
 
             }
 
 
-            if (show) {
+            if (
+                shouldShow
+            ) {
 
-                visibleLines++;
+                visibleLineCount++;
 
-                contextIds.add(
+
+                contextPointIds.add(
                     source.id
                 );
 
-                contextIds.add(
+
+                contextPointIds.add(
                     target.id
                 );
             }
@@ -2407,34 +2811,51 @@ function applyFilters() {
     );
 
 
-    let visibleLocations =
+    // ========================================================
+    // POINTS
+    // ========================================================
+
+    let visiblePointCount =
         0;
 
 
     pointLayers.forEach(
-        obj => {
+        object => {
 
 
-            const p =
-                obj.data;
+            const point =
+                object.data;
 
 
             const typeOK =
-                typeAllowed(p);
+                typeAllowed(
+                    point
+                );
 
 
             let tehsilOK =
-                selected === "ALL"
+
+                selectedTehsil
+                ===
+                "ALL"
+
                 ||
-                p.tehsil === selected;
+
+                point.tehsil
+                ===
+                selectedTehsil;
 
 
-            // retain cross-Tehsil endpoint
+            // Keep cross-Tehsil endpoint visible as context
             if (
-                selected !== "ALL"
+                selectedTehsil
+                !==
+                "ALL"
+
                 &&
-                contextIds.has(
-                    p.id
+
+                contextPointIds.has(
+                    point.id
                 )
             ) {
 
@@ -2443,42 +2864,42 @@ function applyFilters() {
             }
 
 
-            const show =
+            const shouldShow =
                 typeOK
                 &&
                 tehsilOK;
 
 
-            if (show) {
-
+            if (
+                shouldShow
+            ) {
 
                 if (
                     !map.hasLayer(
-                        obj.marker
+                        object.marker
                     )
                 ) {
 
-                    obj.marker.addTo(
+                    object.marker.addTo(
                         map
                     );
                 }
 
 
-                visibleLocations++;
+                visiblePointCount++;
 
             }
 
             else {
 
-
                 if (
                     map.hasLayer(
-                        obj.marker
+                        object.marker
                     )
                 ) {
 
                     map.removeLayer(
-                        obj.marker
+                        object.marker
                     );
                 }
 
@@ -2491,14 +2912,17 @@ function applyFilters() {
     document.getElementById(
         "visibleLocations"
     ).textContent =
-        visibleLocations.toLocaleString();
+        visiblePointCount.toLocaleString(
+            "en-IN"
+        );
 
 
     document.getElementById(
         "visibleLines"
     ).textContent =
-        visibleLines.toLocaleString();
-
+        visibleLineCount.toLocaleString(
+            "en-IN"
+        );
 }
 
 
@@ -2511,6 +2935,7 @@ function applyFilters() {
     showP1,
     showP2,
     showOther,
+    showNetwork,
     showDistances
 ].forEach(
     control => {
@@ -2519,12 +2944,13 @@ function applyFilters() {
             "change",
             applyFilters
         );
+
     }
 );
 
 
 // ============================================================
-// RESET
+// RESET FILTERS
 // ============================================================
 
 document.getElementById(
@@ -2550,6 +2976,10 @@ document.getElementById(
             true;
 
 
+        showNetwork.checked =
+            true;
+
+
         showDistances.checked =
             true;
 
@@ -2557,29 +2987,7 @@ document.getElementById(
         applyFilters();
 
 
-        const bounds =
-            L.latLngBounds(
-
-                DATA.map(
-                    p => [
-                        p.lat,
-                        p.lon
-                    ]
-                )
-
-            );
-
-
-        map.fitBounds(
-            bounds,
-            {
-                padding:
-                    [
-                        30,
-                        30
-                    ]
-            }
-        );
+        fitAllLocations();
 
     }
 );
@@ -2591,7 +2999,9 @@ document.getElementById(
 
 const currentLocationGroup =
     L.layerGroup()
-    .addTo(map);
+    .addTo(
+        map
+    );
 
 
 const locationStatus =
@@ -2606,12 +3016,21 @@ const locationResults =
     );
 
 
+const autoLocationMessage =
+    document.getElementById(
+        "autoLocationMessage"
+    );
+
+
+let locationRequestRunning =
+    false;
+
+
 // ============================================================
 // CURRENT LOCATION ICON
 // ============================================================
 
 function currentLocationIcon() {
-
 
     return L.divIcon({
 
@@ -2623,14 +3042,14 @@ function currentLocationIcon() {
 
         iconSize:
             [
-                20,
-                20
+                22,
+                22
             ],
 
         iconAnchor:
             [
-                10,
-                10
+                11,
+                11
             ]
 
     });
@@ -2638,34 +3057,67 @@ function currentLocationIcon() {
 
 
 // ============================================================
-// NEAREST 5 FROM CURRENT LOCATION
+// CURRENT NEAREST NUMBER ICON
+// ============================================================
+
+function nearestRankIcon(rank) {
+
+    return L.divIcon({
+
+        className:
+            "location-marker",
+
+        html:
+
+            "<div class='nearest-highlight'>"
+            +
+            rank
+            +
+            "</div>",
+
+        iconSize:
+            [
+                36,
+                36
+            ],
+
+        iconAnchor:
+            [
+                18,
+                18
+            ]
+
+    });
+}
+
+
+// ============================================================
+// TRUE NEAREST 5 FROM CURRENT GPS
 // ============================================================
 
 function nearestFromCurrentLocation(
-    lat,
-    lon
+    latitude,
+    longitude
 ) {
-
 
     return DATA
 
         .map(
-            p => {
-
+            point => {
 
                 return {
 
                     point:
-                        p,
+                        point,
 
                     distance:
                         haversineKm(
 
-                            lat,
-                            lon,
+                            latitude,
+                            longitude,
 
-                            p.lat,
-                            p.lon
+                            point.lat,
+                            point.lon
 
                         )
 
@@ -2675,14 +3127,19 @@ function nearestFromCurrentLocation(
         )
 
         .filter(
-            x =>
-                x.distance
+            item =>
+
+                item.distance
                 <=
                 CURRENT_LOCATION_MAX_KM
         )
 
         .sort(
-            (a,b) =>
+            (
+                a,
+                b
+            ) =>
+
                 a.distance
                 -
                 b.distance
@@ -2692,12 +3149,75 @@ function nearestFromCurrentLocation(
             0,
             CURRENT_NEAREST_COUNT
         );
-
 }
 
 
 // ============================================================
-// RESULT CARD
+// PARTY SUMMARY FOR NEAREST CARD
+// ============================================================
+
+function getPartySummary(point) {
+
+    const parties =
+        [];
+
+
+    [
+        "Party_1",
+        "Party_2",
+        "Party_3",
+        "Party_4",
+        "Party_5"
+    ].forEach(
+        field => {
+
+
+            const value =
+                point[field];
+
+
+            if (
+                value !== null
+                &&
+                value !== undefined
+                &&
+                String(value).trim() !== ""
+                &&
+                String(value)
+                    .trim()
+                    .toLowerCase()
+                    !==
+                    "no party provided"
+            ) {
+
+                parties.push(
+                    String(value).trim()
+                );
+            }
+
+        }
+    );
+
+
+    if (
+        parties.length === 0
+    ) {
+
+        return "No party";
+    }
+
+
+    return parties
+        .slice(
+            0,
+            2
+        )
+        .join(" / ");
+}
+
+
+// ============================================================
+// CREATE NEAREST RESULT CARD
 // ============================================================
 
 function createResultCard(
@@ -2705,8 +3225,7 @@ function createResultCard(
     rank
 ) {
 
-
-    const p =
+    const point =
         item.point;
 
 
@@ -2718,6 +3237,18 @@ function createResultCard(
 
     card.className =
         "nearest-card";
+
+
+    const typeText =
+        point.villageType
+        ||
+        "Other";
+
+
+    const partyText =
+        getPartySummary(
+            point
+        );
 
 
     card.innerHTML =
@@ -2736,7 +3267,7 @@ function createResultCard(
         "<div class='nearest-name'>"
         +
         escapeHtml(
-            p.town
+            point.town
         )
         +
         "</div>"
@@ -2746,15 +3277,19 @@ function createResultCard(
         "<div class='nearest-meta'>"
         +
         escapeHtml(
-            p.villageType
-            ||
-            "Other"
+            typeText
         )
         +
         " · "
         +
         escapeHtml(
-            p.tehsil
+            point.tehsil
+        )
+        +
+        "<br>"
+        +
+        escapeHtml(
+            partyText
         )
         +
         "</div>"
@@ -2779,39 +3314,37 @@ function createResultCard(
         () => {
 
 
-            map.setView(
-
-                [
-                    p.lat,
-                    p.lon
-                ],
-
-                Math.max(
-                    map.getZoom(),
-                    12
-                )
-
-            );
-
-
-            // close mobile drawer
             sidebar.classList.remove(
                 "open"
             );
 
 
-            const original =
-                pointLayers.find(
-                    obj =>
-                        obj.data.id
-                        ===
-                        p.id
+            map.setView(
+
+                [
+                    point.lat,
+                    point.lon
+                ],
+
+                Math.max(
+                    map.getZoom(),
+                    13
+                )
+
+            );
+
+
+            const existing =
+                pointLayerById.get(
+                    point.id
                 );
 
 
-            if (original) {
+            if (
+                existing
+            ) {
 
-                original.marker.openPopup();
+                existing.marker.openPopup();
             }
 
         }
@@ -2823,22 +3356,43 @@ function createResultCard(
 
 
 // ============================================================
-// ADD CURRENT LOCATION LINE
+// ADD CURRENT GPS -> NEAREST LINE
 // ============================================================
 
-function addNearestLine(
+function addCurrentNearestLine(
     userLat,
     userLon,
     item,
     rank
 ) {
 
-
-    const p =
+    const point =
         item.point;
 
 
-    const line =
+    const rankColours = [
+        "#111827",
+        "#1d4ed8",
+        "#7c3aed",
+        "#0f766e",
+        "#b45309"
+    ];
+
+
+    const lineColour =
+        rankColours[
+            Math.min(
+                rank - 1,
+                rankColours.length - 1
+            )
+        ];
+
+
+    // ========================================================
+    // DASHED LINE
+    // ========================================================
+
+    const currentLine =
         L.polyline(
 
             [
@@ -2849,8 +3403,8 @@ function addNearestLine(
                 ],
 
                 [
-                    p.lat,
-                    p.lon
+                    point.lat,
+                    point.lon
                 ]
 
             ],
@@ -2858,17 +3412,17 @@ function addNearestLine(
             {
 
                 color:
-                    "#111827",
+                    lineColour,
 
                 weight:
                     rank === 1
                     ?
                     5
                     :
-                    3,
+                    4,
 
                 opacity:
-                    .85,
+                    0.92,
 
                 dashArray:
                     "8,7"
@@ -2878,42 +3432,51 @@ function addNearestLine(
         );
 
 
-    line.bindTooltip(
+    currentLine.bindTooltip(
 
         "#"
         +
         rank
+
         +
         " "
+
         +
-        p.town
+        point.town
+
         +
         " · "
+
         +
         item.distance.toFixed(1)
+
         +
         " km"
 
     );
 
 
-    line.addTo(
+    currentLine.addTo(
         currentLocationGroup
     );
 
 
-    const mid = [
+    // ========================================================
+    // MIDPOINT DISTANCE
+    // ========================================================
+
+    const midpoint = [
 
         (
             userLat
             +
-            p.lat
+            point.lat
         ) / 2,
 
         (
             userLon
             +
-            p.lon
+            point.lon
         ) / 2
 
     ];
@@ -2921,16 +3484,21 @@ function addNearestLine(
 
     L.marker(
 
-        mid,
+        midpoint,
 
         {
+
             icon:
                 distanceIcon(
                     item.distance
                 ),
 
             interactive:
+                false,
+
+            keyboard:
                 false
+
         }
 
     ).addTo(
@@ -2938,350 +3506,491 @@ function addNearestLine(
     );
 
 
-    const highlightIcon =
-        L.divIcon({
-
-            className:
-                "location-marker",
-
-            html:
-
-                "<div class='nearest-highlight'>"
-                +
-                rank
-                +
-                "</div>",
-
-            iconSize:
-                [
-                    34,
-                    34
-                ],
-
-            iconAnchor:
-                [
-                    17,
-                    17
-                ]
-
-        });
-
+    // ========================================================
+    // NUMBERED TARGET
+    // ========================================================
 
     L.marker(
 
         [
-            p.lat,
-            p.lon
+            point.lat,
+            point.lon
         ],
 
         {
+
             icon:
-                highlightIcon
+                nearestRankIcon(
+                    rank
+                ),
+
+            zIndexOffset:
+                1200
+
         }
 
     )
+
     .bindPopup(
-        buildPopup(p),
+        buildPopup(
+            point
+        ),
+
         {
             maxWidth:
                 420
         }
     )
+
     .addTo(
         currentLocationGroup
     );
-
 }
 
 
 // ============================================================
-// FIND CURRENT LOCATION
+// AUTOMATIC LOCATION + NEAREST 5
 // ============================================================
 
-document.getElementById(
-    "locationButton"
-).addEventListener(
-    "click",
-    () => {
+function findAndShowNearestFive() {
+
+    if (
+        locationRequestRunning
+    ) {
+
+        return;
+    }
 
 
-        currentLocationGroup.clearLayers();
+    locationRequestRunning =
+        true;
 
 
-        locationResults.innerHTML =
-            "";
+    currentLocationGroup.clearLayers();
 
 
-        if (
-            !navigator.geolocation
-        ) {
+    locationResults.innerHTML =
+        "";
 
 
-            locationStatus.textContent =
-                "Geolocation is not supported by this browser.";
+    autoLocationMessage.className =
+        "auto-location-banner";
 
 
-            return;
-        }
+    autoLocationMessage.innerHTML =
+        "◎ Getting your location and nearest 5...";
+
+
+    locationStatus.textContent =
+        "Waiting for browser location...";
+
+
+    // ========================================================
+    // GEOLOCATION CHECK
+    // ========================================================
+
+    if (
+        !navigator.geolocation
+    ) {
+
+        locationRequestRunning =
+            false;
+
+
+        autoLocationMessage.className =
+            "auto-location-banner error";
+
+
+        autoLocationMessage.textContent =
+            "Location is not supported";
 
 
         locationStatus.textContent =
-            "Getting your current location...";
+            "This browser does not support geolocation.";
 
 
-        navigator.geolocation.getCurrentPosition(
+        return;
+    }
 
 
-            // SUCCESS
-            position => {
+    navigator.geolocation.getCurrentPosition(
 
 
-                const userLat =
-                    position.coords.latitude;
+        // ====================================================
+        // SUCCESS
+        // ====================================================
+
+        position => {
 
 
-                const userLon =
-                    position.coords.longitude;
+            locationRequestRunning =
+                false;
 
 
-                // USER LOCATION
+            const userLat =
+                Number(
+                    position.coords.latitude
+                );
 
-                L.marker(
+
+            const userLon =
+                Number(
+                    position.coords.longitude
+                );
+
+
+            // =================================================
+            // USER LOCATION MARKER
+            // =================================================
+
+            L.marker(
+
+                [
+                    userLat,
+                    userLon
+                ],
+
+                {
+
+                    icon:
+                        currentLocationIcon(),
+
+                    zIndexOffset:
+                        1500
+
+                }
+
+            )
+
+            .bindPopup(
+
+                "<strong>Your Current Location</strong>"
+                +
+                "<br>"
+                +
+                userLat.toFixed(6)
+                +
+                ", "
+                +
+                userLon.toFixed(6)
+
+            )
+
+            .addTo(
+                currentLocationGroup
+            );
+
+
+            // =================================================
+            // TRUE NEAREST 5
+            // =================================================
+
+            const nearest =
+                nearestFromCurrentLocation(
+
+                    userLat,
+                    userLon
+
+                );
+
+
+            // =================================================
+            // NOTHING WITHIN 50 KM
+            // =================================================
+
+            if (
+                nearest.length === 0
+            ) {
+
+                autoLocationMessage.className =
+                    "auto-location-banner warning";
+
+
+                autoLocationMessage.textContent =
+                    "No mapped location within 50 km";
+
+
+                locationStatus.innerHTML =
+
+                    "Your location was captured, but there is "
+                    +
+                    "no mapped point within "
+                    +
+                    "<strong>50 km</strong>.";
+
+
+                map.setView(
 
                     [
                         userLat,
                         userLon
                     ],
 
-                    {
-                        icon:
-                            currentLocationIcon()
-                    }
-
-                )
-                .bindPopup(
-                    "<strong>Your Current Location</strong>"
-                )
-                .addTo(
-                    currentLocationGroup
-                );
-
-
-                // NEAREST 5
-
-                const nearest =
-                    nearestFromCurrentLocation(
-
-                        userLat,
-                        userLon
-
-                    );
-
-
-                if (
-                    nearest.length === 0
-                ) {
-
-
-                    locationStatus.textContent =
-                        "No mapped location found within 50 km.";
-
-
-                    map.setView(
-                        [
-                            userLat,
-                            userLon
-                        ],
-                        11
-                    );
-
-
-                    return;
-                }
-
-
-                locationStatus.innerHTML =
-
-                    "Showing <strong>"
-                    +
-                    nearest.length
-                    +
-                    "</strong> nearest points within "
-                    +
-                    CURRENT_LOCATION_MAX_KM
-                    +
-                    " km.";
-
-
-                const fitPoints = [
-
-                    [
-                        userLat,
-                        userLon
-                    ]
-
-                ];
-
-
-                nearest.forEach(
-                    (
-                        item,
-                        index
-                    ) => {
-
-
-                        const rank =
-                            index + 1;
-
-
-                        locationResults.appendChild(
-
-                            createResultCard(
-                                item,
-                                rank
-                            )
-
-                        );
-
-
-                        addNearestLine(
-
-                            userLat,
-                            userLon,
-
-                            item,
-                            rank
-
-                        );
-
-
-                        fitPoints.push(
-
-                            [
-                                item.point.lat,
-                                item.point.lon
-                            ]
-
-                        );
-
-                    }
-                );
-
-
-                map.fitBounds(
-
-                    L.latLngBounds(
-                        fitPoints
-                    ),
-
-                    {
-                        padding:
-                            [
-                                50,
-                                50
-                            ],
-
-                        maxZoom:
-                            13
-                    }
+                    11
 
                 );
 
-            },
 
-
-            // ERROR
-            error => {
-
-
-                let msg =
-                    "Unable to get current location.";
-
-
-                if (
-                    error.code === 1
-                ) {
-
-                    msg =
-                        "Location permission denied. Please allow location access.";
-                }
-
-
-                else if (
-                    error.code === 2
-                ) {
-
-                    msg =
-                        "Your current location could not be determined.";
-                }
-
-
-                else if (
-                    error.code === 3
-                ) {
-
-                    msg =
-                        "Location request timed out.";
-                }
-
-
-                locationStatus.textContent =
-                    msg;
-
-            },
-
-
-            {
-                enableHighAccuracy:
-                    true,
-
-                timeout:
-                    15000,
-
-                maximumAge:
-                    30000
+                return;
             }
 
-        );
 
-    }
-);
+            // =================================================
+            // STATUS
+            // =================================================
+
+            autoLocationMessage.className =
+                "auto-location-banner success";
+
+
+            autoLocationMessage.innerHTML =
+
+                "✓ Nearest "
+                +
+                nearest.length
+                +
+                " locations shown automatically";
+
+
+            locationStatus.innerHTML =
+
+                "Current location captured. "
+                +
+                "Results are the geographically nearest mapped "
+                +
+                "points within <strong>"
+                +
+                CURRENT_LOCATION_MAX_KM
+                +
+                " km</strong>.";
+
+
+            // =================================================
+            // MAP FIT POINTS
+            // =================================================
+
+            const fitPoints = [
+
+                [
+                    userLat,
+                    userLon
+                ]
+
+            ];
+
+
+            // =================================================
+            // ADD ALL NEAREST RESULTS
+            // =================================================
+
+            nearest.forEach(
+                (
+                    item,
+                    index
+                ) => {
+
+
+                    const rank =
+                        index + 1;
+
+
+                    // Result card
+                    locationResults.appendChild(
+
+                        createResultCard(
+                            item,
+                            rank
+                        )
+
+                    );
+
+
+                    // Line + number + distance
+                    addCurrentNearestLine(
+
+                        userLat,
+                        userLon,
+
+                        item,
+                        rank
+
+                    );
+
+
+                    fitPoints.push(
+
+                        [
+                            item.point.lat,
+                            item.point.lon
+                        ]
+
+                    );
+
+                }
+            );
+
+
+            // =================================================
+            // ZOOM TO CURRENT + NEAREST 5
+            // =================================================
+
+            map.fitBounds(
+
+                L.latLngBounds(
+                    fitPoints
+                ),
+
+                {
+
+                    padding:
+                        [
+                            55,
+                            55
+                        ],
+
+                    maxZoom:
+                        13
+
+                }
+
+            );
+
+        },
+
+
+        // ====================================================
+        // ERROR
+        // ====================================================
+
+        error => {
+
+
+            locationRequestRunning =
+                false;
+
+
+            autoLocationMessage.className =
+                "auto-location-banner warning";
+
+
+            let message =
+                "Unable to get current location.";
+
+
+            if (
+                error.code === 1
+            ) {
+
+                autoLocationMessage.textContent =
+                    "Location permission required";
+
+
+                message =
+                    "Allow location permission in the browser "
+                    +
+                    "to automatically show the nearest 5 points.";
+            }
+
+
+            else if (
+                error.code === 2
+            ) {
+
+                autoLocationMessage.textContent =
+                    "Current location unavailable";
+
+
+                message =
+                    "The browser could not determine your current location.";
+            }
+
+
+            else if (
+                error.code === 3
+            ) {
+
+                autoLocationMessage.textContent =
+                    "Location request timed out";
+
+
+                message =
+                    "Location request timed out. "
+                    +
+                    "Tap Refresh My Location.";
+            }
+
+
+            locationStatus.textContent =
+                message;
+
+        },
+
+
+        // ====================================================
+        // LOCATION OPTIONS
+        // ====================================================
+
+        {
+
+            enableHighAccuracy:
+                true,
+
+            timeout:
+                18000,
+
+            maximumAge:
+                30000
+
+        }
+
+    );
+}
 
 
 // ============================================================
-// CLEAR LOCATION
+// REFRESH LOCATION
 // ============================================================
 
 document.getElementById(
-    "clearLocation"
+    "refreshLocation"
 ).addEventListener(
     "click",
     () => {
 
-
-        currentLocationGroup.clearLayers();
-
-
-        locationResults.innerHTML =
-            "";
-
-
-        locationStatus.textContent =
-            "Finds the nearest 5 mapped points within 50 km.";
-
+        findAndShowNearestFive();
     }
 );
 
 
 // ============================================================
-// INITIAL FILTER
+// INITIAL FILTERS
 // ============================================================
 
 applyFilters();
 
 
 // ============================================================
-// HANDLE RESIZE
+// AUTOMATIC LOCATION ON PAGE LOAD
+// ============================================================
+//
+// No Find Nearest button required.
+//
+// Browser will request location permission if needed.
+// Once allowed, nearest 5 immediately appear.
+// ============================================================
+
+window.setTimeout(
+    () => {
+
+        findAndShowNearestFive();
+
+    },
+    600
+);
+
+
+// ============================================================
+// MAP RESIZE
 // ============================================================
 
 window.addEventListener(
@@ -3289,9 +3998,9 @@ window.addEventListener(
     () => {
 
         map.invalidateSize();
+
     }
 );
-
 
 </script>
 
