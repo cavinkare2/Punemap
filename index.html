@@ -9,13 +9,14 @@
 
 <meta
     name="viewport"
-    content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
 >
 
 <meta
     name="theme-color"
     content="#ffffff"
 >
+
 
 <title>
 FMCG Location Network
@@ -34,10 +35,6 @@ FMCG Location Network
 
 
 <style>
-
-/* ==========================================================
-   GLOBAL
-   ========================================================== */
 
 * {
     box-sizing: border-box;
@@ -60,7 +57,7 @@ body {
         Helvetica,
         sans-serif;
 
-    background: white;
+    background: #fff;
 
     color: #101828;
 }
@@ -74,12 +71,6 @@ input {
 }
 
 
-button {
-
-    touch-action: manipulation;
-}
-
-
 /* ==========================================================
    APP
    ========================================================== */
@@ -89,15 +80,11 @@ button {
     width: 100%;
     height: 100%;
 
-    position: relative;
-
     display: flex;
+
+    position: relative;
 }
 
-
-/* ==========================================================
-   MAP
-   ========================================================== */
 
 #map {
 
@@ -108,7 +95,7 @@ button {
 
     min-width: 0;
 
-    background: #eef1f4;
+    background: #edf0f3;
 }
 
 
@@ -118,20 +105,20 @@ button {
 
 #sidebar {
 
-    width: 350px;
+    order: -1;
 
-    min-width: 350px;
+    width: 355px;
+
+    min-width: 355px;
 
     height: 100%;
 
-    order: -1;
+    padding:
+        16px 16px 25px;
 
     overflow-y: auto;
 
-    padding:
-        16px 16px 24px;
-
-    background: white;
+    background: #fff;
 
     border-right:
         1px solid #d0d5dd;
@@ -140,43 +127,40 @@ button {
 }
 
 
-.header-title {
+.title {
 
     font-size: 21px;
 
     font-weight: 800;
-
-    line-height: 1.2;
 }
 
 
-.header-subtitle {
+.subtitle {
 
-    margin-top: 5px;
+    margin-top: 4px;
+
+    color: #667085;
 
     font-size: 12px;
 
     line-height: 1.45;
-
-    color: #667085;
 }
 
 
 /* ==========================================================
-   LOCATION BANNER
+   LOCATION STATUS
    ========================================================== */
 
-.auto-location-banner {
+.location-banner {
 
     margin-top: 13px;
 
-    padding:
-        11px 12px;
+    padding: 11px 12px;
+
+    border-radius: 9px;
 
     border:
         1px solid #e4e7ec;
-
-    border-radius: 9px;
 
     background: #f2f4f7;
 
@@ -184,13 +168,13 @@ button {
 
     font-size: 13px;
 
-    line-height: 1.35;
-
     font-weight: 800;
+
+    line-height: 1.35;
 }
 
 
-.auto-location-banner.success {
+.location-banner.success {
 
     background: #ecfdf3;
 
@@ -200,7 +184,7 @@ button {
 }
 
 
-.auto-location-banner.warning {
+.location-banner.warning {
 
     background: #fffaeb;
 
@@ -252,14 +236,14 @@ button {
 
     margin-top: 2px;
 
-    font-size: 10px;
-
     color: #667085;
+
+    font-size: 10px;
 }
 
 
 /* ==========================================================
-   SECTION
+   SECTIONS
    ========================================================== */
 
 .section {
@@ -277,6 +261,8 @@ button {
 
     margin-bottom: 9px;
 
+    color: #475467;
+
     font-size: 11px;
 
     font-weight: 800;
@@ -284,13 +270,11 @@ button {
     text-transform: uppercase;
 
     letter-spacing: .05em;
-
-    color: #475467;
 }
 
 
 /* ==========================================================
-   SELECT
+   CONTROLS
    ========================================================== */
 
 select {
@@ -307,7 +291,7 @@ select {
 
     border-radius: 9px;
 
-    background: white;
+    background: #fff;
 
     color: #101828;
 
@@ -315,9 +299,73 @@ select {
 }
 
 
-/* ==========================================================
-   CHECKBOX
-   ========================================================== */
+.type-filter-grid {
+
+    margin-top: 8px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:
+        5px 8px;
+}
+
+
+.type-check {
+
+    min-width: 0;
+
+    min-height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 5px;
+
+    border-radius: 7px;
+
+    background: #fafafa;
+}
+
+
+.type-check input {
+
+    width: 19px;
+    height: 19px;
+
+    margin: 0;
+
+    flex-shrink: 0;
+}
+
+
+.type-dot {
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+
+.type-check label {
+
+    min-width: 0;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
 
 .checkbox-row {
 
@@ -325,11 +373,11 @@ select {
 
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
     min-height: 42px;
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
@@ -339,14 +387,8 @@ select {
     height: 20px;
 
     margin: 0;
-
-    flex-shrink: 0;
 }
 
-
-/* ==========================================================
-   BUTTONS
-   ========================================================== */
 
 button {
 
@@ -354,14 +396,14 @@ button {
 
     min-height: 46px;
 
+    padding:
+        9px 13px;
+
     border: 0;
 
     border-radius: 9px;
 
     cursor: pointer;
-
-    padding:
-        9px 13px;
 
     font-size: 14px;
 
@@ -383,18 +425,18 @@ button {
 
 
 /* ==========================================================
-   CURRENT LOCATION RESULTS
+   GPS RESULTS
    ========================================================== */
 
 #locationStatus {
 
     margin-bottom: 9px;
 
+    color: #667085;
+
     font-size: 12px;
 
     line-height: 1.4;
-
-    color: #667085;
 }
 
 
@@ -403,7 +445,7 @@ button {
     display: grid;
 
     grid-template-columns:
-        36px minmax(0,1fr) auto;
+        38px minmax(0,1fr) auto;
 
     gap: 9px;
 
@@ -426,8 +468,8 @@ button {
 
 .nearest-rank {
 
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
 
     display: flex;
 
@@ -437,9 +479,14 @@ button {
 
     border-radius: 50%;
 
-    background: #101828;
+    color: #fff;
 
-    color: white;
+    border:
+        2px solid #fff;
+
+    box-shadow:
+        0 1px 4px
+        rgba(0,0,0,.25);
 
     font-size: 12px;
 
@@ -451,11 +498,9 @@ button {
 
     font-size: 13px;
 
-    font-weight: 800;
-
     line-height: 1.25;
 
-    overflow-wrap: anywhere;
+    font-weight: 800;
 }
 
 
@@ -463,11 +508,11 @@ button {
 
     margin-top: 3px;
 
+    color: #667085;
+
     font-size: 11px;
 
     line-height: 1.35;
-
-    color: #667085;
 }
 
 
@@ -495,8 +540,8 @@ button {
 
 .location-badge {
 
-    width: 30px;
-    height: 30px;
+    width: 31px;
+    height: 31px;
 
     display: flex;
 
@@ -522,7 +567,7 @@ button {
 
 
 /* ==========================================================
-   PERMANENT DISTANCE LABEL
+   DISTANCE
    ========================================================== */
 
 .distance-marker {
@@ -562,14 +607,12 @@ button {
 
     font-size: 10px;
 
-    line-height: 1;
-
     font-weight: 900;
 }
 
 
 /* ==========================================================
-   USER CURRENT LOCATION
+   USER GPS
    ========================================================== */
 
 .user-location-marker {
@@ -601,8 +644,7 @@ button {
 
 
 /* ==========================================================
-   NEAREST 5 MARKER
-   NUMBER + KM DIRECTLY BELOW
+   LIVE NEAREST MARKER
    ========================================================== */
 
 .nearest-live-marker {
@@ -615,17 +657,13 @@ button {
 
 .nearest-live-wrap {
 
-    position: relative;
+    width: 82px;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
-
-    justify-content: flex-start;
-
-    width: 78px;
 
     transform:
         translateX(-50%);
@@ -634,8 +672,8 @@ button {
 
 .nearest-live-rank {
 
-    width: 38px;
-    height: 38px;
+    width: 39px;
+    height: 39px;
 
     display: flex;
 
@@ -645,12 +683,10 @@ button {
 
     border-radius: 50%;
 
-    background: #101828;
-
-    color: white;
-
     border:
         3px solid white;
+
+    color: white;
 
     box-shadow:
         0 2px 8px
@@ -662,12 +698,31 @@ button {
 }
 
 
+.nearest-live-type {
+
+    margin-top: 2px;
+
+    padding:
+        2px 5px;
+
+    border-radius: 4px;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 900;
+}
+
+
 .nearest-live-distance {
 
-    margin-top: 3px;
+    margin-top: 2px;
 
     padding:
         3px 6px;
+
+    white-space: nowrap;
 
     border:
         1px solid
@@ -676,7 +731,7 @@ button {
     border-radius: 5px;
 
     background:
-        rgba(255,255,255,.97);
+        rgba(255,255,255,.98);
 
     color: #101828;
 
@@ -684,11 +739,7 @@ button {
         0 1px 4px
         rgba(0,0,0,.16);
 
-    white-space: nowrap;
-
     font-size: 11px;
-
-    line-height: 1;
 
     font-weight: 900;
 }
@@ -718,6 +769,25 @@ button {
 }
 
 
+.popup-type {
+
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    padding:
+        3px 8px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
 .popup-table {
 
     width: 100%;
@@ -730,7 +800,8 @@ button {
 
 .popup-table td {
 
-    padding: 5px 4px;
+    padding:
+        5px 4px;
 
     vertical-align: top;
 
@@ -771,14 +842,6 @@ button {
    LEGEND
    ========================================================== */
 
-#legend {
-
-    max-height: 180px;
-
-    overflow-y: auto;
-}
-
-
 .legend-row {
 
     display: flex;
@@ -787,27 +850,27 @@ button {
 
     gap: 8px;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 
-    font-size: 11px;
+    font-size: 12px;
 
-    color: #475467;
+    font-weight: 700;
 }
 
 
-.legend-line {
+.legend-dot {
 
-    width: 22px;
-    height: 5px;
+    width: 15px;
+    height: 15px;
 
-    border-radius: 3px;
+    border-radius: 50%;
 
     flex-shrink: 0;
 }
 
 
 /* ==========================================================
-   MOBILE FILTER BUTTON
+   MOBILE BUTTON
    ========================================================== */
 
 #mobileControlsButton {
@@ -817,10 +880,16 @@ button {
     position: absolute;
 
     left:
-        max(12px,env(safe-area-inset-left));
+        max(
+            12px,
+            env(safe-area-inset-left)
+        );
 
     top:
-        max(12px,env(safe-area-inset-top));
+        max(
+            12px,
+            env(safe-area-inset-top)
+        );
 
     z-index: 2500;
 
@@ -836,7 +905,7 @@ button {
 
     border-radius: 24px;
 
-    background: white;
+    background: #fff;
 
     color: #101828;
 
@@ -855,19 +924,16 @@ button {
     justify-content:
         space-between;
 
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 }
 
 
 #closePanel {
 
     width: 44px;
-
     min-width: 44px;
 
     height: 44px;
-
-    min-height: 44px;
 
     padding: 0;
 
@@ -884,7 +950,7 @@ button {
    ========================================================== */
 
 @media
-(max-width: 768px) {
+(max-width:768px) {
 
 
     #app {
@@ -898,9 +964,6 @@ button {
         position: absolute;
 
         inset: 0;
-
-        width: 100%;
-        height: 100%;
     }
 
 
@@ -921,12 +984,11 @@ button {
         z-index: 3000;
 
         width: 100%;
-
         min-width: 0;
 
         height: auto;
 
-        max-height: 86%;
+        max-height: 88%;
 
         padding:
             12px
@@ -948,13 +1010,13 @@ button {
             0 -6px 24px
             rgba(0,0,0,.18);
 
+        overflow-y: auto;
+
         transform:
             translateY(105%);
 
         transition:
             transform .24s ease;
-
-        overflow-y: auto;
     }
 
 
@@ -971,13 +1033,7 @@ button {
     }
 
 
-    .header-title {
-
-        font-size: 18px;
-    }
-
-
-    .header-subtitle {
+    .subtitle {
 
         display: none;
     }
@@ -994,12 +1050,9 @@ button {
 
         min-width: 245px;
 
-        max-width: 78vw;
+        max-width: 80vw;
 
-        max-height: 55vh;
-
-        margin:
-            10px 12px;
+        max-height: 56vh;
 
         overflow-y: auto;
     }
@@ -1012,19 +1065,13 @@ button {
    ========================================================== */
 
 @media
-(max-width: 430px) {
-
-
-    #sidebar {
-
-        max-height: 89%;
-    }
+(max-width:430px) {
 
 
     .nearest-card {
 
         grid-template-columns:
-            34px minmax(0,1fr);
+            36px minmax(0,1fr);
     }
 
 
@@ -1033,6 +1080,13 @@ button {
         grid-column: 2;
 
         justify-self: start;
+    }
+
+
+    .type-filter-grid {
+
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
     }
 
 }
@@ -1048,8 +1102,6 @@ button {
 <div id="app">
 
 
-    <!-- MOBILE FILTER BUTTON -->
-
     <button
         id="mobileControlsButton"
         type="button"
@@ -1057,8 +1109,6 @@ button {
         ☰ Filters
     </button>
 
-
-    <!-- SIDEBAR -->
 
     <aside id="sidebar">
 
@@ -1068,7 +1118,6 @@ button {
             <strong>
                 Map Controls
             </strong>
-
 
             <button
                 id="closePanel"
@@ -1080,34 +1129,29 @@ button {
         </div>
 
 
-        <div class="header-title">
+        <div class="title">
 
             FMCG Location Network
 
         </div>
 
 
-        <div class="header-subtitle">
+        <div class="subtitle">
 
-            Permanent network: nearest 2 within 50 km.
-            Live GPS: nearest 5 regardless of distance.
+            Colour coded by P1 / P2 / P3 / Village Type.
+            Permanent network uses nearest 2 within 50 km.
+            Live location always shows nearest 5.
 
         </div>
 
-
-        <!-- AUTO LOCATION STATUS -->
 
         <div
             id="autoLocationMessage"
-            class="auto-location-banner"
+            class="location-banner"
         >
-
             ◎ Getting your current location...
-
         </div>
 
-
-        <!-- KPI -->
 
         <div class="kpi-grid">
 
@@ -1138,7 +1182,7 @@ button {
                 </div>
 
                 <div class="kpi-label">
-                    Visible network links
+                    Visible links
                 </div>
 
             </div>
@@ -1147,15 +1191,14 @@ button {
         </div>
 
 
-        <!-- NEAREST FIVE -->
+        <!-- ===============================================
+             NEAREST 5
+             =============================================== -->
 
         <div class="section">
 
-
             <div class="section-title">
-
                 Nearest 5 From My Location
-
             </div>
 
 
@@ -1175,30 +1218,24 @@ button {
                 type="button"
                 class="secondary-button"
             >
-
                 ↻ Refresh My Location
-
             </button>
-
 
         </div>
 
 
-        <!-- FILTERS -->
+        <!-- ===============================================
+             FILTERS
+             =============================================== -->
 
         <div class="section">
 
-
             <div class="section-title">
-
-                Map Filters
-
+                Tehsil Filter
             </div>
 
 
-            <select
-                id="tehsilFilter"
-            >
+            <select id="tehsilFilter">
 
                 <option value="ALL">
                     All Tehsils
@@ -1206,49 +1243,37 @@ button {
 
             </select>
 
+        </div>
 
-            <div class="checkbox-row">
 
-                <input
-                    id="showP1"
-                    type="checkbox"
-                    checked
-                >
+        <!-- ===============================================
+             TYPE FILTER
+             =============================================== -->
 
-                <label for="showP1">
-                    Show P1
-                </label>
+        <div class="section">
 
+            <div class="section-title">
+                Village Type Filter
             </div>
 
 
-            <div class="checkbox-row">
-
-                <input
-                    id="showP2"
-                    type="checkbox"
-                    checked
-                >
-
-                <label for="showP2">
-                    Show P2
-                </label>
-
+            <div
+                id="typeFilters"
+                class="type-filter-grid"
+            >
             </div>
 
+        </div>
 
-            <div class="checkbox-row">
 
-                <input
-                    id="showOther"
-                    type="checkbox"
-                    checked
-                >
+        <!-- ===============================================
+             MAP OPTIONS
+             =============================================== -->
 
-                <label for="showOther">
-                    Show Other / DHQ
-                </label>
+        <div class="section">
 
+            <div class="section-title">
+                Map Options
             </div>
 
 
@@ -1287,38 +1312,31 @@ button {
                 type="button"
                 class="secondary-button"
             >
-
                 Reset Filters
-
             </button>
-
 
         </div>
 
 
-        <!-- LEGEND -->
+        <!-- ===============================================
+             LEGEND
+             =============================================== -->
 
         <div class="section">
 
-
             <div class="section-title">
-
-                Tehsil Colours
-
+                Village Type Colours
             </div>
 
 
             <div id="legend">
             </div>
 
-
         </div>
 
 
     </aside>
 
-
-    <!-- MAP -->
 
     <main id="map">
     </main>
@@ -1341,8 +1359,8 @@ const CONNECTIONS =
 [{"source":0,"target":44,"distance":13.681519374299535},{"source":0,"target":22,"distance":15.217818550598155},{"source":1,"target":6,"distance":10.138975952296866},{"source":1,"target":22,"distance":11.594885979915114},{"source":2,"target":31,"distance":11.1896783744963},{"source":2,"target":20,"distance":14.700757907410763},{"source":3,"target":42,"distance":6.7380284411829985},{"source":3,"target":40,"distance":21.298071555942407},{"source":4,"target":40,"distance":22.693694436423783},{"source":3,"target":4,"distance":25.055996607522804},{"source":5,"target":46,"distance":12.031389996287556},{"source":5,"target":24,"distance":29.51834886937963},{"source":6,"target":41,"distance":5.639541865824124},{"source":7,"target":39,"distance":9.241336823087984},{"source":7,"target":48,"distance":13.32571078615075},{"source":8,"target":9,"distance":5.546296237425391},{"source":8,"target":32,"distance":5.814914780725525},{"source":9,"target":54,"distance":5.1723085189333835},{"source":10,"target":19,"distance":12.125296417709478},{"source":10,"target":20,"distance":16.45949890446326},{"source":11,"target":47,"distance":12.350060257400592},{"source":11,"target":40,"distance":28.0422031161045},{"source":12,"target":24,"distance":15.78554724726565},{"source":12,"target":45,"distance":16.804603024451605},{"source":13,"target":21,"distance":12.610562814688219},{"source":13,"target":20,"distance":14.194147724164932},{"source":14,"target":63,"distance":10.470823996411116},{"source":14,"target":61,"distance":10.580954316438197},{"source":15,"target":56,"distance":7.24961076625642},{"source":15,"target":60,"distance":9.155477808493428},{"source":16,"target":53,"distance":5.138531986417953},{"source":16,"target":37,"distance":9.084317191560142},{"source":17,"target":34,"distance":13.405589778582524},{"source":15,"target":17,"distance":16.070182510240926},{"source":18,"target":58,"distance":4.5100516385256135},{"source":18,"target":38,"distance":4.847827643221904},{"source":19,"target":62,"distance":10.645773850260872},{"source":20,"target":62,"distance":8.911281775443719},{"source":19,"target":20,"distance":13.245729330566606},{"source":2,"target":21,"distance":14.901736636292656},{"source":9,"target":22,"distance":8.169236974579267},{"source":8,"target":22,"distance":9.033566405174744},{"source":6,"target":23,"distance":10.569102004800088},{"source":23,"target":41,"distance":13.889170361674987},{"source":18,"target":24,"distance":15.853139914479351},{"source":25,"target":57,"distance":3.281944758338383},{"source":25,"target":53,"distance":4.8198565389949035},{"source":26,"target":36,"distance":9.688428262917537},{"source":26,"target":52,"distance":15.977933168637456},{"source":27,"target":59,"distance":16.37234283622746},{"source":12,"target":27,"distance":20.306275642949743},{"source":28,"target":54,"distance":3.532431129998243},{"source":28,"target":60,"distance":4.049716150911365},{"source":29,"target":38,"distance":6.763603243902365},{"source":29,"target":58,"distance":10.010847349792071},{"source":30,"target":37,"distance":4.045040534589456},{"source":30,"target":44,"distance":6.252084784574971},{"source":31,"target":33,"distance":12.966294513757065},{"source":28,"target":32,"distance":4.136678279422655},{"source":32,"target":54,"distance":4.905327446532974},{"source":33,"target":62,"distance":18.894091720535112},{"source":15,"target":34,"distance":9.939216677337498},{"source":23,"target":35,"distance":17.418490541240484},{"source":25,"target":35,"distance":17.545569233250635},{"source":36,"target":52,"distance":6.290669534291525},{"source":37,"target":58,"distance":6.1070889173161},{"source":38,"target":58,"distance":4.543620559973206},{"source":39,"target":48,"distance":9.089343506530108},{"source":40,"target":47,"distance":15.955787778967418},{"source":8,"target":41,"distance":6.018868593685766},{"source":42,"target":59,"distance":15.530702526990428},{"source":43,"target":50,"distance":7.508355150201523},{"source":43,"target":49,"distance":11.121529968345458},{"source":18,"target":44,"distance":5.629040065726121},{"source":45,"target":55,"distance":9.163468354755267},{"source":24,"target":46,"distance":18.96038362530878},{"source":14,"target":48,"distance":11.188357670638851},{"source":49,"target":50,"distance":7.625250750018594},{"source":51,"target":61,"distance":10.723800505884043},{"source":14,"target":51,"distance":14.734754779269913},{"source":25,"target":52,"distance":12.929553524943548},{"source":53,"target":57,"distance":5.016864646127635},{"source":48,"target":55,"distance":13.950402596746754},{"source":56,"target":60,"distance":7.993015641352018},{"source":54,"target":60,"distance":6.41253480036182},{"source":48,"target":63,"distance":11.324862419535046}];
 
 
-const TEHSIL_COLORS =
-{"Ambegaon":"#4148cc","Baramati":"#70cc41","Bhor":"#cc4199","Daund":"#41c1cc","Haveli":"#ccad41","Indapur":"#8541cc","Junnar":"#41cc5c","Khed":"#cc414e","Mawal":"#4176cc","Mulshi":"#9fcc41","Pune City":"#cc41c7","Purandhar":"#41cca7","Shirur":"#cc7f41"};
+const TYPE_COLORS =
+{"DHQ":"#101828","P1":"#D92D20","P2":"#1570EF","P4":"#7F56D9","P5":"#DC6803"};
 
 
 const DISPLAY_FIELDS =
@@ -1353,13 +1371,16 @@ const TEHSILS =
 ["Ambegaon","Baramati","Bhor","Daund","Haveli","Indapur","Junnar","Khed","Mawal","Mulshi","Pune City","Purandhar","Shirur"];
 
 
-// Current-location result count
+const VILLAGE_TYPES =
+["DHQ","P1","P2","P4","P5"];
+
+
 const CURRENT_NEAREST_COUNT =
 5;
 
 
 // ============================================================
-// MOBILE PANEL
+// BASIC DOM
 // ============================================================
 
 const sidebar =
@@ -1367,6 +1388,28 @@ const sidebar =
         "sidebar"
     );
 
+
+const autoLocationMessage =
+    document.getElementById(
+        "autoLocationMessage"
+    );
+
+
+const locationStatus =
+    document.getElementById(
+        "locationStatus"
+    );
+
+
+const locationResults =
+    document.getElementById(
+        "locationResults"
+    );
+
+
+// ============================================================
+// MOBILE CONTROLS
+// ============================================================
 
 document.getElementById(
     "mobileControlsButton"
@@ -1397,7 +1440,7 @@ document.getElementById(
 
 
 // ============================================================
-// HTML ESCAPE
+// ESCAPE
 // ============================================================
 
 function escapeHtml(value) {
@@ -1443,6 +1486,31 @@ function escapeHtml(value) {
 
 
 // ============================================================
+// TYPE COLOR
+// ============================================================
+
+function getTypeColour(point) {
+
+    const type =
+        String(
+            point.villageType
+            ||
+            "OTHER"
+        ).toUpperCase();
+
+
+    return (
+        TYPE_COLORS[type]
+        ||
+        TYPE_COLORS["OTHER"]
+        ||
+        "#667085"
+    );
+
+}
+
+
+// ============================================================
 // FORMAT
 // ============================================================
 
@@ -1450,7 +1518,6 @@ function formatValue(
     field,
     value
 ) {
-
 
     if (
         value === null
@@ -1479,24 +1546,27 @@ function formatValue(
             Number(value);
 
 
-        if (
-            Number.isFinite(n)
-        ) {
-
-            return n.toFixed(6);
-        }
+        return Number.isFinite(n)
+            ?
+            n.toFixed(6)
+            :
+            escapeHtml(value);
 
     }
 
 
     if (
         typeof value === "number"
+
         &&
+
         (
             lower.includes(
                 "population"
             )
+
             ||
+
             lower.includes(
                 "outlet"
             )
@@ -1518,7 +1588,7 @@ function formatValue(
 
 
 // ============================================================
-// HAVERSINE JAVASCRIPT
+// HAVERSINE
 // ============================================================
 
 function haversineKm(
@@ -1528,14 +1598,17 @@ function haversineKm(
     lon2
 ) {
 
-
     const R =
         6371.0088;
 
 
     const rad =
         x =>
-            x * Math.PI / 180;
+            x
+            *
+            Math.PI
+            /
+            180;
 
 
     const p1 =
@@ -1546,13 +1619,13 @@ function haversineKm(
         rad(lat2);
 
 
-    const dLat =
+    const dp =
         rad(
             lat2 - lat1
         );
 
 
-    const dLon =
+    const dl =
         rad(
             lon2 - lon1
         );
@@ -1560,7 +1633,7 @@ function haversineKm(
 
     const a =
         Math.sin(
-            dLat / 2
+            dp / 2
         ) ** 2
 
         +
@@ -1570,7 +1643,7 @@ function haversineKm(
         Math.cos(p2)
         *
         Math.sin(
-            dLon / 2
+            dl / 2
         ) ** 2;
 
 
@@ -1596,11 +1669,13 @@ const map =
     L.map(
         "map",
         {
+
             zoomControl:
                 true,
 
             preferCanvas:
                 true
+
         }
     );
 
@@ -1625,11 +1700,10 @@ L.tileLayer(
 
 
 // ============================================================
-// FIT ALL LOCATIONS
+// INITIAL FIT
 // ============================================================
 
 function fitAllLocations() {
-
 
     if (
         DATA.length === 0
@@ -1653,19 +1727,24 @@ function fitAllLocations() {
 
             DATA.map(
                 p => [
+
                     p.lat,
+
                     p.lon
+
                 ]
             )
 
         ),
 
         {
+
             padding:
                 [
                     30,
                     30
                 ]
+
         }
 
     );
@@ -1713,6 +1792,116 @@ TEHSILS.forEach(
 
 
 // ============================================================
+// DYNAMIC VILLAGE TYPE FILTERS
+// ============================================================
+
+const typeFiltersContainer =
+    document.getElementById(
+        "typeFilters"
+    );
+
+
+const typeCheckboxes =
+    new Map();
+
+
+VILLAGE_TYPES.forEach(
+    type => {
+
+
+        const wrapper =
+            document.createElement(
+                "div"
+            );
+
+
+        wrapper.className =
+            "type-check";
+
+
+        const checkbox =
+            document.createElement(
+                "input"
+            );
+
+
+        checkbox.type =
+            "checkbox";
+
+
+        checkbox.checked =
+            true;
+
+
+        checkbox.id =
+            "type_"
+            +
+            type.replace(
+                /[^a-zA-Z0-9]/g,
+                "_"
+            );
+
+
+        checkbox.dataset.type =
+            type;
+
+
+        const dot =
+            document.createElement(
+                "span"
+            );
+
+
+        dot.className =
+            "type-dot";
+
+
+        dot.style.background =
+            TYPE_COLORS[type];
+
+
+        const label =
+            document.createElement(
+                "label"
+            );
+
+
+        label.htmlFor =
+            checkbox.id;
+
+
+        label.textContent =
+            type;
+
+
+        wrapper.append(
+            checkbox,
+            dot,
+            label
+        );
+
+
+        typeFiltersContainer.appendChild(
+            wrapper
+        );
+
+
+        typeCheckboxes.set(
+            type,
+            checkbox
+        );
+
+
+        checkbox.addEventListener(
+            "change",
+            applyFilters
+        );
+
+    }
+);
+
+
+// ============================================================
 // LEGEND
 // ============================================================
 
@@ -1722,8 +1911,8 @@ const legend =
     );
 
 
-TEHSILS.forEach(
-    tehsil => {
+VILLAGE_TYPES.forEach(
+    type => {
 
 
         const row =
@@ -1736,20 +1925,18 @@ TEHSILS.forEach(
             "legend-row";
 
 
-        const line =
+        const dot =
             document.createElement(
                 "span"
             );
 
 
-        line.className =
-            "legend-line";
+        dot.className =
+            "legend-dot";
 
 
-        line.style.background =
-            TEHSIL_COLORS[
-                tehsil
-            ];
+        dot.style.background =
+            TYPE_COLORS[type];
 
 
         const text =
@@ -1759,11 +1946,11 @@ TEHSILS.forEach(
 
 
         text.textContent =
-            tehsil;
+            type;
 
 
         row.append(
-            line,
+            dot,
             text
         );
 
@@ -1777,11 +1964,10 @@ TEHSILS.forEach(
 
 
 // ============================================================
-// BUILD POPUP
+// POPUP
 // ============================================================
 
 function buildPopup(point) {
-
 
     let rows =
         "";
@@ -1847,8 +2033,6 @@ function buildPopup(point) {
             +
             escapeHtml(
                 point.nearest1Type
-                ||
-                "Other"
             )
 
             +
@@ -1860,10 +2044,7 @@ function buildPopup(point) {
             ).toFixed(1)
 
             +
-            " km"
-
-            +
-            "<br>";
+            " km<br>";
 
     }
 
@@ -1887,8 +2068,6 @@ function buildPopup(point) {
             +
             escapeHtml(
                 point.nearest2Type
-                ||
-                "Other"
             )
 
             +
@@ -1921,6 +2100,12 @@ function buildPopup(point) {
         "</div>";
 
 
+    const colour =
+        getTypeColour(
+            point
+        );
+
+
     return (
 
         "<div style='min-width:250px;max-width:390px;'>"
@@ -1943,12 +2128,18 @@ function buildPopup(point) {
             point.tehsil
         )
         +
-        " · "
+        "</div>"
+
+        +
+
+        "<div class='popup-type' style='background:"
+        +
+        colour
+        +
+        ";'>"
         +
         escapeHtml(
             point.villageType
-            ||
-            "Other"
         )
         +
         "</div>"
@@ -1980,13 +2171,10 @@ function buildPopup(point) {
 
 function pointIcon(point) {
 
-
     const colour =
-        TEHSIL_COLORS[
-            point.tehsil
-        ]
-        ||
-        "#475467";
+        getTypeColour(
+            point
+        );
 
 
     let label =
@@ -1998,13 +2186,13 @@ function pointIcon(point) {
 
 
     if (
-        label.length > 4
+        label.length > 5
     ) {
 
         label =
             label.substring(
                 0,
-                4
+                5
             );
 
     }
@@ -2023,20 +2211,22 @@ function pointIcon(point) {
             +
             ";'>"
             +
-            escapeHtml(label)
+            escapeHtml(
+                label
+            )
             +
             "</div>",
 
         iconSize:
             [
-                30,
-                30
+                31,
+                31
             ],
 
         iconAnchor:
             [
-                15,
-                15
+                15.5,
+                15.5
             ]
 
     });
@@ -2045,13 +2235,12 @@ function pointIcon(point) {
 
 
 // ============================================================
-// NORMAL NETWORK DISTANCE
+// DISTANCE ICON
 // ============================================================
 
 function distanceIcon(
     distance
 ) {
-
 
     return L.divIcon({
 
@@ -2088,7 +2277,7 @@ function distanceIcon(
 
 
 // ============================================================
-// NORMAL POINTS
+// NORMAL LOCATION MARKERS
 // ============================================================
 
 const pointLayers =
@@ -2112,6 +2301,7 @@ DATA.forEach(
                 ],
 
                 {
+
                     icon:
                         pointIcon(
                             point
@@ -2119,6 +2309,7 @@ DATA.forEach(
 
                     title:
                         point.town
+
                 }
 
             );
@@ -2126,9 +2317,14 @@ DATA.forEach(
 
         marker.bindTooltip(
 
-            point.town,
+            point.town
+            +
+            " · "
+            +
+            point.villageType,
 
             {
+
                 direction:
                     "top",
 
@@ -2137,6 +2333,7 @@ DATA.forEach(
                         0,
                         -12
                     ]
+
             }
 
         );
@@ -2149,8 +2346,10 @@ DATA.forEach(
             ),
 
             {
+
                 maxWidth:
                     420
+
             }
 
         );
@@ -2217,6 +2416,7 @@ CONNECTIONS.forEach(
         ) {
 
             return;
+
         }
 
 
@@ -2238,19 +2438,15 @@ CONNECTIONS.forEach(
 
 
         const sourceColour =
-            TEHSIL_COLORS[
-                source.tehsil
-            ]
-            ||
-            "#667085";
+            getTypeColour(
+                source
+            );
 
 
         const targetColour =
-            TEHSIL_COLORS[
-                target.tehsil
-            ]
-            ||
-            "#667085";
+            getTypeColour(
+                target
+            );
 
 
         const segments =
@@ -2262,13 +2458,21 @@ CONNECTIONS.forEach(
             source.town
 
             +
-            " ↔ "
+            " ["
+            +
+            source.villageType
+            +
+            "] ↔ "
 
             +
             target.town
 
             +
-            " | "
+            " ["
+            +
+            target.villageType
+            +
+            "] · "
 
             +
             Number(
@@ -2279,11 +2483,14 @@ CONNECTIONS.forEach(
             " km";
 
 
-        // SAME TEHSIL
+        // ====================================================
+        // SAME VILLAGE TYPE
+        // ====================================================
+
         if (
-            source.tehsil
+            source.villageType
             ===
-            target.tehsil
+            target.villageType
         ) {
 
 
@@ -2313,7 +2520,7 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            .75
+                            .78
 
                     }
 
@@ -2337,7 +2544,11 @@ CONNECTIONS.forEach(
         }
 
 
-        // CROSS TEHSIL
+        // ====================================================
+        // DIFFERENT TYPE
+        // HALF SOURCE / HALF TARGET COLOUR
+        // ====================================================
+
         else {
 
 
@@ -2364,7 +2575,7 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            .75
+                            .78
 
                     }
 
@@ -2394,7 +2605,7 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            .75
+                            .78
 
                     }
 
@@ -2429,6 +2640,10 @@ CONNECTIONS.forEach(
         }
 
 
+        // ====================================================
+        // DISTANCE
+        // ====================================================
+
         const label =
             L.marker(
 
@@ -2442,6 +2657,9 @@ CONNECTIONS.forEach(
                         ),
 
                     interactive:
+                        false,
+
+                    keyboard:
                         false
 
                 }
@@ -2475,26 +2693,8 @@ CONNECTIONS.forEach(
 
 
 // ============================================================
-// FILTER CONTROLS
+// MAP OPTION CONTROLS
 // ============================================================
-
-const showP1 =
-    document.getElementById(
-        "showP1"
-    );
-
-
-const showP2 =
-    document.getElementById(
-        "showP2"
-    );
-
-
-const showOther =
-    document.getElementById(
-        "showOther"
-    );
-
 
 const showNetwork =
     document.getElementById(
@@ -2509,39 +2709,29 @@ const showDistances =
 
 
 // ============================================================
-// TYPE FILTER
+// CHECK TYPE
 // ============================================================
 
 function typeAllowed(
     point
 ) {
 
-
-    const type =
-        String(
+    const checkbox =
+        typeCheckboxes.get(
             point.villageType
-            ||
-            ""
-        ).toUpperCase();
+        );
 
 
     if (
-        type === "P1"
+        !checkbox
     ) {
 
-        return showP1.checked;
+        return true;
+
     }
 
 
-    if (
-        type === "P2"
-    ) {
-
-        return showP2.checked;
-    }
-
-
-    return showOther.checked;
+    return checkbox.checked;
 
 }
 
@@ -2561,11 +2751,14 @@ function applyFilters() {
         new Set();
 
 
-    let visibleLines =
+    let visibleLineCount =
         0;
 
 
-    // NETWORK
+    // ========================================================
+    // LINES
+    // ========================================================
+
     connectionLayers.forEach(
         connection => {
 
@@ -2583,22 +2776,34 @@ function applyFilters() {
 
 
             const typeOK =
-                typeAllowed(source)
+                typeAllowed(
+                    source
+                )
+
                 &&
-                typeAllowed(target);
+
+                typeAllowed(
+                    target
+                );
 
 
             const tehsilOK =
 
-                selectedTehsil === "ALL"
+                selectedTehsil
+                ===
+                "ALL"
 
                 ||
 
-                source.tehsil === selectedTehsil
+                source.tehsil
+                ===
+                selectedTehsil
 
                 ||
 
-                target.tehsil === selectedTehsil;
+                target.tehsil
+                ===
+                selectedTehsil;
 
 
             const visible =
@@ -2631,6 +2836,7 @@ function applyFilters() {
                             segment.addTo(
                                 map
                             );
+
                         }
 
                     }
@@ -2646,6 +2852,7 @@ function applyFilters() {
                             map.removeLayer(
                                 segment
                             );
+
                         }
 
                     }
@@ -2659,6 +2866,7 @@ function applyFilters() {
                 &&
                 showDistances.checked
             ) {
+
 
                 if (
                     !map.hasLayer(
@@ -2675,6 +2883,7 @@ function applyFilters() {
             }
 
             else {
+
 
                 if (
                     map.hasLayer(
@@ -2695,7 +2904,7 @@ function applyFilters() {
                 visible
             ) {
 
-                visibleLines++;
+                visibleLineCount++;
 
 
                 contextIds.add(
@@ -2713,8 +2922,11 @@ function applyFilters() {
     );
 
 
+    // ========================================================
     // POINTS
-    let visiblePoints =
+    // ========================================================
+
+    let visiblePointCount =
         0;
 
 
@@ -2734,16 +2946,24 @@ function applyFilters() {
 
             let tehsilOK =
 
-                selectedTehsil === "ALL"
+                selectedTehsil
+                ===
+                "ALL"
 
                 ||
 
-                point.tehsil === selectedTehsil;
+                point.tehsil
+                ===
+                selectedTehsil;
 
 
             if (
-                selectedTehsil !== "ALL"
+                selectedTehsil
+                !==
+                "ALL"
+
                 &&
+
                 contextIds.has(
                     point.id
                 )
@@ -2778,7 +2998,7 @@ function applyFilters() {
                 }
 
 
-                visiblePoints++;
+                visiblePointCount++;
 
             }
 
@@ -2805,7 +3025,7 @@ function applyFilters() {
     document.getElementById(
         "visibleLocations"
     ).textContent =
-        visiblePoints.toLocaleString(
+        visiblePointCount.toLocaleString(
             "en-IN"
         );
 
@@ -2813,7 +3033,7 @@ function applyFilters() {
     document.getElementById(
         "visibleLines"
     ).textContent =
-        visibleLines.toLocaleString(
+        visibleLineCount.toLocaleString(
             "en-IN"
         );
 
@@ -2824,27 +3044,26 @@ function applyFilters() {
 // FILTER EVENTS
 // ============================================================
 
-[
-    tehsilFilter,
-    showP1,
-    showP2,
-    showOther,
-    showNetwork,
-    showDistances
-].forEach(
-    control => {
+tehsilFilter.addEventListener(
+    "change",
+    applyFilters
+);
 
-        control.addEventListener(
-            "change",
-            applyFilters
-        );
 
-    }
+showNetwork.addEventListener(
+    "change",
+    applyFilters
+);
+
+
+showDistances.addEventListener(
+    "change",
+    applyFilters
 );
 
 
 // ============================================================
-// RESET FILTERS
+// RESET
 // ============================================================
 
 document.getElementById(
@@ -2858,16 +3077,14 @@ document.getElementById(
             "ALL";
 
 
-        showP1.checked =
-            true;
+        typeCheckboxes.forEach(
+            checkbox => {
 
+                checkbox.checked =
+                    true;
 
-        showP2.checked =
-            true;
-
-
-        showOther.checked =
-            true;
+            }
+        );
 
 
         showNetwork.checked =
@@ -2888,7 +3105,7 @@ document.getElementById(
 
 
 // ============================================================
-// CURRENT LOCATION GROUP
+// CURRENT GPS GROUP
 // ============================================================
 
 const currentLocationGroup =
@@ -2898,34 +3115,15 @@ const currentLocationGroup =
     );
 
 
-const locationStatus =
-    document.getElementById(
-        "locationStatus"
-    );
-
-
-const locationResults =
-    document.getElementById(
-        "locationResults"
-    );
-
-
-const autoLocationMessage =
-    document.getElementById(
-        "autoLocationMessage"
-    );
-
-
 let locationRequestRunning =
     false;
 
 
 // ============================================================
-// CURRENT USER LOCATION ICON
+// CURRENT LOCATION ICON
 // ============================================================
 
 function currentLocationIcon() {
-
 
     return L.divIcon({
 
@@ -2953,16 +3151,20 @@ function currentLocationIcon() {
 
 
 // ============================================================
-// NEAREST LOCATION ICON
-//
-// NUMBER AT LOCATION
-// KM DIRECTLY BELOW LOCATION
+// LIVE NEAREST ICON
+// NUMBER + P-TYPE + KM
 // ============================================================
 
 function nearestLiveIcon(
     rank,
+    point,
     distance
 ) {
+
+    const colour =
+        getTypeColour(
+            point
+        );
 
 
     return L.divIcon({
@@ -2976,9 +3178,27 @@ function nearestLiveIcon(
 
             +
 
-            "<div class='nearest-live-rank'>"
+            "<div class='nearest-live-rank' style='background:"
+            +
+            colour
+            +
+            ";'>"
             +
             rank
+            +
+            "</div>"
+
+            +
+
+            "<div class='nearest-live-type' style='background:"
+            +
+            colour
+            +
+            ";'>"
+            +
+            escapeHtml(
+                point.villageType
+            )
             +
             "</div>"
 
@@ -3001,17 +3221,15 @@ function nearestLiveIcon(
 
         iconSize:
             [
-                78,
-                65
+                82,
+                80
             ],
 
 
-        // Centre rank circle on actual coordinate.
-        // Distance then hangs below it.
         iconAnchor:
             [
                 0,
-                19
+                20
             ]
 
     });
@@ -3020,15 +3238,14 @@ function nearestLiveIcon(
 
 
 // ============================================================
-// TRUE NEAREST 5 FROM CURRENT LOCATION
+// TRUE NEAREST FIVE FROM GPS
 //
-// IMPORTANT:
 // NO DISTANCE LIMIT.
 // ============================================================
 
 function nearestFromCurrentLocation(
-    latitude,
-    longitude
+    lat,
+    lon
 ) {
 
 
@@ -3046,8 +3263,8 @@ function nearestFromCurrentLocation(
                     distance:
                         haversineKm(
 
-                            latitude,
-                            longitude,
+                            lat,
+                            lon,
 
                             point.lat,
                             point.lon
@@ -3058,9 +3275,6 @@ function nearestFromCurrentLocation(
 
             }
         )
-
-
-        // NO 50 KM FILTER HERE
 
 
         .sort(
@@ -3092,7 +3306,7 @@ function getPartySummary(
 ) {
 
 
-    const parties =
+    const result =
         [];
 
 
@@ -3111,30 +3325,32 @@ function getPartySummary(
 
 
             if (
-                value !== null
-                &&
-                value !== undefined
+                value === null
+                ||
+                value === undefined
             ) {
 
+                return;
 
-                const clean =
-                    String(value)
-                    .trim();
+            }
 
 
-                if (
-                    clean !== ""
-                    &&
-                    clean.toLowerCase()
-                    !==
-                    "no party provided"
-                ) {
+            const clean =
+                String(value)
+                .trim();
 
-                    parties.push(
-                        clean
-                    );
 
-                }
+            if (
+                clean !== ""
+                &&
+                clean.toLowerCase()
+                !==
+                "no party provided"
+            ) {
+
+                result.push(
+                    clean
+                );
 
             }
 
@@ -3143,14 +3359,15 @@ function getPartySummary(
 
 
     if (
-        parties.length === 0
+        result.length === 0
     ) {
 
         return "No party provided";
+
     }
 
 
-    return parties
+    return result
         .slice(
             0,
             2
@@ -3163,7 +3380,7 @@ function getPartySummary(
 
 
 // ============================================================
-// NEAREST 5 SIDEBAR CARD
+// NEAREST CARD
 // ============================================================
 
 function createResultCard(
@@ -3176,6 +3393,12 @@ function createResultCard(
         item.point;
 
 
+    const colour =
+        getTypeColour(
+            point
+        );
+
+
     const card =
         document.createElement(
             "div"
@@ -3186,15 +3409,13 @@ function createResultCard(
         "nearest-card";
 
 
-    const typeText =
-        point.villageType
-        ||
-        "Other";
-
-
     card.innerHTML =
 
-        "<div class='nearest-rank'>"
+        "<div class='nearest-rank' style='background:"
+        +
+        colour
+        +
+        ";'>"
         +
         rank
         +
@@ -3217,24 +3438,38 @@ function createResultCard(
         +
 
         "<div class='nearest-meta'>"
+
+        +
+        "<strong style='color:"
+        +
+        colour
+        +
+        ";'>"
         +
         escapeHtml(
-            typeText
+            point.villageType
         )
         +
+        "</strong>"
+
+        +
         " · "
+
         +
         escapeHtml(
             point.tehsil
         )
+
         +
         "<br>"
+
         +
         escapeHtml(
             getPartySummary(
                 point
             )
         )
+
         +
         "</div>"
 
@@ -3302,7 +3537,7 @@ function createResultCard(
 
 
 // ============================================================
-// ADD GPS -> NEAREST CONNECTION
+// GPS -> NEAREST LINE
 // ============================================================
 
 function addCurrentNearestLine(
@@ -3317,32 +3552,14 @@ function addCurrentNearestLine(
         item.point;
 
 
-    const colours = [
-
-        "#111827",
-
-        "#1d4ed8",
-
-        "#7c3aed",
-
-        "#0f766e",
-
-        "#b45309"
-
-    ];
-
-
     const colour =
-        colours[
-            Math.min(
-                rank - 1,
-                colours.length - 1
-            )
-        ];
+        getTypeColour(
+            point
+        );
 
 
     // ========================================================
-    // DASHED LINE
+    // DASHED LINE = TARGET P TYPE COLOUR
     // ========================================================
 
     const line =
@@ -3391,7 +3608,11 @@ function addCurrentNearestLine(
         +
         rank
         +
-        " "
+        " · "
+        +
+        point.villageType
+        +
+        " · "
         +
         point.town
         +
@@ -3410,7 +3631,7 @@ function addCurrentNearestLine(
 
 
     // ========================================================
-    // NUMBER + KM BELOW LOCATION
+    // RANK + TYPE + KM AT LOCATION
     // ========================================================
 
     L.marker(
@@ -3425,11 +3646,12 @@ function addCurrentNearestLine(
             icon:
                 nearestLiveIcon(
                     rank,
+                    point,
                     item.distance
                 ),
 
             zIndexOffset:
-                1500
+                1800
 
         }
 
@@ -3442,8 +3664,10 @@ function addCurrentNearestLine(
         ),
 
         {
+
             maxWidth:
                 420
+
         }
 
     )
@@ -3456,7 +3680,7 @@ function addCurrentNearestLine(
 
 
 // ============================================================
-// AUTOMATIC NEAREST 5
+// AUTOMATIC CURRENT LOCATION
 // ============================================================
 
 function findAndShowNearestFive() {
@@ -3467,6 +3691,7 @@ function findAndShowNearestFive() {
     ) {
 
         return;
+
     }
 
 
@@ -3482,7 +3707,7 @@ function findAndShowNearestFive() {
 
 
     autoLocationMessage.className =
-        "auto-location-banner";
+        "location-banner";
 
 
     autoLocationMessage.textContent =
@@ -3503,15 +3728,11 @@ function findAndShowNearestFive() {
 
 
         autoLocationMessage.className =
-            "auto-location-banner warning";
+            "location-banner warning";
 
 
         autoLocationMessage.textContent =
             "Location not supported";
-
-
-        locationStatus.textContent =
-            "This browser does not support geolocation.";
 
 
         return;
@@ -3546,7 +3767,7 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // CURRENT USER LOCATION
+            // USER LOCATION
             // =================================================
 
             L.marker(
@@ -3562,7 +3783,7 @@ function findAndShowNearestFive() {
                         currentLocationIcon(),
 
                     zIndexOffset:
-                        2000
+                        2200
 
                 }
 
@@ -3592,7 +3813,8 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // TRUE NEAREST FIVE - NO DISTANCE RESTRICTION
+            // NEAREST 5
+            // NO DISTANCE LIMIT
             // =================================================
 
             const nearest =
@@ -3610,15 +3832,11 @@ function findAndShowNearestFive() {
 
 
                 autoLocationMessage.className =
-                    "auto-location-banner warning";
+                    "location-banner warning";
 
 
                 autoLocationMessage.textContent =
-                    "No mapped locations available";
-
-
-                locationStatus.textContent =
-                    "No mapped locations were found in the dataset.";
+                    "No locations found";
 
 
                 return;
@@ -3627,11 +3845,11 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // SUCCESS MESSAGE
+            // STATUS
             // =================================================
 
             autoLocationMessage.className =
-                "auto-location-banner success";
+                "location-banner success";
 
 
             autoLocationMessage.innerHTML =
@@ -3643,31 +3861,15 @@ function findAndShowNearestFive() {
                 " locations shown";
 
 
-            const farthestShown =
-                nearest[
-                    nearest.length - 1
-                ].distance;
-
-
             locationStatus.innerHTML =
 
-                "Nearest points are shown regardless of distance. "
-
+                "True nearest locations regardless of distance. "
                 +
-                "The 5th nearest point is "
-
-                +
-                "<strong>"
-
-                +
-                farthestShown.toFixed(1)
-
-                +
-                " km</strong> away.";
+                "Colour indicates <strong>P1 / P2 / P3 / Village Type</strong>.";
 
 
             // =================================================
-            // FIT BOUNDS
+            // FIT MAP
             // =================================================
 
             const fitPoints = [
@@ -3680,10 +3882,6 @@ function findAndShowNearestFive() {
             ];
 
 
-            // =================================================
-            // SHOW NEAREST 5
-            // =================================================
-
             nearest.forEach(
                 (
                     item,
@@ -3695,7 +3893,6 @@ function findAndShowNearestFive() {
                         index + 1;
 
 
-                    // Sidebar card
                     locationResults.appendChild(
 
                         createResultCard(
@@ -3706,7 +3903,6 @@ function findAndShowNearestFive() {
                     );
 
 
-                    // Line + numbered marker + km below
                     addCurrentNearestLine(
 
                         userLat,
@@ -3730,10 +3926,6 @@ function findAndShowNearestFive() {
                 }
             );
 
-
-            // =================================================
-            // ZOOM TO USER + NEAREST 5
-            // =================================================
 
             map.fitBounds(
 
@@ -3760,7 +3952,7 @@ function findAndShowNearestFive() {
 
 
         // ====================================================
-        // LOCATION ERROR
+        // ERROR
         // ====================================================
 
         error => {
@@ -3771,11 +3963,7 @@ function findAndShowNearestFive() {
 
 
             autoLocationMessage.className =
-                "auto-location-banner warning";
-
-
-            let message =
-                "Unable to access current location.";
+                "location-banner warning";
 
 
             if (
@@ -3783,13 +3971,11 @@ function findAndShowNearestFive() {
             ) {
 
                 autoLocationMessage.textContent =
-                    "Location permission required";
+                    "Allow location access";
 
 
-                message =
-                    "Please allow location access. "
-                    +
-                    "The nearest 5 will then appear automatically.";
+                locationStatus.textContent =
+                    "Location permission is required to show your nearest 5.";
 
             }
 
@@ -3802,30 +3988,22 @@ function findAndShowNearestFive() {
                     "Location unavailable";
 
 
-                message =
+                locationStatus.textContent =
                     "Your current location could not be determined.";
 
             }
 
 
-            else if (
-                error.code === 3
-            ) {
+            else {
 
                 autoLocationMessage.textContent =
-                    "Location request timed out";
+                    "Location timed out";
 
 
-                message =
-                    "Location request timed out. "
-                    +
-                    "Tap Refresh My Location.";
+                locationStatus.textContent =
+                    "Tap Refresh My Location to try again.";
 
             }
-
-
-            locationStatus.textContent =
-                message;
 
         },
 
@@ -3853,38 +4031,30 @@ function findAndShowNearestFive() {
 
 
 // ============================================================
-// REFRESH LOCATION
+// REFRESH GPS
 // ============================================================
 
 document.getElementById(
     "refreshLocation"
 ).addEventListener(
     "click",
-    () => {
-
-        findAndShowNearestFive();
-
-    }
+    findAndShowNearestFive
 );
 
 
 // ============================================================
-// INITIAL FILTERS
+// INITIAL FILTER
 // ============================================================
 
 applyFilters();
 
 
 // ============================================================
-// AUTOMATIC LOCATION ON PAGE OPEN
+// AUTOMATIC GPS
 // ============================================================
 
 window.setTimeout(
-    () => {
-
-        findAndShowNearestFive();
-
-    },
+    findAndShowNearestFive,
     600
 );
 
