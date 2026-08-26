@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -8,7 +9,7 @@
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"
 >
 
 <meta
@@ -25,6 +26,7 @@ FMCG Location Network
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
+
 
 <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
@@ -58,9 +60,9 @@ body {
         Helvetica,
         sans-serif;
 
-    background: #ffffff;
+    background: white;
 
-    color: #111827;
+    color: #101828;
 }
 
 
@@ -84,10 +86,10 @@ button {
 
 #app {
 
-    position: relative;
-
     width: 100%;
     height: 100%;
+
+    position: relative;
 
     display: flex;
 }
@@ -101,37 +103,38 @@ button {
 
     flex: 1;
 
-    min-width: 0;
-
     width: 100%;
     height: 100%;
 
-    background: #e9edf2;
+    min-width: 0;
+
+    background: #eef1f4;
 }
 
 
 /* ==========================================================
-   DESKTOP SIDEBAR
+   SIDEBAR
    ========================================================== */
 
 #sidebar {
 
-    order: -1;
-
     width: 350px;
+
     min-width: 350px;
 
     height: 100%;
 
+    order: -1;
+
     overflow-y: auto;
-
-    background: #ffffff;
-
-    border-right:
-        1px solid #d0d5dd;
 
     padding:
         16px 16px 24px;
+
+    background: white;
+
+    border-right:
+        1px solid #d0d5dd;
 
     z-index: 1500;
 }
@@ -141,11 +144,9 @@ button {
 
     font-size: 21px;
 
-    line-height: 1.2;
-
     font-weight: 800;
 
-    color: #101828;
+    line-height: 1.2;
 }
 
 
@@ -162,29 +163,30 @@ button {
 
 
 /* ==========================================================
-   AUTO LOCATION BANNER
+   LOCATION BANNER
    ========================================================== */
 
 .auto-location-banner {
 
-    margin-top: 14px;
+    margin-top: 13px;
 
-    padding: 11px 12px;
+    padding:
+        11px 12px;
+
+    border:
+        1px solid #e4e7ec;
 
     border-radius: 9px;
 
     background: #f2f4f7;
 
-    border:
-        1px solid #e4e7ec;
+    color: #344054;
 
     font-size: 13px;
 
     line-height: 1.35;
 
-    font-weight: 700;
-
-    color: #344054;
+    font-weight: 800;
 }
 
 
@@ -208,16 +210,6 @@ button {
 }
 
 
-.auto-location-banner.error {
-
-    background: #fef3f2;
-
-    border-color: #fecdca;
-
-    color: #b42318;
-}
-
-
 /* ==========================================================
    KPI
    ========================================================== */
@@ -227,7 +219,7 @@ button {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(2,minmax(0,1fr));
 
     gap: 8px;
 
@@ -237,26 +229,22 @@ button {
 
 .kpi {
 
-    min-width: 0;
+    padding: 9px;
 
-    padding: 9px 10px;
+    border:
+        1px solid #eaecf0;
 
     border-radius: 8px;
 
     background: #f8f9fb;
-
-    border:
-        1px solid #eaecf0;
 }
 
 
 .kpi-number {
 
-    font-size: 19px;
+    font-size: 18px;
 
     font-weight: 800;
-
-    color: #101828;
 }
 
 
@@ -266,21 +254,19 @@ button {
 
     font-size: 10px;
 
-    line-height: 1.25;
-
     color: #667085;
 }
 
 
 /* ==========================================================
-   SECTIONS
+   SECTION
    ========================================================== */
 
 .section {
 
-    margin-top: 15px;
+    margin-top: 14px;
 
-    padding-top: 14px;
+    padding-top: 13px;
 
     border-top:
         1px solid #eaecf0;
@@ -293,15 +279,13 @@ button {
 
     font-size: 11px;
 
-    line-height: 1.2;
-
     font-weight: 800;
-
-    color: #475467;
 
     text-transform: uppercase;
 
     letter-spacing: .05em;
+
+    color: #475467;
 }
 
 
@@ -323,9 +307,7 @@ select {
 
     border-radius: 9px;
 
-    outline: none;
-
-    background: #ffffff;
+    background: white;
 
     color: #101828;
 
@@ -333,18 +315,8 @@ select {
 }
 
 
-select:focus {
-
-    border-color: #667085;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(102,112,133,.12);
-}
-
-
 /* ==========================================================
-   CHECKBOXES
+   CHECKBOX
    ========================================================== */
 
 .checkbox-row {
@@ -358,8 +330,6 @@ select:focus {
     min-height: 42px;
 
     font-size: 14px;
-
-    color: #344054;
 }
 
 
@@ -374,14 +344,6 @@ select:focus {
 }
 
 
-.checkbox-row label {
-
-    flex: 1;
-
-    cursor: pointer;
-}
-
-
 /* ==========================================================
    BUTTONS
    ========================================================== */
@@ -392,26 +354,18 @@ button {
 
     min-height: 46px;
 
-    padding:
-        9px 13px;
-
     border: 0;
 
     border-radius: 9px;
 
     cursor: pointer;
 
+    padding:
+        9px 13px;
+
     font-size: 14px;
 
     font-weight: 800;
-}
-
-
-.primary-button {
-
-    background: #101828;
-
-    color: #ffffff;
 }
 
 
@@ -428,38 +382,21 @@ button {
 }
 
 
-button:active {
-
-    transform:
-        translateY(1px);
-}
-
-
 /* ==========================================================
-   CURRENT LOCATION STATUS
+   CURRENT LOCATION RESULTS
    ========================================================== */
 
 #locationStatus {
 
-    margin-top: 9px;
+    margin-bottom: 9px;
 
     font-size: 12px;
 
-    line-height: 1.45;
+    line-height: 1.4;
 
     color: #667085;
 }
 
-
-#locationResults {
-
-    margin-top: 9px;
-}
-
-
-/* ==========================================================
-   NEAREST 5 CARD
-   ========================================================== */
 
 .nearest-card {
 
@@ -471,8 +408,6 @@ button:active {
     gap: 9px;
 
     align-items: center;
-
-    width: 100%;
 
     margin-bottom: 7px;
 
@@ -489,22 +424,16 @@ button:active {
 }
 
 
-.nearest-card:hover {
-
-    background: #f2f4f7;
-}
-
-
 .nearest-rank {
+
+    width: 32px;
+    height: 32px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    width: 32px;
-    height: 32px;
 
     border-radius: 50%;
 
@@ -520,17 +449,13 @@ button:active {
 
 .nearest-name {
 
-    min-width: 0;
-
-    overflow-wrap: anywhere;
-
     font-size: 13px;
-
-    line-height: 1.25;
 
     font-weight: 800;
 
-    color: #101828;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -540,7 +465,7 @@ button:active {
 
     font-size: 11px;
 
-    line-height: 1.3;
+    line-height: 1.35;
 
     color: #667085;
 }
@@ -548,18 +473,302 @@ button:active {
 
 .nearest-distance {
 
+    white-space: nowrap;
+
     font-size: 13px;
 
     font-weight: 900;
-
-    white-space: nowrap;
-
-    color: #101828;
 }
 
 
 /* ==========================================================
-   TEHSIL LEGEND
+   NORMAL LOCATION MARKER
+   ========================================================== */
+
+.location-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.location-badge {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        2px solid white;
+
+    box-shadow:
+        0 1px 6px
+        rgba(0,0,0,.42);
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 900;
+}
+
+
+/* ==========================================================
+   PERMANENT DISTANCE LABEL
+   ========================================================== */
+
+.distance-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.distance-label {
+
+    display: inline-block;
+
+    transform:
+        translate(-50%,-50%);
+
+    padding:
+        3px 6px;
+
+    white-space: nowrap;
+
+    border:
+        1px solid
+        rgba(17,24,39,.20);
+
+    border-radius: 5px;
+
+    background:
+        rgba(255,255,255,.96);
+
+    color: #111;
+
+    box-shadow:
+        0 1px 3px
+        rgba(0,0,0,.15);
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+/* ==========================================================
+   USER CURRENT LOCATION
+   ========================================================== */
+
+.user-location-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.user-location-dot {
+
+    width: 22px;
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    border:
+        4px solid white;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(37,99,235,.22),
+        0 2px 8px
+        rgba(0,0,0,.35);
+}
+
+
+/* ==========================================================
+   NEAREST 5 MARKER
+   NUMBER + KM DIRECTLY BELOW
+   ========================================================== */
+
+.nearest-live-marker {
+
+    background: transparent !important;
+
+    border: 0 !important;
+}
+
+
+.nearest-live-wrap {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    width: 78px;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.nearest-live-rank {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #101828;
+
+    color: white;
+
+    border:
+        3px solid white;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.38);
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+
+.nearest-live-distance {
+
+    margin-top: 3px;
+
+    padding:
+        3px 6px;
+
+    border:
+        1px solid
+        rgba(17,24,39,.18);
+
+    border-radius: 5px;
+
+    background:
+        rgba(255,255,255,.97);
+
+    color: #101828;
+
+    box-shadow:
+        0 1px 4px
+        rgba(0,0,0,.16);
+
+    white-space: nowrap;
+
+    font-size: 11px;
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+
+/* ==========================================================
+   POPUP
+   ========================================================== */
+
+.popup-title {
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+.popup-subtitle {
+
+    margin-top: 3px;
+
+    margin-bottom: 9px;
+
+    color: #667085;
+
+    font-size: 11px;
+}
+
+
+.popup-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 11px;
+}
+
+
+.popup-table td {
+
+    padding: 5px 4px;
+
+    vertical-align: top;
+
+    border-bottom:
+        1px solid #f0f0f0;
+
+    overflow-wrap: anywhere;
+}
+
+
+.popup-table td:first-child {
+
+    width: 43%;
+
+    color: #667085;
+
+    font-weight: 700;
+}
+
+
+.popup-nearest {
+
+    margin-top: 9px;
+
+    padding: 9px;
+
+    border-radius: 7px;
+
+    background: #f2f4f7;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+
+/* ==========================================================
+   LEGEND
    ========================================================== */
 
 #legend {
@@ -598,247 +807,6 @@ button:active {
 
 
 /* ==========================================================
-   NORMAL LOCATION MARKERS
-   ========================================================== */
-
-.location-marker {
-
-    background: transparent !important;
-
-    border: 0 !important;
-}
-
-
-.location-badge {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 30px;
-    height: 30px;
-
-    border-radius: 50%;
-
-    border:
-        2px solid #ffffff;
-
-    color: #ffffff;
-
-    box-shadow:
-        0 1px 6px
-        rgba(0,0,0,.42);
-
-    font-size: 9px;
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    text-align: center;
-}
-
-
-/* ==========================================================
-   DISTANCE LABELS
-   ========================================================== */
-
-.distance-marker {
-
-    background: transparent !important;
-
-    border: 0 !important;
-}
-
-
-.distance-label {
-
-    display: inline-block;
-
-    transform:
-        translate(-50%, -50%);
-
-    white-space: nowrap;
-
-    padding:
-        3px 6px;
-
-    border-radius: 5px;
-
-    background:
-        rgba(255,255,255,.96);
-
-    border:
-        1px solid
-        rgba(17,24,39,.20);
-
-    color: #111111;
-
-    box-shadow:
-        0 1px 3px
-        rgba(0,0,0,.14);
-
-    font-size: 10px;
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    pointer-events: none;
-}
-
-
-/* ==========================================================
-   USER LOCATION
-   ========================================================== */
-
-.user-location-marker {
-
-    background: transparent !important;
-
-    border: 0 !important;
-}
-
-
-.user-location-dot {
-
-    width: 22px;
-    height: 22px;
-
-    border-radius: 50%;
-
-    background: #2563eb;
-
-    border:
-        4px solid #ffffff;
-
-    box-shadow:
-        0 0 0 5px
-        rgba(37,99,235,.22),
-        0 2px 8px
-        rgba(0,0,0,.35);
-}
-
-
-/* ==========================================================
-   CURRENT NEAREST RANK MARKER
-   ========================================================== */
-
-.nearest-highlight {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 36px;
-    height: 36px;
-
-    border-radius: 50%;
-
-    background: #101828;
-
-    border:
-        3px solid #ffffff;
-
-    color: #ffffff;
-
-    box-shadow:
-        0 2px 8px
-        rgba(0,0,0,.35);
-
-    font-size: 12px;
-
-    font-weight: 900;
-}
-
-
-/* ==========================================================
-   POPUPS
-   ========================================================== */
-
-.popup-title {
-
-    font-size: 17px;
-
-    line-height: 1.25;
-
-    font-weight: 800;
-
-    color: #101828;
-}
-
-
-.popup-subtitle {
-
-    margin-top: 3px;
-
-    margin-bottom: 9px;
-
-    font-size: 11px;
-
-    line-height: 1.35;
-
-    color: #667085;
-}
-
-
-.popup-table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-    font-size: 11px;
-}
-
-
-.popup-table td {
-
-    padding:
-        5px 4px;
-
-    vertical-align: top;
-
-    border-bottom:
-        1px solid #f0f0f0;
-
-    overflow-wrap: anywhere;
-}
-
-
-.popup-table td:first-child {
-
-    width: 43%;
-
-    color: #667085;
-
-    font-weight: 700;
-}
-
-
-.popup-nearest {
-
-    margin-top: 9px;
-
-    padding: 9px;
-
-    border-radius: 7px;
-
-    background: #f2f4f7;
-
-    font-size: 11px;
-
-    line-height: 1.55;
-
-    color: #344054;
-}
-
-
-/* ==========================================================
    MOBILE FILTER BUTTON
    ========================================================== */
 
@@ -848,17 +816,15 @@ button:active {
 
     position: absolute;
 
-    top:
-        max(12px, env(safe-area-inset-top));
-
     left:
-        max(12px, env(safe-area-inset-left));
+        max(12px,env(safe-area-inset-left));
+
+    top:
+        max(12px,env(safe-area-inset-top));
 
     z-index: 2500;
 
     width: auto;
-
-    min-width: 104px;
 
     min-height: 46px;
 
@@ -870,23 +836,15 @@ button:active {
 
     border-radius: 24px;
 
-    background: #ffffff;
+    background: white;
 
     color: #101828;
 
     box-shadow:
         0 2px 9px
         rgba(0,0,0,.18);
-
-    font-size: 14px;
-
-    font-weight: 800;
 }
 
-
-/* ==========================================================
-   MOBILE HEADER
-   ========================================================== */
 
 #mobilePanelHeader {
 
@@ -894,28 +852,21 @@ button:active {
 
     align-items: center;
 
-    justify-content: space-between;
-
-    gap: 10px;
+    justify-content:
+        space-between;
 
     margin-bottom: 9px;
-}
-
-
-.mobile-panel-title {
-
-    font-size: 17px;
-
-    font-weight: 800;
 }
 
 
 #closePanel {
 
     width: 44px;
+
     min-width: 44px;
 
     height: 44px;
+
     min-height: 44px;
 
     padding: 0;
@@ -925,16 +876,15 @@ button:active {
     color: #344054;
 
     font-size: 22px;
-
-    line-height: 1;
 }
 
 
 /* ==========================================================
-   PHONE
+   MOBILE
    ========================================================== */
 
-@media (max-width: 768px) {
+@media
+(max-width: 768px) {
 
 
     #app {
@@ -971,16 +921,20 @@ button:active {
         z-index: 3000;
 
         width: 100%;
+
         min-width: 0;
 
         height: auto;
 
-        max-height: 85%;
+        max-height: 86%;
 
         padding:
             12px
             14px
-            max(20px, env(safe-area-inset-bottom));
+            max(
+                20px,
+                env(safe-area-inset-bottom)
+            );
 
         border-right: 0;
 
@@ -994,13 +948,13 @@ button:active {
             0 -6px 24px
             rgba(0,0,0,.18);
 
-        overflow-y: auto;
-
         transform:
             translateY(105%);
 
         transition:
             transform .24s ease;
+
+        overflow-y: auto;
     }
 
 
@@ -1029,35 +983,10 @@ button:active {
     }
 
 
-    .auto-location-banner {
-
-        margin-top: 10px;
-    }
-
-
-    .section {
-
-        margin-top: 12px;
-
-        padding-top: 12px;
-    }
-
-
     .leaflet-control-zoom {
 
-        margin-top: 72px !important;
-    }
-
-
-    .leaflet-control-attribution {
-
-        font-size: 9px;
-    }
-
-
-    .leaflet-popup-content-wrapper {
-
-        border-radius: 11px;
+        margin-top:
+            72px !important;
     }
 
 
@@ -1082,18 +1011,13 @@ button:active {
    SMALL PHONE
    ========================================================== */
 
-@media (max-width: 430px) {
+@media
+(max-width: 430px) {
 
 
     #sidebar {
 
-        max-height: 88%;
-    }
-
-
-    .kpi-number {
-
-        font-size: 17px;
+        max-height: 89%;
     }
 
 
@@ -1101,8 +1025,6 @@ button:active {
 
         grid-template-columns:
             34px minmax(0,1fr);
-
-        gap: 8px;
     }
 
 
@@ -1111,15 +1033,6 @@ button:active {
         grid-column: 2;
 
         justify-self: start;
-
-        margin-top: -3px;
-    }
-
-
-    .location-badge {
-
-        width: 28px;
-        height: 28px;
     }
 
 }
@@ -1135,9 +1048,7 @@ button:active {
 <div id="app">
 
 
-    <!-- =====================================================
-         MOBILE FILTER BUTTON
-         ===================================================== -->
+    <!-- MOBILE FILTER BUTTON -->
 
     <button
         id="mobileControlsButton"
@@ -1147,23 +1058,21 @@ button:active {
     </button>
 
 
-    <!-- =====================================================
-         SIDEBAR / MOBILE BOTTOM SHEET
-         ===================================================== -->
+    <!-- SIDEBAR -->
 
     <aside id="sidebar">
 
 
         <div id="mobilePanelHeader">
 
-            <div class="mobile-panel-title">
+            <strong>
                 Map Controls
-            </div>
+            </strong>
+
 
             <button
                 id="closePanel"
                 type="button"
-                aria-label="Close controls"
             >
                 ×
             </button>
@@ -1172,36 +1081,36 @@ button:active {
 
 
         <div class="header-title">
+
             FMCG Location Network
+
         </div>
 
 
         <div class="header-subtitle">
 
-            2 nearest links per mapped point ·
-            maximum 50 km ·
-            nearest 5 automatically shown from your location.
+            Permanent network: nearest 2 within 50 km.
+            Live GPS: nearest 5 regardless of distance.
 
         </div>
 
 
-        <!-- =================================================
-             AUTO LOCATION STATUS
-             ================================================= -->
+        <!-- AUTO LOCATION STATUS -->
 
         <div
             id="autoLocationMessage"
             class="auto-location-banner"
         >
-            ◎ Getting your location and nearest 5...
+
+            ◎ Getting your current location...
+
         </div>
 
 
-        <!-- =================================================
-             KPI
-             ================================================= -->
+        <!-- KPI -->
 
         <div class="kpi-grid">
+
 
             <div class="kpi">
 
@@ -1234,17 +1143,19 @@ button:active {
 
             </div>
 
+
         </div>
 
 
-        <!-- =================================================
-             NEAREST 5
-             ================================================= -->
+        <!-- NEAREST FIVE -->
 
         <div class="section">
 
+
             <div class="section-title">
+
                 Nearest 5 From My Location
+
             </div>
 
 
@@ -1264,26 +1175,29 @@ button:active {
                 type="button"
                 class="secondary-button"
             >
+
                 ↻ Refresh My Location
+
             </button>
+
 
         </div>
 
 
-        <!-- =================================================
-             FILTERS
-             ================================================= -->
+        <!-- FILTERS -->
 
         <div class="section">
 
+
             <div class="section-title">
+
                 Map Filters
+
             </div>
 
 
             <select
                 id="tehsilFilter"
-                aria-label="Filter by Tehsil"
             >
 
                 <option value="ALL">
@@ -1362,7 +1276,7 @@ button:active {
                 >
 
                 <label for="showDistances">
-                    Show distance labels
+                    Show network distances
                 </label>
 
             </div>
@@ -1373,24 +1287,30 @@ button:active {
                 type="button"
                 class="secondary-button"
             >
+
                 Reset Filters
+
             </button>
+
 
         </div>
 
 
-        <!-- =================================================
-             LEGEND
-             ================================================= -->
+        <!-- LEGEND -->
 
         <div class="section">
 
+
             <div class="section-title">
+
                 Tehsil Colours
+
             </div>
+
 
             <div id="legend">
             </div>
+
 
         </div>
 
@@ -1398,9 +1318,7 @@ button:active {
     </aside>
 
 
-    <!-- =====================================================
-         MAP
-         ===================================================== -->
+    <!-- MAP -->
 
     <main id="map">
     </main>
@@ -1412,7 +1330,7 @@ button:active {
 <script>
 
 // ============================================================
-// EMBEDDED DATA
+// DATA
 // ============================================================
 
 const DATA =
@@ -1435,10 +1353,7 @@ const TEHSILS =
 ["Ambegaon","Baramati","Bhor","Daund","Haveli","Indapur","Junnar","Khed","Mawal","Mulshi","Pune City","Purandhar","Shirur"];
 
 
-const CURRENT_LOCATION_MAX_KM =
-50;
-
-
+// Current-location result count
 const CURRENT_NEAREST_COUNT =
 5;
 
@@ -1453,42 +1368,36 @@ const sidebar =
     );
 
 
-const mobileControlsButton =
-    document.getElementById(
-        "mobileControlsButton"
-    );
-
-
-const closePanel =
-    document.getElementById(
-        "closePanel"
-    );
-
-
-mobileControlsButton.addEventListener(
+document.getElementById(
+    "mobileControlsButton"
+).addEventListener(
     "click",
     () => {
 
         sidebar.classList.add(
             "open"
         );
+
     }
 );
 
 
-closePanel.addEventListener(
+document.getElementById(
+    "closePanel"
+).addEventListener(
     "click",
     () => {
 
         sidebar.classList.remove(
             "open"
         );
+
     }
 );
 
 
 // ============================================================
-// ESCAPE HTML
+// HTML ESCAPE
 // ============================================================
 
 function escapeHtml(value) {
@@ -1529,17 +1438,19 @@ function escapeHtml(value) {
             "'",
             "&#039;"
         );
+
 }
 
 
 // ============================================================
-// FORMAT VALUE
+// FORMAT
 // ============================================================
 
 function formatValue(
     field,
     value
 ) {
+
 
     if (
         value === null
@@ -1553,7 +1464,7 @@ function formatValue(
     }
 
 
-    const fieldLower =
+    const lower =
         String(field)
         .toLowerCase();
 
@@ -1564,16 +1475,17 @@ function formatValue(
         field === "Longitude"
     ) {
 
-        const num =
+        const n =
             Number(value);
 
 
         if (
-            Number.isFinite(num)
+            Number.isFinite(n)
         ) {
 
-            return num.toFixed(6);
+            return n.toFixed(6);
         }
+
     }
 
 
@@ -1581,11 +1493,11 @@ function formatValue(
         typeof value === "number"
         &&
         (
-            fieldLower.includes(
+            lower.includes(
                 "population"
             )
             ||
-            fieldLower.includes(
+            lower.includes(
                 "outlet"
             )
         )
@@ -1594,15 +1506,19 @@ function formatValue(
         return value.toLocaleString(
             "en-IN"
         );
+
     }
 
 
-    return escapeHtml(value);
+    return escapeHtml(
+        value
+    );
+
 }
 
 
 // ============================================================
-// HAVERSINE
+// HAVERSINE JAVASCRIPT
 // ============================================================
 
 function haversineKm(
@@ -1612,35 +1528,32 @@ function haversineKm(
     lon2
 ) {
 
+
     const R =
         6371.0088;
 
 
-    const toRadians =
-        value =>
-            value
-            *
-            Math.PI
-            /
-            180;
+    const rad =
+        x =>
+            x * Math.PI / 180;
 
 
     const p1 =
-        toRadians(lat1);
+        rad(lat1);
 
 
     const p2 =
-        toRadians(lat2);
+        rad(lat2);
 
 
     const dLat =
-        toRadians(
+        rad(
             lat2 - lat1
         );
 
 
     const dLon =
-        toRadians(
+        rad(
             lon2 - lon1
         );
 
@@ -1668,9 +1581,10 @@ function haversineKm(
         *
         Math.atan2(
             Math.sqrt(a),
-            Math.sqrt(1 - a)
+            Math.sqrt(1-a)
         )
     );
+
 }
 
 
@@ -1682,8 +1596,11 @@ const map =
     L.map(
         "map",
         {
-            zoomControl: true,
-            preferCanvas: true
+            zoomControl:
+                true,
+
+            preferCanvas:
+                true
         }
     );
 
@@ -1708,10 +1625,11 @@ L.tileLayer(
 
 
 // ============================================================
-// INITIAL MAP BOUNDS
+// FIT ALL LOCATIONS
 // ============================================================
 
 function fitAllLocations() {
+
 
     if (
         DATA.length === 0
@@ -1719,8 +1637,8 @@ function fitAllLocations() {
 
         map.setView(
             [
-                19.0,
-                75.0
+                19,
+                75
             ],
             6
         );
@@ -1729,24 +1647,19 @@ function fitAllLocations() {
     }
 
 
-    const bounds =
+    map.fitBounds(
+
         L.latLngBounds(
 
             DATA.map(
-                point => [
-
-                    point.lat,
-
-                    point.lon
-
+                p => [
+                    p.lat,
+                    p.lon
                 ]
             )
 
-        );
+        ),
 
-
-    map.fitBounds(
-        bounds,
         {
             padding:
                 [
@@ -1754,7 +1667,9 @@ function fitAllLocations() {
                     30
                 ]
         }
+
     );
+
 }
 
 
@@ -1762,7 +1677,7 @@ fitAllLocations();
 
 
 // ============================================================
-// TEHSIL FILTER OPTIONS
+// TEHSIL FILTER
 // ============================================================
 
 const tehsilFilter =
@@ -1837,19 +1752,19 @@ TEHSILS.forEach(
             ];
 
 
-        const label =
+        const text =
             document.createElement(
                 "span"
             );
 
 
-        label.textContent =
+        text.textContent =
             tehsil;
 
 
         row.append(
             line,
-            label
+            text
         );
 
 
@@ -1867,7 +1782,9 @@ TEHSILS.forEach(
 
 function buildPopup(point) {
 
-    let rows = "";
+
+    let rows =
+        "";
 
 
     DISPLAY_FIELDS.forEach(
@@ -1875,16 +1792,21 @@ function buildPopup(point) {
 
 
             rows +=
+
                 "<tr>"
 
                 +
+
                 "<td>"
                 +
-                escapeHtml(field)
+                escapeHtml(
+                    field
+                )
                 +
                 "</td>"
 
                 +
+
                 "<td>"
                 +
                 formatValue(
@@ -1895,13 +1817,14 @@ function buildPopup(point) {
                 "</td>"
 
                 +
+
                 "</tr>";
 
         }
     );
 
 
-    let nearestHtml =
+    let nearest =
         "<div class='popup-nearest'>";
 
 
@@ -1909,7 +1832,7 @@ function buildPopup(point) {
         point.nearest1
     ) {
 
-        nearestHtml +=
+        nearest +=
 
             "<strong>Nearest 1:</strong> "
 
@@ -1932,20 +1855,16 @@ function buildPopup(point) {
             " · "
 
             +
-            escapeHtml(
-                point.nearest1Tehsil
-            )
-
-            +
-            " · "
-
-            +
             Number(
                 point.nearest1km
             ).toFixed(1)
 
             +
-            " km<br>";
+            " km"
+
+            +
+            "<br>";
+
     }
 
 
@@ -1953,7 +1872,7 @@ function buildPopup(point) {
         point.nearest2
     ) {
 
-        nearestHtml +=
+        nearest +=
 
             "<strong>Nearest 2:</strong> "
 
@@ -1976,20 +1895,13 @@ function buildPopup(point) {
             " · "
 
             +
-            escapeHtml(
-                point.nearest2Tehsil
-            )
-
-            +
-            " · "
-
-            +
             Number(
                 point.nearest2km
             ).toFixed(1)
 
             +
             " km";
+
     }
 
 
@@ -1999,12 +1911,13 @@ function buildPopup(point) {
         !point.nearest2
     ) {
 
-        nearestHtml +=
-            "No mapped point within 50 km.";
+        nearest +=
+            "No mapped point within 50 km for permanent network.";
+
     }
 
 
-    nearestHtml +=
+    nearest +=
         "</div>";
 
 
@@ -2050,21 +1963,23 @@ function buildPopup(point) {
 
         +
 
-        nearestHtml
+        nearest
 
         +
 
         "</div>"
 
     );
+
 }
 
 
 // ============================================================
-// POINT ICON
+// NORMAL POINT ICON
 // ============================================================
 
 function pointIcon(point) {
+
 
     const colour =
         TEHSIL_COLORS[
@@ -2091,6 +2006,7 @@ function pointIcon(point) {
                 0,
                 4
             );
+
     }
 
 
@@ -2124,14 +2040,18 @@ function pointIcon(point) {
             ]
 
     });
+
 }
 
 
 // ============================================================
-// DISTANCE ICON
+// NORMAL NETWORK DISTANCE
 // ============================================================
 
-function distanceIcon(distance) {
+function distanceIcon(
+    distance
+) {
+
 
     return L.divIcon({
 
@@ -2163,11 +2083,12 @@ function distanceIcon(distance) {
             ]
 
     });
+
 }
 
 
 // ============================================================
-// CREATE NORMAL LOCATION MARKERS
+// NORMAL POINTS
 // ============================================================
 
 const pointLayers =
@@ -2197,16 +2118,14 @@ DATA.forEach(
                         ),
 
                     title:
-                        point.town,
-
-                    keyboard:
-                        true
+                        point.town
                 }
 
             );
 
 
         marker.bindTooltip(
+
             point.town,
 
             {
@@ -2219,10 +2138,12 @@ DATA.forEach(
                         -12
                     ]
             }
+
         );
 
 
         marker.bindPopup(
+
             buildPopup(
                 point
             ),
@@ -2231,6 +2152,7 @@ DATA.forEach(
                 maxWidth:
                     420
             }
+
         );
 
 
@@ -2239,7 +2161,7 @@ DATA.forEach(
         );
 
 
-        const layerObject = {
+        const object = {
 
             data:
                 point,
@@ -2251,13 +2173,13 @@ DATA.forEach(
 
 
         pointLayers.push(
-            layerObject
+            object
         );
 
 
         pointLayerById.set(
             point.id,
-            layerObject
+            object
         );
 
     }
@@ -2265,7 +2187,7 @@ DATA.forEach(
 
 
 // ============================================================
-// CREATE PERMANENT NEAREST NETWORK
+// PERMANENT NETWORK
 // ============================================================
 
 const connectionLayers =
@@ -2335,7 +2257,7 @@ CONNECTIONS.forEach(
             [];
 
 
-        const tooltipText =
+        const tooltip =
 
             source.town
 
@@ -2357,15 +2279,13 @@ CONNECTIONS.forEach(
             " km";
 
 
-        // ====================================================
         // SAME TEHSIL
-        // ====================================================
-
         if (
             source.tehsil
             ===
             target.tehsil
         ) {
+
 
             const line =
                 L.polyline(
@@ -2393,7 +2313,7 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            0.76
+                            .75
 
                     }
 
@@ -2401,7 +2321,7 @@ CONNECTIONS.forEach(
 
 
             line.bindTooltip(
-                tooltipText
+                tooltip
             );
 
 
@@ -2417,13 +2337,11 @@ CONNECTIONS.forEach(
         }
 
 
-        // ====================================================
         // CROSS TEHSIL
-        // ====================================================
-
         else {
 
-            const firstHalf =
+
+            const first =
                 L.polyline(
 
                     [
@@ -2446,14 +2364,14 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            0.76
+                            .75
 
                     }
 
                 );
 
 
-            const secondHalf =
+            const second =
                 L.polyline(
 
                     [
@@ -2476,46 +2394,42 @@ CONNECTIONS.forEach(
                             4,
 
                         opacity:
-                            0.76
+                            .75
 
                     }
 
                 );
 
 
-            firstHalf.bindTooltip(
-                tooltipText
+            first.bindTooltip(
+                tooltip
             );
 
 
-            secondHalf.bindTooltip(
-                tooltipText
+            second.bindTooltip(
+                tooltip
             );
 
 
-            firstHalf.addTo(
+            first.addTo(
                 map
             );
 
 
-            secondHalf.addTo(
+            second.addTo(
                 map
             );
 
 
             segments.push(
-                firstHalf,
-                secondHalf
+                first,
+                second
             );
 
         }
 
 
-        // ====================================================
-        // DISTANCE
-        // ====================================================
-
-        const distanceMarker =
+        const label =
             L.marker(
 
                 midpoint,
@@ -2528,9 +2442,6 @@ CONNECTIONS.forEach(
                         ),
 
                     interactive:
-                        false,
-
-                    keyboard:
                         false
 
                 }
@@ -2538,7 +2449,7 @@ CONNECTIONS.forEach(
             );
 
 
-        distanceMarker.addTo(
+        label.addTo(
             map
         );
 
@@ -2555,7 +2466,7 @@ CONNECTIONS.forEach(
                 segments,
 
             label:
-                distanceMarker
+                label
 
         });
 
@@ -2601,7 +2512,10 @@ const showDistances =
 // TYPE FILTER
 // ============================================================
 
-function typeAllowed(point) {
+function typeAllowed(
+    point
+) {
+
 
     const type =
         String(
@@ -2628,6 +2542,7 @@ function typeAllowed(point) {
 
 
     return showOther.checked;
+
 }
 
 
@@ -2637,22 +2552,20 @@ function typeAllowed(point) {
 
 function applyFilters() {
 
+
     const selectedTehsil =
         tehsilFilter.value;
 
 
-    const contextPointIds =
+    const contextIds =
         new Set();
 
 
-    let visibleLineCount =
+    let visibleLines =
         0;
 
 
-    // ========================================================
-    // NETWORK CONNECTIONS
-    // ========================================================
-
+    // NETWORK
     connectionLayers.forEach(
         connection => {
 
@@ -2670,35 +2583,25 @@ function applyFilters() {
 
 
             const typeOK =
-                typeAllowed(
-                    source
-                )
+                typeAllowed(source)
                 &&
-                typeAllowed(
-                    target
-                );
+                typeAllowed(target);
 
 
             const tehsilOK =
 
-                selectedTehsil
-                ===
-                "ALL"
+                selectedTehsil === "ALL"
 
                 ||
 
-                source.tehsil
-                ===
-                selectedTehsil
+                source.tehsil === selectedTehsil
 
                 ||
 
-                target.tehsil
-                ===
-                selectedTehsil;
+                target.tehsil === selectedTehsil;
 
 
-            const shouldShow =
+            const visible =
 
                 showNetwork.checked
 
@@ -2716,7 +2619,7 @@ function applyFilters() {
 
 
                     if (
-                        shouldShow
+                        visible
                     ) {
 
                         if (
@@ -2751,14 +2654,10 @@ function applyFilters() {
             );
 
 
-            const showLabel =
-                shouldShow
-                &&
-                showDistances.checked;
-
-
             if (
-                showLabel
+                visible
+                &&
+                showDistances.checked
             ) {
 
                 if (
@@ -2770,6 +2669,7 @@ function applyFilters() {
                     connection.label.addTo(
                         map
                     );
+
                 }
 
             }
@@ -2785,37 +2685,36 @@ function applyFilters() {
                     map.removeLayer(
                         connection.label
                     );
+
                 }
 
             }
 
 
             if (
-                shouldShow
+                visible
             ) {
 
-                visibleLineCount++;
+                visibleLines++;
 
 
-                contextPointIds.add(
+                contextIds.add(
                     source.id
                 );
 
 
-                contextPointIds.add(
+                contextIds.add(
                     target.id
                 );
+
             }
 
         }
     );
 
 
-    // ========================================================
     // POINTS
-    // ========================================================
-
-    let visiblePointCount =
+    let visiblePoints =
         0;
 
 
@@ -2835,43 +2734,35 @@ function applyFilters() {
 
             let tehsilOK =
 
-                selectedTehsil
-                ===
-                "ALL"
+                selectedTehsil === "ALL"
 
                 ||
 
-                point.tehsil
-                ===
-                selectedTehsil;
+                point.tehsil === selectedTehsil;
 
 
-            // Keep cross-Tehsil endpoint visible as context
             if (
-                selectedTehsil
-                !==
-                "ALL"
-
+                selectedTehsil !== "ALL"
                 &&
-
-                contextPointIds.has(
+                contextIds.has(
                     point.id
                 )
             ) {
 
                 tehsilOK =
                     true;
+
             }
 
 
-            const shouldShow =
+            const visible =
                 typeOK
                 &&
                 tehsilOK;
 
 
             if (
-                shouldShow
+                visible
             ) {
 
                 if (
@@ -2883,10 +2774,11 @@ function applyFilters() {
                     object.marker.addTo(
                         map
                     );
+
                 }
 
 
-                visiblePointCount++;
+                visiblePoints++;
 
             }
 
@@ -2901,6 +2793,7 @@ function applyFilters() {
                     map.removeLayer(
                         object.marker
                     );
+
                 }
 
             }
@@ -2912,7 +2805,7 @@ function applyFilters() {
     document.getElementById(
         "visibleLocations"
     ).textContent =
-        visiblePointCount.toLocaleString(
+        visiblePoints.toLocaleString(
             "en-IN"
         );
 
@@ -2920,9 +2813,10 @@ function applyFilters() {
     document.getElementById(
         "visibleLines"
     ).textContent =
-        visibleLineCount.toLocaleString(
+        visibleLines.toLocaleString(
             "en-IN"
         );
+
 }
 
 
@@ -3027,10 +2921,11 @@ let locationRequestRunning =
 
 
 // ============================================================
-// CURRENT LOCATION ICON
+// CURRENT USER LOCATION ICON
 // ============================================================
 
 function currentLocationIcon() {
+
 
     return L.divIcon({
 
@@ -3053,46 +2948,82 @@ function currentLocationIcon() {
             ]
 
     });
+
 }
 
 
 // ============================================================
-// CURRENT NEAREST NUMBER ICON
+// NEAREST LOCATION ICON
+//
+// NUMBER AT LOCATION
+// KM DIRECTLY BELOW LOCATION
 // ============================================================
 
-function nearestRankIcon(rank) {
+function nearestLiveIcon(
+    rank,
+    distance
+) {
+
 
     return L.divIcon({
 
         className:
-            "location-marker",
+            "nearest-live-marker",
 
         html:
 
-            "<div class='nearest-highlight'>"
+            "<div class='nearest-live-wrap'>"
+
+            +
+
+            "<div class='nearest-live-rank'>"
             +
             rank
             +
+            "</div>"
+
+            +
+
+            "<div class='nearest-live-distance'>"
+            +
+            Number(
+                distance
+            ).toFixed(1)
+            +
+            " km"
+            +
+            "</div>"
+
+            +
+
             "</div>",
+
 
         iconSize:
             [
-                36,
-                36
+                78,
+                65
             ],
 
+
+        // Centre rank circle on actual coordinate.
+        // Distance then hangs below it.
         iconAnchor:
             [
-                18,
-                18
+                0,
+                19
             ]
 
     });
+
 }
 
 
 // ============================================================
-// TRUE NEAREST 5 FROM CURRENT GPS
+// TRUE NEAREST 5 FROM CURRENT LOCATION
+//
+// IMPORTANT:
+// NO DISTANCE LIMIT.
 // ============================================================
 
 function nearestFromCurrentLocation(
@@ -3100,10 +3031,12 @@ function nearestFromCurrentLocation(
     longitude
 ) {
 
+
     return DATA
 
         .map(
             point => {
+
 
                 return {
 
@@ -3126,13 +3059,9 @@ function nearestFromCurrentLocation(
             }
         )
 
-        .filter(
-            item =>
 
-                item.distance
-                <=
-                CURRENT_LOCATION_MAX_KM
-        )
+        // NO 50 KM FILTER HERE
+
 
         .sort(
             (
@@ -3145,18 +3074,23 @@ function nearestFromCurrentLocation(
                 b.distance
         )
 
+
         .slice(
             0,
             CURRENT_NEAREST_COUNT
         );
+
 }
 
 
 // ============================================================
-// PARTY SUMMARY FOR NEAREST CARD
+// PARTY SUMMARY
 // ============================================================
 
-function getPartySummary(point) {
+function getPartySummary(
+    point
+) {
+
 
     const parties =
         [];
@@ -3180,19 +3114,28 @@ function getPartySummary(point) {
                 value !== null
                 &&
                 value !== undefined
-                &&
-                String(value).trim() !== ""
-                &&
-                String(value)
-                    .trim()
-                    .toLowerCase()
-                    !==
-                    "no party provided"
             ) {
 
-                parties.push(
-                    String(value).trim()
-                );
+
+                const clean =
+                    String(value)
+                    .trim();
+
+
+                if (
+                    clean !== ""
+                    &&
+                    clean.toLowerCase()
+                    !==
+                    "no party provided"
+                ) {
+
+                    parties.push(
+                        clean
+                    );
+
+                }
+
             }
 
         }
@@ -3203,7 +3146,7 @@ function getPartySummary(point) {
         parties.length === 0
     ) {
 
-        return "No party";
+        return "No party provided";
     }
 
 
@@ -3212,18 +3155,22 @@ function getPartySummary(point) {
             0,
             2
         )
-        .join(" / ");
+        .join(
+            " / "
+        );
+
 }
 
 
 // ============================================================
-// CREATE NEAREST RESULT CARD
+// NEAREST 5 SIDEBAR CARD
 // ============================================================
 
 function createResultCard(
     item,
     rank
 ) {
+
 
     const point =
         item.point;
@@ -3245,12 +3192,6 @@ function createResultCard(
         "Other";
 
 
-    const partyText =
-        getPartySummary(
-            point
-        );
-
-
     card.innerHTML =
 
         "<div class='nearest-rank'>"
@@ -3264,6 +3205,7 @@ function createResultCard(
         "<div>"
 
         +
+
         "<div class='nearest-name'>"
         +
         escapeHtml(
@@ -3289,7 +3231,9 @@ function createResultCard(
         "<br>"
         +
         escapeHtml(
-            partyText
+            getPartySummary(
+                point
+            )
         )
         +
         "</div>"
@@ -3334,17 +3278,18 @@ function createResultCard(
             );
 
 
-            const existing =
+            const original =
                 pointLayerById.get(
                     point.id
                 );
 
 
             if (
-                existing
+                original
             ) {
 
-                existing.marker.openPopup();
+                original.marker.openPopup();
+
             }
 
         }
@@ -3352,11 +3297,12 @@ function createResultCard(
 
 
     return card;
+
 }
 
 
 // ============================================================
-// ADD CURRENT GPS -> NEAREST LINE
+// ADD GPS -> NEAREST CONNECTION
 // ============================================================
 
 function addCurrentNearestLine(
@@ -3366,24 +3312,31 @@ function addCurrentNearestLine(
     rank
 ) {
 
+
     const point =
         item.point;
 
 
-    const rankColours = [
+    const colours = [
+
         "#111827",
+
         "#1d4ed8",
+
         "#7c3aed",
+
         "#0f766e",
+
         "#b45309"
+
     ];
 
 
-    const lineColour =
-        rankColours[
+    const colour =
+        colours[
             Math.min(
                 rank - 1,
-                rankColours.length - 1
+                colours.length - 1
             )
         ];
 
@@ -3392,7 +3345,7 @@ function addCurrentNearestLine(
     // DASHED LINE
     // ========================================================
 
-    const currentLine =
+    const line =
         L.polyline(
 
             [
@@ -3412,7 +3365,7 @@ function addCurrentNearestLine(
             {
 
                 color:
-                    lineColour,
+                    colour,
 
                 weight:
                     rank === 1
@@ -3422,7 +3375,7 @@ function addCurrentNearestLine(
                     4,
 
                 opacity:
-                    0.92,
+                    .92,
 
                 dashArray:
                     "8,7"
@@ -3432,82 +3385,32 @@ function addCurrentNearestLine(
         );
 
 
-    currentLine.bindTooltip(
+    line.bindTooltip(
 
         "#"
         +
         rank
-
         +
         " "
-
         +
         point.town
-
         +
         " · "
-
         +
         item.distance.toFixed(1)
-
         +
         " km"
 
     );
 
 
-    currentLine.addTo(
+    line.addTo(
         currentLocationGroup
     );
 
 
     // ========================================================
-    // MIDPOINT DISTANCE
-    // ========================================================
-
-    const midpoint = [
-
-        (
-            userLat
-            +
-            point.lat
-        ) / 2,
-
-        (
-            userLon
-            +
-            point.lon
-        ) / 2
-
-    ];
-
-
-    L.marker(
-
-        midpoint,
-
-        {
-
-            icon:
-                distanceIcon(
-                    item.distance
-                ),
-
-            interactive:
-                false,
-
-            keyboard:
-                false
-
-        }
-
-    ).addTo(
-        currentLocationGroup
-    );
-
-
-    // ========================================================
-    // NUMBERED TARGET
+    // NUMBER + KM BELOW LOCATION
     // ========================================================
 
     L.marker(
@@ -3520,18 +3423,20 @@ function addCurrentNearestLine(
         {
 
             icon:
-                nearestRankIcon(
-                    rank
+                nearestLiveIcon(
+                    rank,
+                    item.distance
                 ),
 
             zIndexOffset:
-                1200
+                1500
 
         }
 
     )
 
     .bindPopup(
+
         buildPopup(
             point
         ),
@@ -3540,19 +3445,22 @@ function addCurrentNearestLine(
             maxWidth:
                 420
         }
+
     )
 
     .addTo(
         currentLocationGroup
     );
+
 }
 
 
 // ============================================================
-// AUTOMATIC LOCATION + NEAREST 5
+// AUTOMATIC NEAREST 5
 // ============================================================
 
 function findAndShowNearestFive() {
+
 
     if (
         locationRequestRunning
@@ -3577,32 +3485,29 @@ function findAndShowNearestFive() {
         "auto-location-banner";
 
 
-    autoLocationMessage.innerHTML =
-        "◎ Getting your location and nearest 5...";
+    autoLocationMessage.textContent =
+        "◎ Getting your current location...";
 
 
     locationStatus.textContent =
-        "Waiting for browser location...";
+        "Waiting for browser location permission...";
 
-
-    // ========================================================
-    // GEOLOCATION CHECK
-    // ========================================================
 
     if (
         !navigator.geolocation
     ) {
+
 
         locationRequestRunning =
             false;
 
 
         autoLocationMessage.className =
-            "auto-location-banner error";
+            "auto-location-banner warning";
 
 
         autoLocationMessage.textContent =
-            "Location is not supported";
+            "Location not supported";
 
 
         locationStatus.textContent =
@@ -3610,6 +3515,7 @@ function findAndShowNearestFive() {
 
 
         return;
+
     }
 
 
@@ -3640,7 +3546,7 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // USER LOCATION MARKER
+            // CURRENT USER LOCATION
             // =================================================
 
             L.marker(
@@ -3656,7 +3562,7 @@ function findAndShowNearestFive() {
                         currentLocationIcon(),
 
                     zIndexOffset:
-                        1500
+                        2000
 
                 }
 
@@ -3665,12 +3571,16 @@ function findAndShowNearestFive() {
             .bindPopup(
 
                 "<strong>Your Current Location</strong>"
+
                 +
                 "<br>"
+
                 +
                 userLat.toFixed(6)
+
                 +
                 ", "
+
                 +
                 userLon.toFixed(6)
 
@@ -3682,7 +3592,7 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // TRUE NEAREST 5
+            // TRUE NEAREST FIVE - NO DISTANCE RESTRICTION
             // =================================================
 
             const nearest =
@@ -3694,49 +3604,30 @@ function findAndShowNearestFive() {
                 );
 
 
-            // =================================================
-            // NOTHING WITHIN 50 KM
-            // =================================================
-
             if (
                 nearest.length === 0
             ) {
+
 
                 autoLocationMessage.className =
                     "auto-location-banner warning";
 
 
                 autoLocationMessage.textContent =
-                    "No mapped location within 50 km";
+                    "No mapped locations available";
 
 
-                locationStatus.innerHTML =
-
-                    "Your location was captured, but there is "
-                    +
-                    "no mapped point within "
-                    +
-                    "<strong>50 km</strong>.";
-
-
-                map.setView(
-
-                    [
-                        userLat,
-                        userLon
-                    ],
-
-                    11
-
-                );
+                locationStatus.textContent =
+                    "No mapped locations were found in the dataset.";
 
 
                 return;
+
             }
 
 
             // =================================================
-            // STATUS
+            // SUCCESS MESSAGE
             // =================================================
 
             autoLocationMessage.className =
@@ -3749,24 +3640,34 @@ function findAndShowNearestFive() {
                 +
                 nearest.length
                 +
-                " locations shown automatically";
+                " locations shown";
+
+
+            const farthestShown =
+                nearest[
+                    nearest.length - 1
+                ].distance;
 
 
             locationStatus.innerHTML =
 
-                "Current location captured. "
+                "Nearest points are shown regardless of distance. "
+
                 +
-                "Results are the geographically nearest mapped "
+                "The 5th nearest point is "
+
                 +
-                "points within <strong>"
+                "<strong>"
+
                 +
-                CURRENT_LOCATION_MAX_KM
+                farthestShown.toFixed(1)
+
                 +
-                " km</strong>.";
+                " km</strong> away.";
 
 
             // =================================================
-            // MAP FIT POINTS
+            // FIT BOUNDS
             // =================================================
 
             const fitPoints = [
@@ -3780,7 +3681,7 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // ADD ALL NEAREST RESULTS
+            // SHOW NEAREST 5
             // =================================================
 
             nearest.forEach(
@@ -3794,7 +3695,7 @@ function findAndShowNearestFive() {
                         index + 1;
 
 
-                    // Result card
+                    // Sidebar card
                     locationResults.appendChild(
 
                         createResultCard(
@@ -3805,7 +3706,7 @@ function findAndShowNearestFive() {
                     );
 
 
-                    // Line + number + distance
+                    // Line + numbered marker + km below
                     addCurrentNearestLine(
 
                         userLat,
@@ -3831,7 +3732,7 @@ function findAndShowNearestFive() {
 
 
             // =================================================
-            // ZOOM TO CURRENT + NEAREST 5
+            // ZOOM TO USER + NEAREST 5
             // =================================================
 
             map.fitBounds(
@@ -3859,7 +3760,7 @@ function findAndShowNearestFive() {
 
 
         // ====================================================
-        // ERROR
+        // LOCATION ERROR
         // ====================================================
 
         error => {
@@ -3874,7 +3775,7 @@ function findAndShowNearestFive() {
 
 
             let message =
-                "Unable to get current location.";
+                "Unable to access current location.";
 
 
             if (
@@ -3886,9 +3787,10 @@ function findAndShowNearestFive() {
 
 
                 message =
-                    "Allow location permission in the browser "
+                    "Please allow location access. "
                     +
-                    "to automatically show the nearest 5 points.";
+                    "The nearest 5 will then appear automatically.";
+
             }
 
 
@@ -3897,11 +3799,12 @@ function findAndShowNearestFive() {
             ) {
 
                 autoLocationMessage.textContent =
-                    "Current location unavailable";
+                    "Location unavailable";
 
 
                 message =
-                    "The browser could not determine your current location.";
+                    "Your current location could not be determined.";
+
             }
 
 
@@ -3917,6 +3820,7 @@ function findAndShowNearestFive() {
                     "Location request timed out. "
                     +
                     "Tap Refresh My Location.";
+
             }
 
 
@@ -3927,7 +3831,7 @@ function findAndShowNearestFive() {
 
 
         // ====================================================
-        // LOCATION OPTIONS
+        // GPS OPTIONS
         // ====================================================
 
         {
@@ -3944,6 +3848,7 @@ function findAndShowNearestFive() {
         }
 
     );
+
 }
 
 
@@ -3958,6 +3863,7 @@ document.getElementById(
     () => {
 
         findAndShowNearestFive();
+
     }
 );
 
@@ -3970,13 +3876,7 @@ applyFilters();
 
 
 // ============================================================
-// AUTOMATIC LOCATION ON PAGE LOAD
-// ============================================================
-//
-// No Find Nearest button required.
-//
-// Browser will request location permission if needed.
-// Once allowed, nearest 5 immediately appear.
+// AUTOMATIC LOCATION ON PAGE OPEN
 // ============================================================
 
 window.setTimeout(
@@ -3990,7 +3890,7 @@ window.setTimeout(
 
 
 // ============================================================
-// MAP RESIZE
+// RESIZE
 // ============================================================
 
 window.addEventListener(
